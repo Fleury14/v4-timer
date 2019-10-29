@@ -5,6 +5,40 @@ import './timer.scss';
 // expects prop of flagObj
 
 class TimerComponent extends Component {
+    state = {
+        timerActive: false,
+        startTime: 0,
+        currentTime: 0,
+        pauseTime: 0,
+    }
+
+    beginTimer() {
+        const startDate = this.state.pauseTime === 0 ? Date.now() : Date.now() - this.state.pauseTime;
+        this.interval = setInterval(() => {
+            this.setState({
+                timerActive: true,
+                startTime: startDate,
+                currentTime: Date.now() - startDate,
+            });
+        }, 100)
+    }
+
+    endTimer() {
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
+        this.setState({ pauseTime: Date.now() - this.state.startTime, timerActive: false });
+    }
+
+    resetTimer() {
+        this.setState({ 
+            timerActive: false,
+            startTime: 0,
+            currentTime: 0,
+            pauseTime: 0,
+        })
+    }
+
     render() {
         return (
             <div>
@@ -21,7 +55,14 @@ class TimerComponent extends Component {
                     })}
                 </div>
                 <React.Fragment>
-                    <Clock />
+                    <Clock
+                        begin={() => this.beginTimer()}
+                        stop={() => this.endTimer()}
+                        reset={() => this.resetTimer()}
+                        currentTime={this.state.currentTime}
+                        active={this.state.timerActive}
+                        pauseTime={this.state.pauseTime}
+                    />
                 </React.Fragment>
             </div>
         );
