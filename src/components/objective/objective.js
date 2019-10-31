@@ -7,10 +7,11 @@ import './objective.scss';
 
 class Objective extends Component {
     render() {
+        const { title, id, finish } = this.props;
         return (
             <div>
-                <p>{this.props.title}</p>
-                <button>Complete</button>
+                <p>{title}</p>
+                <button onClick={() => finish(id)}>Complete</button>
             </div>
         );
     }

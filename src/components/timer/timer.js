@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Clock, Objective } from '..';
+import { parseTime } from '../../helpers';
 import './timer.scss';
 
 // expects prop of flagObj
@@ -39,6 +40,10 @@ class TimerComponent extends Component {
         })
     }
 
+    objectiveComplete(id) {
+        console.log(`objective ${id} done at ${parseTime(this.state.currentTime)}`);
+    }
+
     render() {
         return (
             <div>
@@ -50,6 +55,7 @@ class TimerComponent extends Component {
                                 key={objective.id}
                                 title={objective.label}
                                 id={objective.id}
+                                finish={(id) => this.objectiveComplete(id)}
                             />
                         )
                     })}
