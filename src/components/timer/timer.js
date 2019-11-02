@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Clock, Objective } from '..';
-import { parseTime } from '../../helpers';
 import './timer.scss';
 
 // expects prop of flagObj
