@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Clock, Objective } from '..';
+import { parseTime } from '../../helpers';
 import './timer.scss';
 
 // expects prop of flagObj
@@ -10,6 +11,7 @@ class TimerComponent extends Component {
         startTime: 0,
         currentTime: 0,
         pauseTime: 0,
+        flagObj: null,
     }
 
     beginTimer() {
@@ -20,7 +22,9 @@ class TimerComponent extends Component {
                 startTime: startDate,
                 currentTime: Date.now() - startDate,
             });
-        }, 100)
+        }, 100);
+        // set objectives up
+        this.setState({ flagObj: this.props.flagObj });
     }
 
     endTimer() {
@@ -39,17 +43,44 @@ class TimerComponent extends Component {
         })
     }
 
+    objectiveComplete(id) {
+        const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
+        targetObjective.time = this.state.currentTime;
+        this.setState({ flagObj: this.props.flagObj });
+    }
+
+    undoObjective(id) {
+        const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
+        targetObjective.time = 0;
+        this.setState({ flagObj: this.props.flagObj });
+    }
+
     render() {
+        
         return (
             <div>
                 <h2>Timer</h2>
                 <div>
-                    {this.props.flagObj && this.props.flagObj.objectives.map(objective => {
+                {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                         return (
                             <Objective
                                 key={objective.id}
                                 title={objective.label}
                                 id={objective.id}
+                                finish={(id) => this.objectiveComplete(id)}
+                                
+                            />
+                        )
+                    })}
+                    {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                        return (
+                            <Objective
+                                key={objective.id}
+                                title={objective.label}
+                                id={objective.id}
+                                finish={(id) => this.objectiveComplete(id)}
+                                time={objective.time}
+                                undo={(id) => this.undoObjective(id)}
                             />
                         )
                     })}
