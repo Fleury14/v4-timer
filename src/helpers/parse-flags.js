@@ -8,7 +8,7 @@ const parseFlags = (flagString) => {
         objectives: [],
     }
     // check set objectives (non-custom)
-    if (flagString.indexOf('darkmatter') >= 0 ) {
+    if (flagString.indexOf('dkmatter') >= 0 ) {
         flagObj.objectives.push({
             id: flagObj.objectives.length,
             label: 'Turn in 50 Dark Matters to Kory',
@@ -42,6 +42,35 @@ const parseFlags = (flagString) => {
             });
         }
     }
+
+    // custom -- character obtain
+
+    const characters = ['Cecil', 'Kain', 'Rydia', 'Tellah', 'Edward', 'Rosa', 'Yang', 'Palom', 'Porom', 'Cid', 'Edge', 'FuSoYa']
+
+    for (let char of characters) {
+        if (flagString.indexOf(`char_${char.toLowerCase()}`) >= 0 ) {
+            flagObj.objectives.push({
+                id: flagObj.objectives.length,
+                label: `Get ${char}`,
+                time: 0,
+            });
+        }
+    }
+
+    const bosses = ['dmist', 'officer', 'octomamm', 'antlion', 'waterhag', 'mombomb', 'fabulgauntlet', 'milon', 'milonz', 'mirrorcecil',
+        'guard', 'karate', 'baigan', 'kainazzo', 'darkelf', 'magus', 'valvalis', 'calbrena', 'golbez', 'lugae', 'darkimp', 'kingqueen',
+        'rubicant', 'evilwall', 'asura', 'leviatan', 'odin', 'bahamut', 'elements', 'cpu', 'paledim', 'wyvern', 'plague', 'dlunar', 'ogopogo'];
+    
+    for (let boss of bosses) {
+        if (flagString.indexOf(`boss_${boss}`) >= 0 ) {
+            flagObj.objectives.push({
+                id: flagObj.objectives.length,
+                label: `Defeat ${boss}`,
+                time: 0,
+            });
+        }
+    }
+
 
     return flagObj;
 }
