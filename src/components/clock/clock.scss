@@ -1,0 +1,30 @@
+.time {
+    font-size: 48px;
+    margin: 0;
+}
+
+.time-container {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.time-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    button {
+        width: 60px;
+        height: 40px;
+        background-color: #262626;
+        color: #ff9c33;
+        border: 1px solid #ff9c33;
+        border-radius: 3px;
+        transition: 0.3s all;
+
+        &:hover {
+            background-color: #565656;
+            cursor: pointer;
+        }
+    }
+}

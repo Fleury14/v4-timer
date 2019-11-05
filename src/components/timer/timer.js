@@ -11,6 +11,7 @@ class TimerComponent extends Component {
         currentTime: 0,
         pauseTime: 0,
         flagObj: null,
+        finished: false,
     }
 
     beginTimer() {
@@ -45,7 +46,15 @@ class TimerComponent extends Component {
     objectiveComplete(id) {
         const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
         targetObjective.time = this.state.currentTime;
-        this.setState({ flagObj: this.props.flagObj });
+        this.setState({ flagObj: this.props.flagObj }, () => this.checkForFinish());
+    }
+
+    checkForFinish() {
+        // console.log(this.state);
+        const unfinished = this.state.flagObj.objectives.find(objective => objective.time === 0);
+        if (!unfinished) {
+            this.setState({ finished: true });
+        }
     }
 
     undoObjective(id) {
