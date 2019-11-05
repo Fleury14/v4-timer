@@ -61,7 +61,7 @@ class TimerComponent extends Component {
                 <div>
                     <h2>Objectives Remaining</h2>
                     {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
-                        return (
+                        if (!objective.time) return (
                             <Objective
                                 key={objective.id}
                                 title={objective.label}
@@ -70,9 +70,10 @@ class TimerComponent extends Component {
                                 
                             />
                         )
+                        return null;
                     })}
                     {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
-                        return (
+                        if (!objective.time) return (
                             <Objective
                                 key={objective.id}
                                 title={objective.label}
@@ -82,6 +83,22 @@ class TimerComponent extends Component {
                                 undo={(id) => this.undoObjective(id)}
                             />
                         )
+                        return null;
+                    })}
+                    <h2>Objectives Complete</h2>
+                    {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                        if (objective.time) return (
+                            <Objective
+                                complete
+                                key={objective.id}
+                                title={objective.label}
+                                id={objective.id}
+                                finish={(id) => this.objectiveComplete(id)}
+                                time={objective.time}
+                                undo={(id) => this.undoObjective(id)}
+                            />
+                        )
+                        return null;
                     })}
                 </div>
                 <React.Fragment>
