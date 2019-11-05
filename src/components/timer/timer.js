@@ -66,6 +66,11 @@ class TimerComponent extends Component {
     }
 
     render() {
+        // sort objectives by finished time for completed objectives
+        let sortedObj = null;
+        if (this.state.flagObj) {
+            sortedObj = this.state.flagObj.objectives.sort((a, b) => a.time - b.time);
+        }
         
         return (
             <div>
@@ -97,7 +102,7 @@ class TimerComponent extends Component {
                         return null;
                     })}
                     <h2>Objectives Complete</h2>
-                    {this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                    {sortedObj && sortedObj.map(objective => {
                         if (objective.time) return (
                             <Objective
                                 complete
