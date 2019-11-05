@@ -50,9 +50,7 @@ class TimerComponent extends Component {
     }
 
     checkForFinish() {
-        // console.log(this.state);
         const unfinished = this.state.flagObj.objectives.find(objective => objective.time === 0);
-        console.log(unfinished);
         if (!unfinished) {
             this.setState({ finished: true });
             this.endTimer();
