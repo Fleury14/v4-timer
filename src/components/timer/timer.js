@@ -97,7 +97,7 @@ class TimerComponent extends Component {
                         return null;
                     })}
                     <h2>Objectives Complete</h2>
-                    {(this.state.timerActive || this.state.finished) && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                    {this.state.flagObj && this.state.flagObj.objectives.map(objective => {
                         if (objective.time) return (
                             <Objective
                                 complete
