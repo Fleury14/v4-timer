@@ -10,17 +10,17 @@ class Objective extends Component {
     
     render() {
         
-        const { title, id, finish, time, undo } = this.props;
+        const { title, id, finish, time, undo, complete } = this.props;
         
         return (
-            <div>
-                <p>{title}</p>
+            <div className="objective-container">
+                <p className={complete ? "objective-title-complete" : "objective-title"}>{title}</p>
                 {time
-                    ?  <div>
+                    ?  <div className="objective-time-container">
                         <p>{parseTime(time)}</p>
-                        <button onClick={() => undo(id)}>Undo</button>
+                        <button className="objective-undo" onClick={() => undo(id)}>Undo</button>
                     </div>
-                    : <button onClick={() => finish(id)}>Complete</button>}
+                    : <button className="objective-complete" onClick={() => finish(id)}>Complete</button>}
                 
             </div>
         );

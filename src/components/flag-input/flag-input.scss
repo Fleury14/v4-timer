@@ -1,4 +1,29 @@
 form.flag-input-form {
     flex-direction: column;
     display: flex;
+    width: 500px;
+}
+
+.flag-input-container {
+    display: flex;
+    justify-content: center;
+}
+
+form.flag-input-form textarea {
+    background-color: #262626;
+    border: 1px solid #929292;
+    padding: 5px;
+    color: #ff9c33;
+    font-family: 'DM Sans', sans-serif;
+}
+
+form.flag-input-form button {
+    background-color: rgba(255, 119, 0, 0.65);
+    color: #fff;
+    height: 30px;
+    width: 200px;
+    margin: 20px auto;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
 }

@@ -11,6 +11,7 @@ class TimerComponent extends Component {
         currentTime: 0,
         pauseTime: 0,
         flagObj: null,
+        finished: false,
     }
 
     beginTimer() {
@@ -45,7 +46,15 @@ class TimerComponent extends Component {
     objectiveComplete(id) {
         const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
         targetObjective.time = this.state.currentTime;
-        this.setState({ flagObj: this.props.flagObj });
+        this.setState({ flagObj: this.props.flagObj }, () => this.checkForFinish());
+    }
+
+    checkForFinish() {
+        // console.log(this.state);
+        const unfinished = this.state.flagObj.objectives.find(objective => objective.time === 0);
+        if (!unfinished) {
+            this.setState({ finished: true });
+        }
     }
 
     undoObjective(id) {
@@ -58,10 +67,10 @@ class TimerComponent extends Component {
         
         return (
             <div>
-                <h2>Timer</h2>
                 <div>
-                {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
-                        return (
+                    <h2>Objectives Remaining</h2>
+                    {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
+                        if (!objective.time) return (
                             <Objective
                                 key={objective.id}
                                 title={objective.label}
@@ -70,9 +79,10 @@ class TimerComponent extends Component {
                                 
                             />
                         )
+                        return null;
                     })}
                     {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
-                        return (
+                        if (!objective.time) return (
                             <Objective
                                 key={objective.id}
                                 title={objective.label}
@@ -82,6 +92,22 @@ class TimerComponent extends Component {
                                 undo={(id) => this.undoObjective(id)}
                             />
                         )
+                        return null;
+                    })}
+                    <h2>Objectives Complete</h2>
+                    {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                        if (objective.time) return (
+                            <Objective
+                                complete
+                                key={objective.id}
+                                title={objective.label}
+                                id={objective.id}
+                                finish={(id) => this.objectiveComplete(id)}
+                                time={objective.time}
+                                undo={(id) => this.undoObjective(id)}
+                            />
+                        )
+                        return null;
                     })}
                 </div>
                 <React.Fragment>
