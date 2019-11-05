@@ -135,6 +135,18 @@ const parseFlags = (flagString) => {
         }
     }
 
+    // random objectives
+    const randomIndex = flagString.indexOf(`random:`);
+    if (randomIndex >= 0) {
+        for (let i = 0; i <= randomIndex; i++) {
+            flagObj.objectives.push({
+                if: flagObj.objectives.length,
+                label: `Random objective ${i + 1}`,
+                time: 0
+            });
+        }
+    }
+
     return flagObj;
 }
 
