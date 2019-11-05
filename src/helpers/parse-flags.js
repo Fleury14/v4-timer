@@ -1,3 +1,5 @@
+import { quests } from '../data/flagData';
+
 const parseFlags = (flagString) => {
     if (!flagString || typeof flagString !== 'string') {
         return null;
@@ -74,55 +76,6 @@ const parseFlags = (flagString) => {
 
     // custom quests
 
-    // TODO: make this into an object in a different file that can be imported, this is somewhat sloppy
-
-    const questSlugs = ['mistcave', 'waterfall', 'antlionnest', 'hobs', 'fabul', 'ordeals', 'baroninn', 'baroncastle', 'magnes', 'zot', 'dwarfcastle', 'lowerbabil', 'falcon',
-        'sealedcave', 'monsterqueen', 'monsterking', 'baronbasement', 'giant', 'cavebahamut', 'murasamealtar', 'crystalaltar', 'whitealtar', 'ribbonaltar', 'masamunealtar',
-        'burnmist', 'curefever', 'unlocksewer', 'music', 'toroiatreasury', 'magma', 'supercannon', 'unlocksealedcave', 'bigwhale', 'traderat', 'forge',
-        'wakeyang', 'tradepan', 'tradepink', 'pass'];
-
-    const questTitles = [
-        'Defeat the boss of the Mist Cave',
-        'Defeat the boss of the Waterfall',
-        'Complete the Antlion Nest',
-        'Rescue the hostage on Mt. Hobs',
-        'Defend Fabul',
-        'Complete Mt. Ordeals',
-        'Defeat the bosses of Baron Inn',
-        'Liberate Baron Castle',
-        'Complete Cave Magnes',
-        'Complete the Tower of Zot',
-        'Defeat the boss of Lower Bab-il',
-        'Launch the Falcon',
-        'Complete the Sealed Cave',
-        'Defeat the queen at the Town of Monsters',
-        'Defeat the king at the Town of Monsters',
-        'Defeat the Baron Castle basement throne',
-        'Complete the Giant of Bab-il',
-        'Complete Cave Bahamut',
-        'Conquer the vanilla Murasame altar',
-        'Conquer the vanilla Crystal Sword altar',
-        'Conquer the vanilla White Spear altar',
-        'Conquer the vanilla Ribbon room',
-        'Conquer the vanilla Masamune altar',
-        'Burn the village Mist with the Package',
-        'Cure the fever with the SandRuby',
-        'Unlock the sewer with the Baron Key',
-        'Break the Dark Elf\'s spell with the TwinHarp',
-        'Open the Toroia treasury with the Earth Crystal',
-        'Drop the Magma Key into the Agart well',
-        'Destroy the Super Cannon',
-    ];
-
-    const quests = [];
-
-    for (let i = 0; i < questSlugs.length; i++) {
-        quests.push({
-            slug: questSlugs[i],
-            title: questTitles[i],
-        });
-    }
-
     for (let quest of quests) {
         if (flagString.indexOf(`quest_${quest.slug}`) >= 0 ) {
             flagObj.objectives.push({
@@ -135,8 +88,9 @@ const parseFlags = (flagString) => {
 
     // random objectives
     const randomIndex = flagString.indexOf(`random:`);
+    console.log();
     if (randomIndex >= 0) {
-        for (let i = 0; i <= randomIndex; i++) {
+        for (let i = 0; i < parseInt(flagString.charAt(randomIndex + 7)); i++) {
             flagObj.objectives.push({
                 id: flagObj.objectives.length,
                 label: `Random objective ${i + 1}`,
