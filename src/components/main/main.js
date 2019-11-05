@@ -10,7 +10,7 @@ class MainComponent extends Component {
     render() {
         return (
             <div>
-                <h1>Main</h1>
+                <h1 className="title">FF4FE Objective Timer</h1>
                 <React.Fragment>
                     <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />
                 </React.Fragment>

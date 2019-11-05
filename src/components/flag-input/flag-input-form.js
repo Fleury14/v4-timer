@@ -22,9 +22,9 @@ class FlagInputForm extends Component {
         const { flags } = this.state;
         return (
             <form className="flag-input-form" onSubmit={(e) => this.onSubmit(e, flags)}>
-                <label>Input Flags</label>
-                <textarea value={flags} onChange={(e) => this.onChange(e.target.value)}></textarea>
-                <button>Submit</button>
+                <label>Input Flag String</label>
+                <textarea rows="6" placeholder="(Flag string here)" value={flags} onChange={(e) => this.onChange(e.target.value)}></textarea>
+                <button>SUBMIT</button>
             </form>
         )
     }

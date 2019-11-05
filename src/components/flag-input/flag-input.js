@@ -4,8 +4,7 @@ import './flag-input.scss';
 
 const FlagInputComponent = (props) => {
     return (
-        <div>
-            <h2>Flag Input</h2>
+        <div className="flag-input-container">
             <FlagInputForm startTime={(flagObj) => props.onStartTimer(flagObj)}/>
         </div>
     );
