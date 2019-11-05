@@ -11,6 +11,12 @@
     margin: 5px 0px;
 }
 
+.objective-title-complete {
+    color: #0acc00;
+    font-size: 18px;
+    margin: 5px 0px;
+}
+
 .objective-complete {
     background-color: #262626;
     border: 1px solid #0acc00;
@@ -32,4 +38,13 @@
     color: #cc0000;
     height: 20px;
     width: 80px;
+}
+
+.objective-time-container {
+    display: flex;
+    align-items: center;
+
+    p {
+        margin: 0 20px 0 0;
+    }
 }

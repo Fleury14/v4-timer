@@ -10,13 +10,13 @@ class Objective extends Component {
     
     render() {
         
-        const { title, id, finish, time, undo } = this.props;
+        const { title, id, finish, time, undo, complete } = this.props;
         
         return (
             <div className="objective-container">
-                <p className="objective-title">{title}</p>
+                <p className={complete ? "objective-title-complete" : "objective-title"}>{title}</p>
                 {time
-                    ?  <div>
+                    ?  <div className="objective-time-container">
                         <p>{parseTime(time)}</p>
                         <button className="objective-undo" onClick={() => undo(id)}>Undo</button>
                     </div>
