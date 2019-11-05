@@ -58,9 +58,9 @@ class TimerComponent extends Component {
         
         return (
             <div>
-                <h2>Timer</h2>
                 <div>
-                {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
+                    <h2>Objectives Remaining</h2>
+                    {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                         return (
                             <Objective
                                 key={objective.id}

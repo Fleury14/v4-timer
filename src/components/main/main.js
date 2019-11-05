@@ -14,7 +14,11 @@ class MainComponent extends Component {
                 <React.Fragment>
                     <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />
                 </React.Fragment>
-                {this.state.showTimer && <Timer flagObj={this.state.flagObj} />}
+                {this.state.showTimer && (
+                <div className="timer-wrapper">
+                    <Timer flagObj={this.state.flagObj} />
+                </div>    
+                )}
             </div>
         );
     }

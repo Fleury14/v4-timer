@@ -1,0 +1,35 @@
+.objective-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 400px;
+}
+
+.objective-title {
+    color: #fadf0f;
+    font-size: 18px;
+    margin: 5px 0px;
+}
+
+.objective-complete {
+    background-color: #262626;
+    border: 1px solid #0acc00;
+    color: #0acc00;
+    height: 20px;
+    width: 80px;
+    transition: 0.3s all;
+    border-radius: 2px;
+
+    &:hover {
+        background-color: #565656;
+        cursor: pointer;
+    }
+}
+
+.objective-undo {
+    background-color: #262626;
+    border: 1px solid #cc0000;
+    color: #cc0000;
+    height: 20px;
+    width: 80px;
+}
