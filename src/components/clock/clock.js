@@ -6,7 +6,7 @@ const Clock = (props) => {
     return (
         <div>
             <div className="time-container">
-                <p className="time">{parseTime(props.currentTime)}</p>
+                <p className={`time${props.finished ? ' time-finished' : ''}`}>{parseTime(props.currentTime)}</p>
                 <div className="time-button-container">
                     <button disabled={props.active} onClick={() => props.begin()}>{props.pauseTime ? 'Resume' : 'Start'}</button>
                     <button onClick={() => props.stop()}>Stop</button>

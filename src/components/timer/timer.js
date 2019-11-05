@@ -52,15 +52,17 @@ class TimerComponent extends Component {
     checkForFinish() {
         // console.log(this.state);
         const unfinished = this.state.flagObj.objectives.find(objective => objective.time === 0);
+        console.log(unfinished);
         if (!unfinished) {
             this.setState({ finished: true });
+            this.endTimer();
         }
     }
 
     undoObjective(id) {
         const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
         targetObjective.time = 0;
-        this.setState({ flagObj: this.props.flagObj });
+        this.setState({ flagObj: this.props.flagObj, finished: false });
     }
 
     render() {
@@ -95,7 +97,7 @@ class TimerComponent extends Component {
                         return null;
                     })}
                     <h2>Objectives Complete</h2>
-                    {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                    {(this.state.timerActive || this.state.finished) && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
                         if (objective.time) return (
                             <Objective
                                 complete
@@ -118,6 +120,7 @@ class TimerComponent extends Component {
                         currentTime={this.state.currentTime}
                         active={this.state.timerActive}
                         pauseTime={this.state.pauseTime}
+                        finished={this.state.finished}
                     />
                 </React.Fragment>
             </div>
