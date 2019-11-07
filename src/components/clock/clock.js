@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { parseTime } from '../../helpers';
 import './clock.scss';
@@ -7,7 +8,7 @@ type Props = {
     active: Boolean,
     pauseTime?: Number,
     finished?: Boolean,
-    being: Function,
+    begin: Function,
     stop: Function,
     reset: Function,
     reEntry: Function,
