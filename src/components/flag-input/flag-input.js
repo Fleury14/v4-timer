@@ -4,9 +4,12 @@ import './flag-input.scss';
 
 const FlagInputComponent = (props) => {
     return (
-        <div className="flag-input-container">
-            <FlagInputForm startTime={(flagObj) => props.onStartTimer(flagObj)}/>
-        </div>
+        <React.Fragment>
+            <div className="flag-input-container">
+                <FlagInputForm startTime={(flagObj) => props.onStartTimer(flagObj)}/>
+            </div>
+            <p className="credits">v0.2.1 - Timer made by Fleury14</p>
+        </React.Fragment>
     );
 }
 
