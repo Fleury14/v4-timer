@@ -20,7 +20,7 @@ class Objective extends Component {
                         <p>{parseTime(time)}</p>
                         <button className="objective-undo" onClick={() => undo(id)}>Undo</button>
                     </div>
-                    : <button className="objective-complete" onClick={() => finish(id)}>Complete</button>}
+                    : <button className="objective-complete" onClick={() => finish(id)}>Finish</button>}
                 
             </div>
         );

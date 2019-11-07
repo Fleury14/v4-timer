@@ -1,7 +1,7 @@
 .time {
-    font-size: 48px;
+    font-size: 60px;
     margin: 0;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .time-finished {
@@ -16,7 +16,7 @@
 .time-button-container {
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 50px auto 10px;
 
     button {
         width: 60px;
@@ -32,4 +32,8 @@
             cursor: pointer;
         }
     }
+    .re-entry-button {
+        width: 100%;
+    }
 }
+

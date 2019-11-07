@@ -4,7 +4,7 @@ import './main.scss';
 
 class MainComponent extends Component {
     state = {
-        showTimer: true,
+        showTimer: false,
         flagObj: null,
     }
     render() {
@@ -12,11 +12,11 @@ class MainComponent extends Component {
             <div>
                 <h1 className="title">FF4FE Objective Timer</h1>
                 <React.Fragment>
-                    <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />
+                        {!this.state.showTimer && <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />}
                 </React.Fragment>
                 {this.state.showTimer && (
                 <div className="timer-wrapper">
-                    <Timer flagObj={this.state.flagObj} />
+                    <Timer flagObj={this.state.flagObj} reEntry={() => this.setState({ showTimer: false })} />
                 </div>    
                 )}
             </div>

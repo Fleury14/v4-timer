@@ -12,6 +12,9 @@ const Clock = (props) => {
                     <button onClick={() => props.stop()}>Stop</button>
                     <button onClick={() => props.reset()}>Reset</button>
                 </div>
+                <div className="time-button-container">
+                    <button className="re-entry-button" onClick={() => props.reEntry()}>Re-Enter Flag String</button>
+                </div>
             </div>
             
         </div>
