@@ -74,7 +74,8 @@ const parseFlags = (flagString) => {
         }
     }
 
-    if (flagString.indexOf('boss_milon') >= 0 && flagString.indexOf('boss_milonz' < 0)) {
+    // Milon needs a special exemption since you cant spell 'milonz' without 'milon'
+    if (flagString.indexOf('boss_milon/') >= 0 || flagString.indexOf('boss_milon ') >= 0) {
         flagObj.objectives.push({
             id: flagObj.objectives.length,
             label: 'Defeat Milon'
