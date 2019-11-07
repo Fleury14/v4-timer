@@ -124,6 +124,7 @@ class TimerComponent extends Component {
                         active={this.state.timerActive}
                         pauseTime={this.state.pauseTime}
                         finished={this.state.finished}
+                        reEntry={() => this.props.reEntry()}
                     />
                 </React.Fragment>
             </div>
