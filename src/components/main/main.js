@@ -4,7 +4,7 @@ import './main.scss';
 
 class MainComponent extends Component {
     state = {
-        showTimer: true,
+        showTimer: false,
         flagObj: null,
     }
     render() {
