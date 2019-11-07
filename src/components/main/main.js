@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FlagInput, Timer } from '..';
 import './main.scss';
+import { tryStatement } from '@babel/types';
 
 class MainComponent extends Component {
     state = {

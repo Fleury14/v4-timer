@@ -12,8 +12,9 @@ const Clock = (props) => {
                     <button onClick={() => props.stop()}>Stop</button>
                     <button onClick={() => props.reset()}>Reset</button>
                 </div>
-                <div className="time-button-container">
+                <div className="time-button-container time-bottom">
                     <button className="re-entry-button" onClick={() => props.reEntry()}>Re-Enter Flag String</button>
+                    <p>Returning to the flag-input screen will end the run in progress...</p>
                 </div>
             </div>
             
