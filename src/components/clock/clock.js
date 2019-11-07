@@ -2,7 +2,18 @@ import React from 'react';
 import { parseTime } from '../../helpers';
 import './clock.scss';
 
-const Clock = (props) => {
+type Props = {
+    currentTime: Number,
+    active: Boolean,
+    pauseTime?: Number,
+    finished?: Boolean,
+    being: Function,
+    stop: Function,
+    reset: Function,
+    reEntry: Function,
+}
+
+const Clock = (props: Props) => {
     return (
         <div>
             <div className="time-container">
