@@ -1,4 +1,11 @@
-const quests = [{
+// @flow
+
+type Quest = {
+    slug: String,
+    title: String,
+};
+
+const quests: Quest[] = [{
     slug: 'mistcave',
     title: 'Defeat the boss of the Mist Cave',
 }, {

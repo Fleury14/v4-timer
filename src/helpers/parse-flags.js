@@ -1,11 +1,14 @@
-import { quests } from '../data/flagData';
+// @flow
 
-const parseFlags = (flagString) => {
+import { quests } from '../data/flagData';
+import type { Objective, FlagObject } from '../types/types'
+
+const parseFlags = (flagString: String) => {
     if (!flagString || typeof flagString !== 'string') {
         return null;
     }
 
-    const flagObj = {
+    const flagObj:FlagObject = {
         objectives: [],
     }
     // check set objectives (non-custom)
