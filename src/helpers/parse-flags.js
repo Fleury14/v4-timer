@@ -60,7 +60,7 @@ const parseFlags = (flagString) => {
 
     // custom - boss hunt
 
-    const bosses = ['dmist', 'officer', 'octomamm', 'antlion', 'waterhag', 'mombomb', 'fabulgauntlet', 'milon', 'milonz', 'mirrorcecil',
+    const bosses = ['dmist', 'officer', 'octomamm', 'antlion', 'waterhag', 'mombomb', 'fabulgauntlet', 'milonz', 'mirrorcecil',
         'guard', 'karate', 'baigan', 'kainazzo', 'darkelf', 'magus', 'valvalis', 'calbrena', 'golbez', 'lugae', 'darkimp', 'kingqueen',
         'rubicant', 'evilwall', 'asura', 'leviatan', 'odin', 'bahamut', 'elements', 'cpu', 'paledim', 'wyvern', 'plague', 'dlunar', 'ogopogo'];
     
@@ -72,6 +72,14 @@ const parseFlags = (flagString) => {
                 time: 0,
             });
         }
+    }
+
+    // Milon needs a special exemption since you cant spell 'milonz' without 'milon'
+    if (flagString.indexOf('boss_milon/') >= 0 || flagString.indexOf('boss_milon ') >= 0) {
+        flagObj.objectives.push({
+            id: flagObj.objectives.length,
+            label: 'Defeat Milon'
+        });
     }
 
     // custom quests
