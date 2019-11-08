@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import { parseTime } from '../../helpers'
 import './objective.scss';
 
-//expects the following props
-// id: number
-// description: string
 type Props = {
     title: string,
     id: number,
