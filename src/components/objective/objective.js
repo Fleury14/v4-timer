@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react';
 import { parseTime } from '../../helpers'
 import './objective.scss';
@@ -5,8 +7,17 @@ import './objective.scss';
 //expects the following props
 // id: number
 // description: string
+type Props = {
+    title: string,
+    id: number,
+    finish: Function,
+    undo: Function,
+    time: ?number,
+    complete: ?boolean
+}
 
-class Objective extends Component {
+
+class Objective extends Component<Props> {
     
     render() {
         
