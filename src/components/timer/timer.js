@@ -92,7 +92,7 @@ class TimerComponent extends Component<Props, State> {
         // sort objectives by finished time for completed objectives
         let sortedObj = null;
         if (this.state.flagObj) {
-            sortedObj = this.state.flagObj.objectives.sort((a:Objective, b:Objective) => a.time - b.time);
+            sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time && b.time ? a.time - b.time : 0);
         }
         const hasFinishedOne = (this.state.flagObj && this.state.flagObj.objectives && this.state.flagObj.objectives.find(obj => obj.time !== 0));
         
