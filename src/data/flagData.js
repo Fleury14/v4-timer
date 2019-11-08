@@ -1,9 +1,5 @@
 // @flow
-
-type Quest = {
-    slug: String,
-    title: String,
-};
+import type { Quest } from '../types/types';
 
 const quests: Quest[] = [{
     slug: 'mistcave',

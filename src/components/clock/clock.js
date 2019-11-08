@@ -4,10 +4,10 @@ import { parseTime } from '../../helpers';
 import './clock.scss';
 
 type Props = {
-    currentTime: Number,
-    active: Boolean,
-    pauseTime?: Number,
-    finished?: Boolean,
+    currentTime: number,
+    active: boolean,
+    pauseTime?: number,
+    finished?: boolean,
     begin: Function,
     stop: Function,
     reset: Function,

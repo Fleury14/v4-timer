@@ -1,9 +1,9 @@
 // @flow
 
 import { quests } from '../data/flagData';
-import type { Objective, FlagObject } from '../types/types'
+import type { FlagObject } from '../types/types'
 
-const parseFlags = (flagString: String) => {
+const parseFlags = (flagString: string) => {
     if (!flagString || typeof flagString !== 'string') {
         return null;
     }

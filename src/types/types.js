@@ -1,11 +1,16 @@
 // @flow
 
-export type Objective = {
-    id: Number,
-    label: String,
-    time: Number
+export type TObjective = {
+    id: number,
+    label: string,
+    time?: number
 };
 
 export type FlagObject = {
-    objectives: Objective[]
+    objectives: TObjective[]
 }
+
+export type Quest = {
+    slug: string,
+    title: string,
+};

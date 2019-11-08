@@ -1,3 +1,5 @@
+// @flow
+
 import parseTime from './parse-time';
 import parseFlags from './parse-flags';
 
