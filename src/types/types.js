@@ -3,7 +3,8 @@
 export type TObjective = {
     id: number,
     label: string,
-    time?: number
+    time?: number,
+    random?: boolean
 };
 
 export type FlagObject = {

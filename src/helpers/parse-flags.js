@@ -106,6 +106,7 @@ const parseFlags = (flagString: string) => {
                 id: flagObj.objectives.length,
                 label: `Random objective ${i + 1}`,
                 time: 0,
+                random: true,
             });
         }
     }
