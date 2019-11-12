@@ -1,10 +1,26 @@
+// @flow
 import React, { Component } from 'react';
+import type { FlagObject, TObjective } from '../../types/types';
 import { Clock, Objective } from '..';
 import './timer.scss';
 
 // expects prop of flagObj
+type Props = {
+    flagObj: FlagObject,
+    reEntry: Function,
+}
 
-class TimerComponent extends Component {
+type State = {
+    timerActive: boolean,
+    startTime: number,
+    currentTime: number,
+    pauseTime: number,
+    flagObj: ?FlagObject,
+    finished: boolean,
+}
+
+class TimerComponent extends Component<Props, State> {
+    interval:any = null;
     state = {
         timerActive: false,
         startTime: 0,
@@ -43,31 +59,40 @@ class TimerComponent extends Component {
         })
     }
 
-    objectiveComplete(id) {
-        const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
-        targetObjective.time = this.state.currentTime;
-        this.setState({ flagObj: this.props.flagObj }, () => this.checkForFinish());
+    objectiveComplete(id: number) {
+        const targetObjective:void | TObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
+        if (targetObjective) {
+            targetObjective.time = this.state.currentTime;
+            this.setState({ flagObj: this.props.flagObj }, () => this.checkForFinish());
+        }
+        
     }
 
     checkForFinish() {
-        const unfinished = this.state.flagObj.objectives.find(objective => objective.time === 0);
-        if (!unfinished) {
-            this.setState({ finished: true });
-            this.endTimer();
+        if (this.state.flagObj) {
+            const unfinished:void | TObjective = this.state.flagObj.objectives.find(objective => objective.time === 0);
+            if (!unfinished) {
+                this.setState({ finished: true });
+                this.endTimer();
+            }
         }
+        
     }
 
-    undoObjective(id) {
+    undoObjective(id:number) {
         const targetObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
-        targetObjective.time = 0;
-        this.setState({ flagObj: this.props.flagObj, finished: false });
+        if (targetObjective) {
+            targetObjective.time = 0;
+            this.setState({ flagObj: this.props.flagObj, finished: false });
+        }
+        
     }
 
     render() {
         // sort objectives by finished time for completed objectives
         let sortedObj = null;
         if (this.state.flagObj) {
-            sortedObj = this.state.flagObj.objectives.sort((a, b) => a.time - b.time);
+            sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time && b.time ? a.time - b.time : 0);
         }
         const hasFinishedOne = (this.state.flagObj && this.state.flagObj.objectives && this.state.flagObj.objectives.find(obj => obj.time !== 0));
         

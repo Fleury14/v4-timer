@@ -1,4 +1,5 @@
-const ParseTime = (milliseconds) => {
+// @flow
+const ParseTime = (milliseconds: number) :string => {
     const totalSecs = Math.floor(milliseconds / 1000);
     const tenths = Math.floor((milliseconds % 1000) / 100);
     let secs = 0;

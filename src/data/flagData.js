@@ -1,4 +1,7 @@
-const quests = [{
+// @flow
+import type { Quest } from '../types/types';
+
+const quests: Quest[] = [{
     slug: 'mistcave',
     title: 'Defeat the boss of the Mist Cave',
 }, {
