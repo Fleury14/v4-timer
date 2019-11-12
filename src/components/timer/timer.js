@@ -41,8 +41,10 @@ class TimerComponent extends Component<Props, State> {
                 currentTime: Date.now() - startDate,
             });
         }, 100);
-        // set objectives up
-        this.setState({ flagObj: this.props.flagObj });
+        // set objectives up, but only if hasnt been done already (editing randoms may do this already)
+        if (!this.state.flagObj) {
+            this.setState({ flagObj: this.props.flagObj });
+        }
     }
 
     endTimer() {
@@ -90,7 +92,16 @@ class TimerComponent extends Component<Props, State> {
         
     }
 
+    // since this is likely done prior to a race starting, the flag object exists in props at this point
+    // therefore, if an edit is toggle, lets try the following
+    // update the state here, previous state update should likely use rest notation to avoid overwrites on start
+
     toggleRandomEditor(id: number) {
+        console.log('toggling edit');
+        if (!this.state.flagObj) {
+            this.setState({ flagObj: this.props.flagObj });
+        }
+
         if (this.state.objectiveEditing !== id)
         {
             this.setState({ objectiveEditing: id });
@@ -122,8 +133,9 @@ class TimerComponent extends Component<Props, State> {
                                 key={objective.id}
                                 title={objective.label}
                                 id={objective.id}
+                                random={objective.random}
                                 finish={(id) => this.objectiveComplete(id)}
-                                
+                                edit={(id) => this.toggleRandomEditor(id)}
                             />
                         )
                         return null;
@@ -135,9 +147,11 @@ class TimerComponent extends Component<Props, State> {
                                 key={objective.id}
                                 title={objective.label}
                                 id={objective.id}
+                                random={objective.random}
                                 finish={(id) => this.objectiveComplete(id)}
                                 time={objective.time}
                                 undo={(id) => this.undoObjective(id)}
+                                edit={(id) => this.toggleRandomEditor(id)}
                             />
                         )
                         return null;
@@ -151,6 +165,7 @@ class TimerComponent extends Component<Props, State> {
                                 key={objective.id}
                                 title={objective.label}
                                 id={objective.id}
+                                random={objective.random}
                                 finish={(id) => this.objectiveComplete(id)}
                                 time={objective.time}
                                 undo={(id) => this.undoObjective(id)}
