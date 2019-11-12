@@ -17,6 +17,7 @@ type State = {
     pauseTime: number,
     flagObj: ?FlagObject,
     finished: boolean,
+    objectiveEditing: ?number,
 }
 
 class TimerComponent extends Component<Props, State> {
@@ -28,6 +29,7 @@ class TimerComponent extends Component<Props, State> {
         pauseTime: 0,
         flagObj: null,
         finished: false,
+        objectiveEditing: null,
     }
 
     beginTimer() {
@@ -88,6 +90,19 @@ class TimerComponent extends Component<Props, State> {
         
     }
 
+    toggleRandomEditor(id: number) {
+        if (this.state.objectiveEditing !== id)
+        {
+            this.setState({ objectiveEditing: id });
+        } else {
+            this.setState({ objectiveEditing: null });
+        }  
+    }
+
+    applyEdit(id: number, title: string) {
+        console.log(`todo: apply ${title} to objective ${id}`);
+    }
+
     render() {
         // sort objectives by finished time for completed objectives
         let sortedObj = null;
@@ -139,6 +154,7 @@ class TimerComponent extends Component<Props, State> {
                                 finish={(id) => this.objectiveComplete(id)}
                                 time={objective.time}
                                 undo={(id) => this.undoObjective(id)}
+                                editRandom={(id) => this.toggleRandomEditor(id)}
                             />
                         )
                         return null;
