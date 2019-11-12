@@ -14,7 +14,6 @@ type Props = {
 
 const ObjectivePicker = (props: Props) => {
     const { id, edit, done } = props;
-    console.log('id', id, 'edit', edit);
     return (
         <div className="picker-container">
             <h2>Character</h2>

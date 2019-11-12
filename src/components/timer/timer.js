@@ -97,14 +97,12 @@ class TimerComponent extends Component<Props, State> {
     // update the state here, previous state update should likely use rest notation to avoid overwrites on start
 
     toggleRandomEditor(id: number) {
-        console.log('toggling edit');
         if (!this.state.flagObj) {
             this.setState({ flagObj: this.props.flagObj });
         }
 
         if (this.state.objectiveEditing !== id)
         {
-            console.log('setting id', id);
             this.setState({ objectiveEditing: id });
         } else {
             this.setState({ objectiveEditing: null });
@@ -112,7 +110,6 @@ class TimerComponent extends Component<Props, State> {
     }
 
     applyEdit(id: number, title: string) {
-        console.log(`todo: apply ${title} to objective ${id}`);
         const { flagObj } = this.state;
         if (flagObj && flagObj.objectives) {
             const target:void | TObjective = flagObj.objectives.find(obj => obj.id === id);
