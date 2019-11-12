@@ -1,0 +1,25 @@
+.picker-container {
+    max-width: 400px;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+}
+
+.picker-button {
+    height: 50px;
+    width: 50px;
+    font-size: 10px;
+    border-radius: 50%;
+    background-color: #222;
+    border: 2px solid #ff9c33;
+    color: #ff9c33;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s all;
+
+    &:hover {
+        background-color: #333;
+        cursor: pointer;
+    }
+}

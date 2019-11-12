@@ -104,6 +104,7 @@ class TimerComponent extends Component<Props, State> {
 
         if (this.state.objectiveEditing !== id)
         {
+            console.log('setting id', id);
             this.setState({ objectiveEditing: id });
         } else {
             this.setState({ objectiveEditing: null });
@@ -135,7 +136,7 @@ class TimerComponent extends Component<Props, State> {
                                 id={objective.id}
                                 random={objective.random}
                                 finish={(id) => this.objectiveComplete(id)}
-                                edit={(id) => this.toggleRandomEditor(id)}
+                                edit={() => this.toggleRandomEditor(objective.id)}
                             />
                         )
                         return null;
@@ -151,7 +152,7 @@ class TimerComponent extends Component<Props, State> {
                                 finish={(id) => this.objectiveComplete(id)}
                                 time={objective.time}
                                 undo={(id) => this.undoObjective(id)}
-                                edit={(id) => this.toggleRandomEditor(id)}
+                                edit={() => this.toggleRandomEditor(objective.id)}
                             />
                         )
                         return null;
@@ -169,7 +170,7 @@ class TimerComponent extends Component<Props, State> {
                                 finish={(id) => this.objectiveComplete(id)}
                                 time={objective.time}
                                 undo={(id) => this.undoObjective(id)}
-                                editRandom={(id) => this.toggleRandomEditor(id)}
+                                editRandom={() => this.toggleRandomEditor(objective.id)}
                             />
                         )
                         return null;

@@ -15,3 +15,8 @@ export type Quest = {
     slug: string,
     title: string,
 };
+
+export type Boss = {
+    slug: string,
+    title: string,
+};
