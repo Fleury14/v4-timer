@@ -202,6 +202,7 @@ class TimerComponent extends Component<Props, State> {
                         <ObjectivePicker
                             id={this.state.objectiveEditing}
                             edit={(id, title) => this.applyEdit(id, title)}    
+                            done={() => this.setState({ objectiveEditing: null })}
                         />
                     </React.Fragment>
                 ) : null}

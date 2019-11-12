@@ -23,3 +23,49 @@
         cursor: pointer;
     }
 }
+
+.picker-boss-button {
+    height: 50px;
+    width: 87px;
+    font-size: 10px;
+    border-radius: 6px;
+    background-color: #222;
+    border: 2px solid #ff9c33;
+    color: #ff9c33;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s all;
+
+    &:hover {
+        background-color: #333;
+        cursor: pointer;
+    }
+}
+
+.picker-quest-button {
+    height: 30px;
+    width: 300px;
+    font-size: 10px;
+    border-radius: 6px;
+    background-color: #222;
+    border: 2px solid #ff9c33;
+    color: #ff9c33;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s all;
+
+    &:hover {
+        background-color: #333;
+        cursor: pointer;
+    }
+}
+
+.picker-done {
+    padding: 10px 30px;
+    font-size: 20px;
+    background-color: #ff9c33;
+    color: #111;
+    border: none;
+    border-radius: 6px;
+    margin: 20px auto 0px;
+}

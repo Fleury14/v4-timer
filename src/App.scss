@@ -12,3 +12,9 @@ body {
 .text-center {
   text-align: center;
 }
+
+.center-me {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
