@@ -3,7 +3,8 @@
 export type TObjective = {
     id: number,
     label: string,
-    time?: number
+    time?: number,
+    random?: boolean
 };
 
 export type FlagObject = {
@@ -11,6 +12,11 @@ export type FlagObject = {
 }
 
 export type Quest = {
+    slug: string,
+    title: string,
+};
+
+export type Boss = {
     slug: string,
     title: string,
 };
