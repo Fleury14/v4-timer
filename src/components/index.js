@@ -4,5 +4,6 @@ import Timer from './timer/timer';
 import Clock from './clock/clock';
 import Objective from './objective/objective';
 import ObjectivePicker from './objective-picker/objective-picker';
+import ColorGateway from './color-gateway/color-gateway';
 
-export { MainComponent, FlagInput, Timer, Clock, Objective, ObjectivePicker };
+export { MainComponent, FlagInput, Timer, Clock, Objective, ObjectivePicker, ColorGateway };
