@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { FlagObject, TObjective } from '../../types/types';
-import { Clock, Objective } from '..';
+import { Clock, Objective, ObjectivePicker } from '..';
 import './timer.scss';
 
 // expects prop of flagObj
@@ -187,6 +187,14 @@ class TimerComponent extends Component<Props, State> {
                         reEntry={() => this.props.reEntry()}
                     />
                 </React.Fragment>
+                {this.state.objectiveEditing !== null ? (
+                    <React.Fragment>
+                        <ObjectivePicker
+                            id={this.state.objectiveEditing}
+                            edit={(id, title) => this.applyEdit(id, title)}    
+                        />
+                    </React.Fragment>
+                ) : null}
             </div>
         );
     }
