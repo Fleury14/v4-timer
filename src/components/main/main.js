@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlagInput, Timer } from '..';
+import { FlagInput, Timer, ColorGateway } from '..';
 import './main.scss';
 
 class MainComponent extends Component {
@@ -9,17 +9,19 @@ class MainComponent extends Component {
     }
     render() {
         return (
-            <div>
-                <h1 className="title">FF4FE Objective Timer</h1>
-                <React.Fragment>
-                        {!this.state.showTimer && <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />}
-                </React.Fragment>
-                {this.state.showTimer && (
-                <div className="timer-wrapper">
-                    <Timer flagObj={this.state.flagObj} reEntry={() => this.setState({ showTimer: false })} />
-                </div>    
-                )}
-            </div>
+            <ColorGateway>
+                <div>
+                    <h1 className="title">FF4FE Objective Timer</h1>
+                    <React.Fragment>
+                            {!this.state.showTimer && <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />}
+                    </React.Fragment>
+                    {this.state.showTimer && (
+                    <div className="timer-wrapper">
+                        <Timer flagObj={this.state.flagObj} reEntry={() => this.setState({ showTimer: false })} />
+                    </div>    
+                    )}
+                </div>
+            </ColorGateway>
         );
     }
     

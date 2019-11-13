@@ -1,0 +1,33 @@
+.color-gateway {
+    height: 100%;
+    width: 100%;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.color-changer {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+
+    input {
+        margin-left: 10px;
+    }
+
+    button {
+        height: 20px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 12px;
+        border-radius: 3px;
+        margin-left: 10px;
+        transition: 0.3s all;
+
+        &:hover {
+            border: 1px solid #000;
+            background-color: #eee;
+            color: #111;
+            cursor: pointer;
+        }
+    }
+}
