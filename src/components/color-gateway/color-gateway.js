@@ -20,9 +20,13 @@ class ColorGateway extends Component<Props, State> {
     }
 
     componentDidMount() {
+        const savedColor: ?string = localStorage.getItem('color')
         const gateway = document.querySelector('.color-gateway');
-        if (gateway) {
-            gateway.style.backgroundColor = this.state.color;
+        if (gateway && savedColor) {
+            gateway.style.backgroundColor = savedColor;
+            if (savedColor !== this.state.color) {
+                this.setState({ color: savedColor});
+            }
         }
     }
 
@@ -30,6 +34,7 @@ class ColorGateway extends Component<Props, State> {
         const gateway = document.querySelector('.color-gateway');
         if (gateway) {
             gateway.style.backgroundColor = this.state.color;
+            localStorage.setItem('color', this.state.color);
         }
         
     }
