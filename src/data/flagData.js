@@ -260,4 +260,4 @@ const quests: Quest[] = [{
     title: 'Unlock the Pass door in Toroia',
 }];
 
-export { quests }
+export { quests, bosses }

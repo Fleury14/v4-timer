@@ -1,6 +1,6 @@
 // @flow
 
-import { quests } from '../data/flagData';
+import { quests, bosses } from '../data/flagData';
 import type { FlagObject } from '../types/types'
 
 const parseFlags = (flagString: string) => {
@@ -62,27 +62,15 @@ const parseFlags = (flagString: string) => {
     }
 
     // custom - boss hunt
-
-    const bosses = ['dmist', 'officer', 'octomamm', 'antlion', 'waterhag', 'mombomb', 'fabulgauntlet', 'milonz', 'mirrorcecil',
-        'guard', 'karate', 'baigan', 'kainazzo', 'darkelf', 'magus', 'valvalis', 'calbrena', 'golbez', 'lugae', 'darkimp', 'kingqueen',
-        'rubicant', 'evilwall', 'asura', 'leviatan', 'odin', 'bahamut', 'elements', 'cpu', 'paledim', 'wyvern', 'plague', 'dlunar', 'ogopogo'];
     
     for (let boss of bosses) {
-        if (flagString.indexOf(`boss_${boss}`) >= 0 ) {
+        if (flagString.indexOf(`boss_${boss.slug}`) >= 0 ) {
             flagObj.objectives.push({
                 id: flagObj.objectives.length,
-                label: `Defeat ${boss}`,
+                label: `Defeat ${boss.title}`,
                 time: 0,
             });
         }
-    }
-
-    // Milon needs a special exemption since you cant spell 'milonz' without 'milon'
-    if (flagString.indexOf('boss_milon/') >= 0 || flagString.indexOf('boss_milon ') >= 0) {
-        flagObj.objectives.push({
-            id: flagObj.objectives.length,
-            label: 'Defeat Milon'
-        });
     }
 
     // custom quests
