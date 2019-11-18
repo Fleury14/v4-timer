@@ -143,10 +143,10 @@ const bosses: Boss[] = [{
 
 const quests: Quest[] = [{
     slug: 'mistcave',
-    title: 'Defeat the boss of the Mist Cave',
+    title: 'Mist Cave boss',
 }, {
     slug: 'waterfall',
-    title: 'Defeat the boss of the Waterfall',
+    title: 'Waterfall boss',
 }, {
     slug: 'antlionnest',
     title: 'Complete the Antlion Nest',
@@ -161,7 +161,7 @@ const quests: Quest[] = [{
     title: 'Complete Mt. Ordeals',
 }, {
     slug: 'baroninn',
-    title: 'Defeat the bosses of Baron Inn',
+    title: 'Defeat Baron Inn bosses',
 }, {
     slug: 'baroncastle',
     title: 'Liberate Baron Castle',
@@ -185,13 +185,13 @@ const quests: Quest[] = [{
     title: 'Complete the Sealed Cave',
 }, {
     slug: 'monsterqueen',
-    title: 'Defeat the queen at the Town of Monsters',
+    title: 'Asura spot boss',
 }, {
     slug: 'monsterking',
-    title: 'Defeat the king at the Town of Monsters',
+    title: 'Leviatan spot boss',
 }, {
     slug: 'baronbasement',
-    title: 'Defeat the Baron Castle basement throne',
+    title: 'Odin spot boss',
 }, {
     slug: 'giant',
     title: 'Complete the Giant of Bab-il',
@@ -200,19 +200,19 @@ const quests: Quest[] = [{
     title: 'Complete Cave Bahamut',
 }, {
     slug: 'murasamealtar',
-    title: 'Conquer the vanilla Murasame altar',
+    title: 'Vanilla Murasame (Paledim)',
 }, {
     slug: 'crystalaltar',
-    title: 'Conquer the vanilla Crystal Sword altar',
+    title: 'Vanilla Crystal Sword (Wyvern)',
 }, {
     slug: 'whitealtar',
-    title: 'Conquer the vanilla White Spear altar',
+    title: 'Vanilla White Spear (Plague)',
 }, {
     slug: 'ribbonaltar',
-    title: 'Conquer the vanilla Ribbon room',
+    title: 'Vanilla Ribbon (D.Lunars)',
 }, {
     slug: 'masamunealtar',
-    title: 'Conquer the vanilla Masamune altar',
+    title: 'Vanilla Masamune (Ogopogo)',
 }, {
     slug: 'burnmist',
     title: 'Burn the village Mist with the Package',
@@ -227,7 +227,7 @@ const quests: Quest[] = [{
     title: 'Break the Dark Elf\'s spell with the TwinHarp',
 }, {
     slug: 'toroiatreasury',
-    title: 'Open the Toroia treasury with the Earth Crystal',
+    title: 'Open the Toroia treasury',
 }, {
     slug: 'magma',
     title: 'Drop the Magma Key into the Agart well',
@@ -245,7 +245,7 @@ const quests: Quest[] = [{
     title: 'Trade away Rat Tail',
 }, {
     slug: 'forge',
-    title: 'Have Kokkol forge Legend Sword with Adamant',
+    title: 'Have Kokkol Forge',
 }, {
     slug: 'wakeyang',
     title: 'Wake Yang with the Pan',
