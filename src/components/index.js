@@ -6,5 +6,6 @@ import Objective from './objective/objective';
 import ObjectivePicker from './objective-picker/objective-picker';
 import ColorGateway from './color-gateway/color-gateway';
 import Login from './login/login';
+import BossTimer from './boss-timer/boss-timer';
 
-export { MainComponent, FlagInput, Timer, Clock, Objective, ObjectivePicker, ColorGateway, Login };
+export { MainComponent, FlagInput, Timer, Clock, Objective, ObjectivePicker, ColorGateway, Login, BossTimer };

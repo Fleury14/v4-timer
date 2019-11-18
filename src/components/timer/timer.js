@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { FlagObject, TObjective } from '../../types/types';
-import { Clock, Objective, ObjectivePicker } from '..';
+import { Clock, Objective, ObjectivePicker, BossTimer } from '..';
 import './timer.scss';
 
 // expects prop of flagObj
@@ -182,6 +182,9 @@ class TimerComponent extends Component<Props, State> {
                         return null;
                     })}
                 </div>
+                <React.Fragment>
+                    <BossTimer />
+                </React.Fragment>
                 <React.Fragment>
                     <Clock
                         begin={() => this.beginTimer()}
