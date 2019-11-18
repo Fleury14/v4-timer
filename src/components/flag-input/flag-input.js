@@ -8,7 +8,7 @@ const FlagInputComponent = (props) => {
             <div className="flag-input-container">
                 <FlagInputForm startTime={(flagObj) => props.onStartTimer(flagObj)}/>
             </div>
-            <p className="credits">v0.4.2 - Timer made by Fleury14</p>
+            <p className="credits">v0.4.3 - Timer made by Fleury14</p>
         </React.Fragment>
     );
 }

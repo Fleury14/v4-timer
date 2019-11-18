@@ -1,5 +1,145 @@
 // @flow
-import type { Quest } from '../types/types';
+import type { Quest, Boss } from '../types/types';
+
+const bosses: Boss[] = [{
+    slug: 'dmist',
+    title: 'D. Mist',
+},
+{
+    slug: 'officer',
+    title: 'Kaipo Guards',
+},
+{
+    slug: 'octomamm',
+    title: 'Octomamm',
+},
+{
+    slug: 'antlion',
+    title: 'D. Mist',
+},{
+    slug: 'Antlion',
+    title: 'D. Mist',
+},
+{
+    slug: 'waterhag',
+    title: 'WaterHag',
+},
+{
+    slug: 'mombomb',
+    title: 'Mom Bomb',
+},
+{
+    slug: 'milon/',
+    title: 'Milon',
+},
+{
+    slug: 'milonz',
+    title: 'Milon-Z',
+},
+{
+    slug: 'mirrorcecil',
+    title: 'Dark Knight',
+},
+{
+    slug: 'guard',
+    title: 'Baron Guards',
+},
+{
+    slug: 'karate',
+    title: 'Karate',
+},
+{
+    slug: 'baigan',
+    title: 'Baigan',
+},
+{
+    slug: 'kainazzo',
+    title: 'Kainazzo',
+},
+{
+    slug: 'darkelf',
+    title: 'Dark Elf',
+},{
+    slug: 'magus',
+    title: 'Magus Sisters',
+},
+{
+    slug: 'valvalis',
+    title: 'Valvalis',
+},
+{
+    slug: 'calbrena',
+    title: 'Calbrena',
+},
+{
+    slug: 'golbez',
+    title: 'Golbez',
+},
+{
+    slug: 'lugae',
+    title: 'Dr. Lugae',
+},
+{
+    slug: 'darkimp',
+    title: 'Dark Imps',
+},
+{
+    slug: 'kingqueen',
+    title: 'K/Q Eblan',
+},
+{
+    slug: 'rubicant',
+    title: 'Rubicant',
+},
+{
+    slug: 'evilwall',
+    title: 'Evil Wall',
+},
+{
+    slug: 'asura',
+    title: 'Asura',
+},
+{
+    slug: 'leviatan',
+    title: 'Leviatan',
+},
+{
+    slug: 'odin',
+    title: 'Odin',
+},
+{
+    slug: 'bahamut',
+    title: 'Bahamut',
+},
+{
+    slug: 'elements',
+    title: 'Elements',
+},
+{
+    slug: 'cpu',
+    title: 'CPU',
+},
+{
+    slug: 'paledim',
+    title: 'Pale Dim',
+},
+{
+    slug: 'wyvern',
+    title: 'Wyvern',
+},
+{
+    slug: 'plague',
+    title: 'Plague',
+},
+{
+    slug: 'dlunar',
+    title: 'D. Lunars',
+},
+{
+    slug: 'ogopogo',
+    title: 'Ogopogo',
+}]
+
 
 const quests: Quest[] = [{
     slug: 'mistcave',
@@ -120,4 +260,4 @@ const quests: Quest[] = [{
     title: 'Unlock the Pass door in Toroia',
 }];
 
-export { quests }
+export { quests, bosses }
