@@ -13,6 +13,12 @@
     margin: 0 auto;
 }
 
+.boss-time-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .time-button-container {
     display: flex;
     justify-content: space-between;

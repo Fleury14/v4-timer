@@ -13,24 +13,62 @@ type State = {
 };
 
 class BossTimer extends Component<Props, State> {
+    interval:any = null;
     state = {
         isActive: false,
         startTime: 0,
         currentTime: 0,
         pauseTime: 0,
-        finished: false,
+        finished: true,
     }
 
     onPress(e: KeyboardEvent) {
-        // console.log(e);
-        if (e.key === ' ') {
-            
-            if (!this.state.isActive) {
-                this.setState({ isActive: true });
-            } else {
+
+        // typical timer cycle:
+        // on mount: finished && !isActive
+        // clicking once starts timer, transitions to !finished and isActive
+        // clicking a second time stops times, stays unfinished but deactivates the timer
+        // a third event finalized the time, setting it back to finished and !isActive and resets the time
+
+        if (e.key === ' ') {  
+            if (!this.state.isActive && this.state.finished) {
+                this.setState({ isActive: true, finished: false });
+                this.beginTimer();
+            } else if (this.state.isActive && !this.state.finished) {
                 this.setState({ isActive: false });
+                this.endTimer();
+            } else {
+                this.setState({ isActive: false, finished: true });
+                this.resetTimer();
             }
         }
+    }
+
+    beginTimer() {
+        const startDate = this.state.pauseTime === 0 ? Date.now() : Date.now() - this.state.pauseTime;
+        this.interval = setInterval(() => {
+            this.setState({
+                isActive: true,
+                startTime: startDate,
+                currentTime: Date.now() - startDate,
+            });
+        }, 100);
+    }
+
+    endTimer() {
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
+        this.setState({ pauseTime: Date.now() - this.state.startTime, isActive: false });
+    }
+
+    resetTimer() {
+        this.setState({ 
+            isActive: false,
+            startTime: 0,
+            currentTime: 0,
+            pauseTime: 0,
+        })
     }
 
     componentDidMount() {
@@ -42,13 +80,15 @@ class BossTimer extends Component<Props, State> {
     }
 
     render() {
-        const { isActive } = this.state;
+        const { isActive, currentTime, finished } = this.state;
         return (
             <div>
-            {isActive ? (
+            {!finished ? (
                 <React.Fragment>
-                <p>Boss Timer</p>
-                {/* <Clock /> */}
+                    <Clock 
+                        bossTimer
+                        currentTime={currentTime}
+                    />
                 </React.Fragment>
             ) : null}
             </div>
