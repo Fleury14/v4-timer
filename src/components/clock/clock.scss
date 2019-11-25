@@ -17,6 +17,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .timeboss-time {
+        color: #ff9c33;
+    }
+
+    button {
+        color: #000;
+        background-color: #ff9c33;
+        border: none;
+        margin-right: 5px;
+        border-radius: 2px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }
 
 .time-button-container {
