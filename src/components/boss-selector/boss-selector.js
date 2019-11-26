@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import { bosses } from '../../data/flagData';
 import './boss-selector.scss';
@@ -8,6 +9,7 @@ type State = {
 
 type Props = {
     currentTime: number,
+    assignBoss: Function,
 }
 
 class BossSelector extends Component<Props, State> {
@@ -19,8 +21,9 @@ class BossSelector extends Component<Props, State> {
         this.setState({ selected: boss })
     }
 
-    assignBoss({ id, title }) {
+    assignBoss({ id, title }: {id: number, title: string }) {
         console.log(`assign ${title} a time of ${this.props.currentTime}`);
+        this.props.assignBoss({ id, title })
     }
 
     render() {

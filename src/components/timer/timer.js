@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import type { FlagObject, TObjective } from '../../types/types';
+import type { FlagObject, TObjective, BossTime } from '../../types/types';
 import { Clock, Objective, ObjectivePicker, BossTimer } from '..';
 import './timer.scss';
 
@@ -18,6 +18,7 @@ type State = {
     flagObj: ?FlagObject,
     finished: boolean,
     objectiveEditing: ?number,
+    bossTimes: BossTime[]
 }
 
 class TimerComponent extends Component<Props, State> {
@@ -30,6 +31,7 @@ class TimerComponent extends Component<Props, State> {
         flagObj: null,
         finished: false,
         objectiveEditing: null,
+        bossTimes: [],
     }
 
     beginTimer() {
@@ -183,7 +185,9 @@ class TimerComponent extends Component<Props, State> {
                     })}
                 </div>
                 <React.Fragment>
-                    <BossTimer />
+                    <BossTimer 
+                        assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
+                    />
                 </React.Fragment>
                 <React.Fragment>
                     <Clock

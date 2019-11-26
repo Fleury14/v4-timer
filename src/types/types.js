@@ -22,3 +22,9 @@ export type Boss = {
     id: number,
     iconFile: string,
 };
+
+export type BossTime = {
+    id: number,
+    title: string,
+    time: number
+}

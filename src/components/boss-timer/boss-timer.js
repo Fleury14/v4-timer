@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Clock, BossSelector } from '..';
 
-type Props = {};
+type Props = {
+    assignBoss: Function,
+};
 
 type State = {
     isActive: boolean,
@@ -71,6 +73,11 @@ class BossTimer extends Component<Props, State> {
         })
     }
 
+    assignBoss(bossData: {id: number, title: string, time: number}) {
+        const { id, title, time } = bossData;
+        this.props.assignBoss({ id, title, time });
+    }
+
     componentDidMount() {
         document.addEventListener('keyup', this.onPress.bind(this));
     }
@@ -90,7 +97,11 @@ class BossTimer extends Component<Props, State> {
                         currentTime={currentTime}
                     />
                     {isActive ? null : (
-                        <BossSelector currentTime={currentTime} />
+                        <BossSelector currentTime={currentTime} assignBoss={({ id, title }) => {
+                            this.props.assignBoss({ id, title, time: this.state.currentTime });
+                            this.setState({ isActive: false, finished: true });
+                            this.resetTimer();
+                        }} />
                     )}
                 </React.Fragment>
             ) : null}
