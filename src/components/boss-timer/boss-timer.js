@@ -90,7 +90,7 @@ class BossTimer extends Component<Props, State> {
                         currentTime={currentTime}
                     />
                     {isActive ? null : (
-                        <BossSelector />
+                        <BossSelector currentTime={currentTime} />
                     )}
                 </React.Fragment>
             ) : null}

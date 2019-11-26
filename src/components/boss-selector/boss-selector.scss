@@ -1,3 +1,17 @@
 .boss-picker-container {
     display: flex;
+    width: 400px;
+    flex-wrap: wrap;
+
+    img {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 2px;
+
+        &:hover {
+            border: 2px solid yellow;
+            padding: 0px;
+            cursor: pointer;
+        }
+    }
 }
