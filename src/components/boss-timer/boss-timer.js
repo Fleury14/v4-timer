@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Clock } from '..';
+import { Clock, BossSelector } from '..';
 
 type Props = {};
 
@@ -89,6 +89,9 @@ class BossTimer extends Component<Props, State> {
                         bossTimer
                         currentTime={currentTime}
                     />
+                    {isActive ? null : (
+                        <BossSelector />
+                    )}
                 </React.Fragment>
             ) : null}
             </div>

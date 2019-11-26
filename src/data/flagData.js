@@ -95,7 +95,7 @@ const bosses: Boss[] = [{
     slug: 'magus',
     title: 'Magus Sisters',
     id: 16,
-    iconFile: 'FFIVFE-Bosses-16MagusSis-Color',
+    iconFile: 'FFIVFE-Bosses-16MagusSis-Color.png',
 },
 {
     slug: 'valvalis',
