@@ -19,4 +19,6 @@ export type Quest = {
 export type Boss = {
     slug: string,
     title: string,
+    id: number,
+    iconFile: string,
 };
