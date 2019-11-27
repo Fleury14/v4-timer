@@ -221,7 +221,7 @@ const bosses: Boss[] = [{
     slug: 'unknown',
     title: '???',
     id: 99,
-    iconFile: 'question-mark.png',
+    iconFile: 'question.png',
 }
 ]
 
