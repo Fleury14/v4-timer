@@ -10,10 +10,21 @@ type Props = {
 }
 
 type State = {
-    showSelector: false;
+    showSelector: boolean;
 }
 
 class BossTimeDisplay extends Component<Props, State> {
+
+    state = {
+        showSelector: false,
+    }
+
+    handleClick(id: number) {
+        if (id === 99) {
+            console.log('trigger selector');
+        }
+    }
+
     render() {
         return (
             <div>
@@ -24,7 +35,13 @@ class BossTimeDisplay extends Component<Props, State> {
                         if (foundBoss) {
                             return (
                                 <div className="boss-times">
-                                    <img key={foundBoss.id} alt={foundBoss.title} title={foundBoss.title} src={`/images/boss-icons/${foundBoss.iconFile}`} /> 
+                                    <img 
+                                        onClick={() => this.handleClick(id)}
+                                        key={foundBoss.id} alt={foundBoss.title}
+                                        title={foundBoss.title}
+                                        src={`/images/boss-icons/${foundBoss.iconFile}`}
+                                        className={id === 99 ? 'boss-question' : ''}
+                                    /> 
                                     <span>{parseTime(time)}</span>
                                 </div>
                             );

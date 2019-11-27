@@ -14,5 +14,16 @@ h2 {
         align-items: center;
         margin-right: 10px;
         margin-bottom: 10px;
+
+    }
+
+    .boss-question {
+        padding: 2px;
+
+        &:hover {
+            border: 2px solid yellow;
+            padding: 0px;
+            cursor: pointer;
+        }
     }
 }
