@@ -2,8 +2,7 @@
 import React, { Component } from 'react';
 import type { FlagObject, TObjective, BossTime } from '../../types/types';
 import { Clock, Objective, ObjectivePicker, BossTimer } from '..';
-import { bosses } from '../../data/flagData';
-import { parseTime } from '../../helpers/';
+import BossDisplayTime from './boss-time-display';
 import './timer.scss';
 
 // expects prop of flagObj
@@ -192,23 +191,7 @@ class TimerComponent extends Component<Props, State> {
                     />
                 </React.Fragment>
                 {this.state.bossTimes.length ? (
-                    <div>
-                        <div className="boss-times-wrapper">
-                            {this.state.bossTimes.map(bossTime => {
-                                const { id, time } = bossTime;
-                                const foundBoss = bosses.find(boss => boss.id === id);
-                                if (foundBoss) {
-                                    return (
-                                        <div className="boss-times">
-                                            <img key={foundBoss.id} alt={foundBoss.title} title={foundBoss.title} src={`/images/boss-icons/${foundBoss.iconFile}`} /> 
-                                            <span>{parseTime(time)}</span>
-                                        </div>
-                                    );
-                                }
-                                return null;
-                            })}
-                        </div>
-                    </div>
+                    <BossDisplayTime bossTimes={this.state.bossTimes} />
                 ) : null}
                 <React.Fragment>
                     <Clock
