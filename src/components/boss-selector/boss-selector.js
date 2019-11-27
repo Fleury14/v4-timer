@@ -22,7 +22,6 @@ class BossSelector extends Component<Props, State> {
     }
 
     assignBoss({ id, title }: {id: number, title: string }) {
-        console.log(`assign ${title} a time of ${this.props.currentTime}`);
         this.props.assignBoss({ id, title })
     }
 
