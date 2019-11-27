@@ -4,6 +4,7 @@ import { Clock, BossSelector } from '..';
 
 type Props = {
     assignBoss: Function,
+    modifyTime: Function,
 };
 
 type State = {
@@ -80,6 +81,8 @@ class BossTimer extends Component<Props, State> {
         this.props.assignBoss({ id, title, time });
     }
 
+    
+
     componentDidMount() {
         document.addEventListener('keyup', this.onPress.bind(this));
     }
@@ -103,7 +106,9 @@ class BossTimer extends Component<Props, State> {
                             this.props.assignBoss({ id, title, time: this.state.currentTime });
                             this.setState({ isActive: false, finished: true });
                             this.resetTimer();
-                        }} />
+                        }}
+                        modifyTime={({ id, title , time }) => this.props.modifyTime({ id, title, time })}
+                         />
                     )}
                 </React.Fragment>
             ) : null}

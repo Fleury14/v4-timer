@@ -7,21 +7,24 @@ import type { BossTime } from '../../types/types'
 
 type Props = {
     bossTimes: BossTime[];
+    modifyTime: Function;
 }
 
 type State = {
     showSelector: boolean;
+    selectedTime: number;
 }
 
 class BossTimeDisplay extends Component<Props, State> {
 
     state = {
         showSelector: false,
+        selectedTime: 0,
     }
 
-    handleClick(id: number) {
+    handleClick(id: number, time: number) {
         if (id === 99) {
-            console.log('trigger selector');
+            this.setState({ showSelector: true, selectedTime: time });
         }
     }
 
@@ -36,7 +39,7 @@ class BossTimeDisplay extends Component<Props, State> {
                             return (
                                 <div className="boss-times">
                                     <img 
-                                        onClick={() => this.handleClick(id)}
+                                        onClick={() => this.handleClick(id, time)}
                                         key={foundBoss.id} alt={foundBoss.title}
                                         title={foundBoss.title}
                                         src={`/images/boss-icons/${foundBoss.iconFile}`}
@@ -48,6 +51,18 @@ class BossTimeDisplay extends Component<Props, State> {
                         }
                         return null;
                     })}
+                </div>
+                <div>
+                    {this.state.showSelector ? (
+                        <BossSelector 
+                            assignBoss={({id, title}) => {
+                                // modify bosstime array uh oh
+                                this.props.modifyTime({ id, title, time: this.state.selectedTime })
+                                this.setState({ showSelector: false, selectedTime: 0 });
+                                
+                            }}
+                        />
+                    ) : null}
                 </div>
             </div>
         );
