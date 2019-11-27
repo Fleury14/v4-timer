@@ -1,23 +1,11 @@
-h2 {
-    margin: 0;
-}
-
-.boss-times-wrapper {
+.boss-picker-container {
     display: flex;
+    width: 400px;
     flex-wrap: wrap;
 
-    .boss-times {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-size: 10px;
-        align-items: center;
+    img {
         margin-right: 10px;
         margin-bottom: 10px;
-
-    }
-
-    .boss-question {
         padding: 2px;
 
         &:hover {

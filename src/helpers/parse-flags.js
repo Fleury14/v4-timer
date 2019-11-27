@@ -87,7 +87,6 @@ const parseFlags = (flagString: string) => {
 
     // random objectives
     const randomIndex = flagString.indexOf(`random:`);
-    console.log();
     if (randomIndex >= 0) {
         for (let i = 0; i < parseInt(flagString.charAt(randomIndex + 7)); i++) {
             flagObj.objectives.push({

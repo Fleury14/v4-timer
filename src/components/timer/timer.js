@@ -1,7 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import type { FlagObject, TObjective } from '../../types/types';
-import { Clock, Objective, ObjectivePicker } from '..';
+import type { FlagObject, TObjective, BossTime } from '../../types/types';
+import { Clock, Objective, ObjectivePicker, BossTimer } from '..';
+import BossDisplayTime from './boss-time-display';
 import './timer.scss';
 
 // expects prop of flagObj
@@ -18,6 +19,7 @@ type State = {
     flagObj: ?FlagObject,
     finished: boolean,
     objectiveEditing: ?number,
+    bossTimes: BossTime[]
 }
 
 class TimerComponent extends Component<Props, State> {
@@ -30,6 +32,7 @@ class TimerComponent extends Component<Props, State> {
         flagObj: null,
         finished: false,
         objectiveEditing: null,
+        bossTimes: [],
     }
 
     beginTimer() {
@@ -183,6 +186,27 @@ class TimerComponent extends Component<Props, State> {
                     })}
                 </div>
                 <React.Fragment>
+                    <BossTimer 
+                        assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
+                    />
+                </React.Fragment>
+                {this.state.bossTimes.length ? (
+                    <BossDisplayTime
+                        modifyTime={({ id, title, time }) => {
+                            const currentTimes = this.state.bossTimes.slice();
+                            if (currentTimes) {
+                                const foundTime = currentTimes.find(eachTime => eachTime.time === time);
+                                if (foundTime) {
+                                    foundTime.id = id;
+                                    foundTime.title = title;
+                                    this.setState({ bossTimes: currentTimes });
+                                }
+                            }
+                        }}
+                        bossTimes={this.state.bossTimes}
+                    />
+                ) : null}
+                <React.Fragment>
                     <Clock
                         begin={() => this.beginTimer()}
                         stop={() => this.endTimer()}
@@ -203,6 +227,7 @@ class TimerComponent extends Component<Props, State> {
                         />
                     </React.Fragment>
                 ) : null}
+                
             </div>
         );
     }
