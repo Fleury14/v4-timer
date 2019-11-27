@@ -32,15 +32,15 @@ class BossTimeDisplay extends Component<Props, State> {
         return (
             <div>
                 <div className="boss-times-wrapper">
-                    {this.props.bossTimes.map(bossTime => {
+                    {this.props.bossTimes.map((bossTime, index) => {
                         const { id, time } = bossTime;
                         const foundBoss = bosses.find(boss => boss.id === id);
                         if (foundBoss) {
                             return (
-                                <div className="boss-times">
+                                <div className="boss-times" key={`${foundBoss.id}-${index}`} >
                                     <img 
                                         onClick={() => this.handleClick(id, time)}
-                                        key={foundBoss.id} alt={foundBoss.title}
+                                        alt={foundBoss.title}
                                         title={foundBoss.title}
                                         src={`/images/boss-icons/${foundBoss.iconFile}`}
                                         className={id === 99 ? 'boss-question' : ''}
