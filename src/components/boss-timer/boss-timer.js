@@ -40,6 +40,7 @@ class BossTimer extends Component<Props, State> {
                 this.setState({ isActive: false });
                 this.endTimer();
             } else {
+                // user did not select a boss to assign this to, allow it to be unassigned
                 this.setState({ isActive: false, finished: true });
                 this.resetTimer();
             }

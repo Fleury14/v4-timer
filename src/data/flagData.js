@@ -210,7 +210,20 @@ const bosses: Boss[] = [{
     title: 'Ogopogo',
     id: 33,
     iconFile: 'FFIVFE-Bosses-33Ogopogo-Color.png',
-}]
+},
+{
+    slug: 'zeromus',
+    title: 'Zeromus',
+    id: 36,
+    iconFile: 'FFIVFE-Bosses-36Zeromus-Color.png'
+},
+{
+    slug: 'unknown',
+    title: '???',
+    id: 99,
+    iconFile: 'question-mark.png',
+}
+]
 
 
 const quests: Quest[] = [{
