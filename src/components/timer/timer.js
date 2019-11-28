@@ -113,7 +113,6 @@ class TimerComponent extends Component<Props, State> {
     }
 
     applyEdit(id: number, title: string) {
-        console.log('editing', id, title)
         const { flagObj } = this.state;
         if (flagObj && flagObj.objectives) {
             const target:void | TObjective = flagObj.objectives.find(obj => obj.id === id);
