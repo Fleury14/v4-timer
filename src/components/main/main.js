@@ -11,7 +11,6 @@ class MainComponent extends Component {
         return (
             <ColorGateway>
                 <div>
-                    <h1 className="title">FF4FE Objective Timer</h1>
                     <React.Fragment>
                             {!this.state.showTimer && <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />}
                     </React.Fragment>

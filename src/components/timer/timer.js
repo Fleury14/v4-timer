@@ -133,101 +133,106 @@ class TimerComponent extends Component<Props, State> {
         const hasFinishedOne = (this.state.flagObj && this.state.flagObj.objectives && this.state.flagObj.objectives.find(obj => obj.time !== 0));
         
         return (
-            <div>
-                <div>
-                    <h2>Objectives Remaining</h2>
-                    {/* this handles pre-start display, and avoids the need to set state upon mounting/updating */}
-                    {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
-                        if (!objective.time) return (
-                            <Objective
-                                key={objective.id}
-                                title={objective.label}
-                                id={objective.id}
-                                random={objective.random}
-                                finish={(id) => this.objectiveComplete(id)}
-                                edit={() => this.toggleRandomEditor(objective.id)}
-                            />
-                        )
-                        return null;
-                    })}
-                    {/* incomplete objective display upon starting the timer */}
-                    {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
-                        if (!objective.time) return (
-                            <Objective
-                                key={objective.id}
-                                title={objective.label}
-                                id={objective.id}
-                                random={objective.random}
-                                finish={(id) => this.objectiveComplete(id)}
-                                time={objective.time}
-                                undo={(id) => this.undoObjective(id)}
-                                edit={() => this.toggleRandomEditor(objective.id)}
-                            />
-                        )
-                        return null;
-                    })}
-                    {/* completed objectives */}
-                    <h2 className={hasFinishedOne ? '' : 'hidden'}>Objectives Complete</h2>
-                    {sortedObj && sortedObj.map(objective => {
-                        if (objective.time) return (
-                            <Objective
-                                complete
-                                key={objective.id}
-                                title={objective.label}
-                                id={objective.id}
-                                random={objective.random}
-                                finish={(id) => this.objectiveComplete(id)}
-                                time={objective.time}
-                                undo={(id) => this.undoObjective(id)}
-                                editRandom={() => this.toggleRandomEditor(objective.id)}
-                            />
-                        )
-                        return null;
-                    })}
-                </div>
-                <React.Fragment>
-                    <BossTimer 
-                        assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
-                    />
-                </React.Fragment>
-                {this.state.bossTimes.length ? (
-                    <BossDisplayTime
-                        modifyTime={({ id, title, time }) => {
-                            const currentTimes = this.state.bossTimes.slice();
-                            if (currentTimes) {
-                                const foundTime = currentTimes.find(eachTime => eachTime.time === time);
-                                if (foundTime) {
-                                    foundTime.id = id;
-                                    foundTime.title = title;
-                                    this.setState({ bossTimes: currentTimes });
-                                }
-                            }
-                        }}
-                        bossTimes={this.state.bossTimes}
-                    />
-                ) : null}
-                <React.Fragment>
-                    <Clock
-                        begin={() => this.beginTimer()}
-                        stop={() => this.endTimer()}
-                        reset={() => this.resetTimer()}
-                        currentTime={this.state.currentTime}
-                        active={this.state.timerActive}
-                        pauseTime={this.state.pauseTime}
-                        finished={this.state.finished}
-                        reEntry={() => this.props.reEntry()}
-                    />
-                </React.Fragment>
-                {this.state.objectiveEditing !== null ? (
+            <div className="whole-wrapper">
+                <div className="left-wrapper">
+                    <div>
+                        <h2 className="sub-title">REMAINING</h2>
+                        {/* this handles pre-start display, and avoids the need to set state upon mounting/updating */}
+                        {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
+                            if (!objective.time) return (
+                                <Objective
+                                    key={objective.id}
+                                    title={objective.label}
+                                    id={objective.id}
+                                    random={objective.random}
+                                    finish={(id) => this.objectiveComplete(id)}
+                                    edit={() => this.toggleRandomEditor(objective.id)}
+                                />
+                            )
+                            return null;
+                        })}
+                        {/* incomplete objective display upon starting the timer */}
+                        {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
+                            if (!objective.time) return (
+                                <Objective
+                                    key={objective.id}
+                                    title={objective.label}
+                                    id={objective.id}
+                                    random={objective.random}
+                                    finish={(id) => this.objectiveComplete(id)}
+                                    time={objective.time}
+                                    undo={(id) => this.undoObjective(id)}
+                                    edit={() => this.toggleRandomEditor(objective.id)}
+                                />
+                            )
+                            return null;
+                        })}
+                        {/* completed objectives */}
+                        <h2 className={hasFinishedOne ? 'sub-title' : 'hidden'}>Objectives Complete</h2>
+                        {sortedObj && sortedObj.map(objective => {
+                            if (objective.time) return (
+                                <Objective
+                                    complete
+                                    key={objective.id}
+                                    title={objective.label}
+                                    id={objective.id}
+                                    random={objective.random}
+                                    finish={(id) => this.objectiveComplete(id)}
+                                    time={objective.time}
+                                    undo={(id) => this.undoObjective(id)}
+                                    editRandom={() => this.toggleRandomEditor(objective.id)}
+                                />
+                            )
+                            return null;
+                        })}
+                    </div>
                     <React.Fragment>
-                        <ObjectivePicker
-                            id={this.state.objectiveEditing}
-                            edit={(id, title) => this.applyEdit(id, title)}    
-                            done={() => this.setState({ objectiveEditing: null })}
+                        <BossTimer 
+                            assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
                         />
                     </React.Fragment>
-                ) : null}
-                
+                    {this.state.bossTimes.length ? (
+                        <BossDisplayTime
+                            modifyTime={({ id, title, time }) => {
+                                const currentTimes = this.state.bossTimes.slice();
+                                if (currentTimes) {
+                                    const foundTime = currentTimes.find(eachTime => eachTime.time === time);
+                                    if (foundTime) {
+                                        foundTime.id = id;
+                                        foundTime.title = title;
+                                        this.setState({ bossTimes: currentTimes });
+                                    }
+                                }
+                            }}
+                            bossTimes={this.state.bossTimes}
+                        />
+                    ) : null}
+                    <React.Fragment>
+                        <Clock
+                            begin={() => this.beginTimer()}
+                            stop={() => this.endTimer()}
+                            reset={() => this.resetTimer()}
+                            currentTime={this.state.currentTime}
+                            active={this.state.timerActive}
+                            pauseTime={this.state.pauseTime}
+                            finished={this.state.finished}
+                            reEntry={() => this.props.reEntry()}
+                        />
+                    </React.Fragment>
+                    
+                    
+                </div>
+                <div>
+                    {this.state.objectiveEditing !== null ? (
+                        <React.Fragment>
+                            <ObjectivePicker
+                                id={this.state.objectiveEditing}
+                                edit={(id, title) => this.applyEdit(id, title)}    
+                                done={() => this.setState({ objectiveEditing: null })}
+                            />
+                        </React.Fragment>
+                    ) : null}
+                </div>
             </div>
         );
     }
