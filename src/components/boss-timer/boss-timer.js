@@ -100,6 +100,20 @@ class BossTimer extends Component<Props, State> {
                     <Clock 
                         bossTimer
                         currentTime={currentTime}
+                        begin={() => this.beginTimer()}
+                        stop={() => this.endTimer()}
+                        reset={() => {
+                            if (this.interval) {
+                                clearInterval(this.interval);
+                            }
+                            this.setState({
+                                isActive: false,
+                                startTime: 0,
+                                currentTime: 0,
+                                pauseTime: 0,
+                                finished: true,
+                            });
+                        }}
                     />
                     {isActive ? null : (
                         <BossSelector currentTime={currentTime} assignBoss={({ id, title }) => {
