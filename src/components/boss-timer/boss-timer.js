@@ -56,6 +56,7 @@ class BossTimer extends Component<Props, State> {
                 isActive: true,
                 startTime: startDate,
                 currentTime: Date.now() - startDate,
+                pauseTime: 0,
             });
         }, 100);
     }
@@ -92,7 +93,7 @@ class BossTimer extends Component<Props, State> {
     }
 
     render() {
-        const { isActive, currentTime, finished } = this.state;
+        const { isActive, currentTime, finished, pauseTime } = this.state;
         return (
             <div>
             {!finished ? (
@@ -100,6 +101,7 @@ class BossTimer extends Component<Props, State> {
                     <Clock 
                         bossTimer
                         currentTime={currentTime}
+                        pauseTime={pauseTime}
                         begin={() => this.beginTimer()}
                         stop={() => this.endTimer()}
                         reset={() => {

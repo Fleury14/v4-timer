@@ -23,7 +23,7 @@ const Clock = (props: Props) => {
             <div className={`${bossTimer ? 'boss-' : ''}time-container`}>
                 <p className={`time${props.finished ? ' time-finished' : ''}${bossTimer ? 'boss-time' : ''}`}>{parseTime(props.currentTime)}</p>
                 <div className={`${bossTimer ? 'boss-' : ''}time-button-container`}>
-                    <button disabled={props.active} onClick={() => props.begin()}>{props.pauseTime ? 'Resume' : 'Start'}</button>
+                    <button disabled={props.active || (props.bossTimer && !props.pauseTime)} onClick={() => props.begin()}>{props.pauseTime ? 'Resume' : 'Start'}</button>
                     <button onClick={() => props.stop()}>Stop</button>
                     <button onClick={() => props.reset()}>Reset</button>
                 </div>
