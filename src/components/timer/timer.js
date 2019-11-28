@@ -135,7 +135,7 @@ class TimerComponent extends Component<Props, State> {
         return (
             <div>
                 <div>
-                    <h2>Objectives Remaining</h2>
+                    <h2 className="sub-title">REMAINING</h2>
                     {/* this handles pre-start display, and avoids the need to set state upon mounting/updating */}
                     {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                         if (!objective.time) return (
@@ -167,7 +167,7 @@ class TimerComponent extends Component<Props, State> {
                         return null;
                     })}
                     {/* completed objectives */}
-                    <h2 className={hasFinishedOne ? '' : 'hidden'}>Objectives Complete</h2>
+                    <h2 className={hasFinishedOne ? 'sub-title' : 'hidden'}>Objectives Complete</h2>
                     {sortedObj && sortedObj.map(objective => {
                         if (objective.time) return (
                             <Objective

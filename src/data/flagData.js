@@ -149,7 +149,7 @@ const bosses: Boss[] = [{
     slug: 'asura',
     title: 'Asura',
     id: 27,
-    iconFile: 'FFIVFE-Bosses-24Fiends-Color.png'
+    iconFile: 'FFIVFE-Bosses-27Asura-Color.png'
 },
 {
     slug: 'leviatan',
