@@ -6,6 +6,23 @@
     }
 }
 
+.picker-boss-icons {
+    display: flex;
+    flex-wrap: wrap;
+
+    img {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 2px;
+
+        &:hover {
+            padding: 0px;
+            border: 2px solid yellow;
+            cursor: pointer;
+        }
+    }
+}
+
 .picker-button {
     height: 50px;
     width: 50px;
