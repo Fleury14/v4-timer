@@ -8,6 +8,14 @@ h2 {
     text-decoration: underline;
 }
 
+.whole-wrapper {
+    display: flex;
+}
+
+.left-wrapper {
+    width: 400px;
+}
+
 .boss-times-wrapper {
     display: flex;
     flex-wrap: wrap;
