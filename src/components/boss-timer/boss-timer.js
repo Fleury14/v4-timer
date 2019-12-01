@@ -112,8 +112,7 @@ class BossTimer extends Component<Props, State> {
                             if (this.interval) {
                                 clearInterval(this.interval);
                             }
-                            console.log(document.body);
-                            if (document.body !== null) document.body.classList.add('no-scroll');
+                            if (document.body) document.body.classList.add('no-scroll');
                             
                             
                             this.setState({
