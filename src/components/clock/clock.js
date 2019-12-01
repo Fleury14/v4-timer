@@ -14,6 +14,7 @@ type Props = {
     reset: Function,
     reEntry: Function,
     bossTimer?: boolean,
+    children: any,
 }
 
 const Clock = (props: Props) => {
@@ -22,6 +23,9 @@ const Clock = (props: Props) => {
         <div>
             <div className={`${bossTimer ? 'boss-' : ''}time-container`}>
                 <p className={`time${props.finished ? ' time-finished' : ''}${bossTimer ? 'boss-time' : ''}`}>{parseTime(props.currentTime)}</p>
+                <div>
+                    {props.children}
+                </div>
                 <div className={`${bossTimer ? 'boss-' : ''}time-button-container`}>
                     <button disabled={props.active || (props.bossTimer && !props.pauseTime)} onClick={() => props.begin()}>{props.pauseTime ? 'Resume' : 'Start'}</button>
                     <button onClick={() => props.stop()}>Stop</button>

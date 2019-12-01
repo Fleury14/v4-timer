@@ -187,27 +187,6 @@ class TimerComponent extends Component<Props, State> {
                         })}
                     </div>
                     <React.Fragment>
-                        <BossTimer 
-                            assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
-                        />
-                    </React.Fragment>
-                    {this.state.bossTimes.length ? (
-                        <BossDisplayTime
-                            modifyTime={({ id, title, time }) => {
-                                const currentTimes = this.state.bossTimes.slice();
-                                if (currentTimes) {
-                                    const foundTime = currentTimes.find(eachTime => eachTime.time === time);
-                                    if (foundTime) {
-                                        foundTime.id = id;
-                                        foundTime.title = title;
-                                        this.setState({ bossTimes: currentTimes });
-                                    }
-                                }
-                            }}
-                            bossTimes={this.state.bossTimes}
-                        />
-                    ) : null}
-                    <React.Fragment>
                         <Clock
                             begin={() => this.beginTimer()}
                             stop={() => this.endTimer()}
@@ -217,7 +196,27 @@ class TimerComponent extends Component<Props, State> {
                             pauseTime={this.state.pauseTime}
                             finished={this.state.finished}
                             reEntry={() => this.props.reEntry()}
-                        />
+                        >
+                            <BossTimer 
+                                assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
+                            />
+                            {this.state.bossTimes.length ? (
+                            <BossDisplayTime
+                                modifyTime={({ id, title, time }) => {
+                                    const currentTimes = this.state.bossTimes.slice();
+                                    if (currentTimes) {
+                                        const foundTime = currentTimes.find(eachTime => eachTime.time === time);
+                                        if (foundTime) {
+                                            foundTime.id = id;
+                                            foundTime.title = title;
+                                            this.setState({ bossTimes: currentTimes });
+                                        }
+                                    }
+                                }}
+                                bossTimes={this.state.bossTimes}
+                            />
+                        ) : null}
+                        </Clock>
                     </React.Fragment>
                     
                     
