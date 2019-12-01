@@ -196,7 +196,6 @@ class TimerComponent extends Component<Props, State> {
                             pauseTime={this.state.pauseTime}
                             finished={this.state.finished}
                             reEntry={() => this.props.reEntry()}
-                            assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
                         >
                             <BossTimer 
                                 assignBoss={({ id, title, time }) => this.setState({ bossTimes: [...this.state.bossTimes, { id, title, time }]})}
