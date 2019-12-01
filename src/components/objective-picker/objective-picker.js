@@ -40,16 +40,16 @@ const ObjectivePicker = (props: Props) => {
                 })}
             </div>
             <h2>Quests</h2>
-            <div className="picker-button-row">
+            <div className="picker-button-row quest-button-row">
                 {quests.map(quest => {
-                    const title = `${quest.title}`;
+                    const title = `${quest.buttonText}`;
                     return (
                         <button
                             key={quest.slug}
                             className="picker-quest-button"
                             onClick={() => edit(id, title)}
                         >
-                            {quest.title}
+                            {quest.buttonText}
                         </button>
                     );
                 })}

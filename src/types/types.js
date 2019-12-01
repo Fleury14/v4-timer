@@ -14,6 +14,7 @@ export type FlagObject = {
 export type Quest = {
     slug: string,
     title: string,
+    buttonText: string,
 };
 
 export type Boss = {

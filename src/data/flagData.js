@@ -229,120 +229,159 @@ const bosses: Boss[] = [{
 const quests: Quest[] = [{
     slug: 'mistcave',
     title: 'Mist Cave boss',
+    buttonText: 'Mist Cave',
 }, {
     slug: 'waterfall',
     title: 'Waterfall boss',
+    buttonText: 'Waterfall',
 }, {
     slug: 'antlionnest',
     title: 'Complete the Antlion Nest',
+    buttonText: 'Antion Cave',
 }, {
     slug: 'hobs',
     title: 'Rescue the hostage on Mt. Hobs',
+    buttonText: 'Mt. Hobbs',
 }, {
     slug: 'fabul',
     title: 'Defend Fabul',
+    buttonText: 'Fabul',
 }, {
     slug: 'ordeals',
     title: 'Complete Mt. Ordeals',
+    buttonText: 'Ordeals',
 }, {
     slug: 'baroninn',
     title: 'Defeat Baron Inn bosses',
+    buttonText: 'Baron Inn',
 }, {
     slug: 'baroncastle',
     title: 'Liberate Baron Castle',
+    buttonText: 'Baron King',
 }, {
     slug: 'magnes',
     title: 'Complete Cave Magnes',
+    buttonText: 'Cave Magnes',
 }, {
     slug: 'zot',
     title: 'Complete the Tower of Zot',
+    buttonText: 'Tower of Zot',
 }, {
     slug: 'dwarfcastle',
     title: 'Defeat the bosses of Dwarf Castle',
+    buttonText: 'Dwarf Castle',
 }, {
     slug: 'lowerbabil',
     title: 'Defeat the boss of Lower Bab-il',
+    buttonText: 'Lugae Spot',
 }, {
     slug: 'falcon',
     title: 'Launch the Falcon',
+    buttonText: 'Launch Falcon',
 }, {
     slug: 'sealedcave',
     title: 'Complete the Sealed Cave',
+    buttonText: 'Sealed Cave',
 }, {
     slug: 'monsterqueen',
     title: 'Asura spot boss',
+    buttonText: 'Asura Spot',
 }, {
     slug: 'monsterking',
     title: 'Leviatan spot boss',
+    buttonText: 'Leviatan Spot',
 }, {
     slug: 'baronbasement',
     title: 'Odin spot boss',
+    buttonText: 'Odin Spot',
 }, {
     slug: 'giant',
     title: 'Complete the Giant of Bab-il',
+    buttonText: 'Giant of Bab-il',
 }, {
     slug: 'cavebahamut',
     title: 'Complete Cave Bahamut',
+    buttonText: 'Cave Bahamut',
 }, {
     slug: 'murasamealtar',
     title: 'Vanilla Murasame (Paledim)',
+    buttonText: 'Murasame Spot',
 }, {
     slug: 'crystalaltar',
     title: 'Vanilla Crystal Sword (Wyvern)',
+    buttonText: 'Wyvern Spot',
 }, {
     slug: 'whitealtar',
     title: 'Vanilla White Spear (Plague)',
+    buttonText: 'Plague Spot',
 }, {
     slug: 'ribbonaltar',
     title: 'Vanilla Ribbon (D.Lunars)',
+    buttonText: 'D. Lunar Spot',
 }, {
     slug: 'masamunealtar',
     title: 'Vanilla Masamune (Ogopogo)',
+    buttonText: 'Ogopogo Spot',
 }, {
     slug: 'burnmist',
     title: 'Burn the village Mist with the Package',
+    buttonText: 'Burn Mist',
 }, {
     slug: 'curefever',
     title: 'Cure the fever with the SandRuby',
+    buttonText: 'Turn in Sandruby',
 }, {
     slug: 'unlocksewer',
     title: 'Unlock the sewer with the Baron Key',
+    buttonText: 'Unlock Baron Sewer',
 }, {
     slug: 'music',
     title: 'Break the Dark Elf\'s spell with the TwinHarp',
+    buttonText: 'Cave Magnes',
 }, {
     slug: 'toroiatreasury',
     title: 'Open the Toroia treasury',
+    buttonText: 'Toroia Treasury',
 }, {
     slug: 'magma',
     title: 'Drop the Magma Key into the Agart well',
+    buttonText: 'Turn Magma Key',
 }, {
     slug: 'supercannon',
     title: 'Destroy the Super Cannon',
+    buttonText: 'Super Cannon',
 }, {
     slug: 'unlocksealedcave',
     title: 'Unlock the Sealed Cave',
+    buttonText: 'Unlock Sealed Cave',
 }, {
     slug: 'bigwhale',
     title: 'Raise the Big Whale',
+    buttonText: 'Big Whale',
 }, {
     slug: 'traderat',
     title: 'Trade away Rat Tail',
+    buttonText: 'Rat Tail',
 }, {
     slug: 'forge',
     title: 'Have Kokkol Forge',
+    buttonText: 'Kokkol Forge',
 }, {
     slug: 'wakeyang',
     title: 'Wake Yang with the Pan',
+    buttonText: 'Wake Yang',
 }, {
     slug: 'tradepan',
     title: 'Return the Pan to Yang\'s wife',
+    buttonText: 'Turn in Pan',
 }, {
     slug: 'tradepink',
     title: 'Trade away the Pink Tail',
+    buttonText: 'Pink Tail',
 }, {
     slug: 'pass',
     title: 'Unlock the Pass door in Toroia',
+    buttonText: 'Turn in Pass',
 }];
 
 export { quests, bosses }
