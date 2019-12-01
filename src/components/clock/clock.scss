@@ -1,6 +1,9 @@
 .time {
     font-size: 60px;
+    line-height: 80px;
+    width: 200px;
     margin: 0;
+    margin-left: 100px;
 }
 
 .time-finished {
@@ -8,8 +11,7 @@
 }
 
 .time-container {
-    width: 200px;
-    margin: 0 auto;
+    width: 400px;
 }
 
 .boss-time-container {
@@ -36,11 +38,11 @@
 
 .time-button-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 50px auto 10px;
 
     button {
-        width: 60px;
+        width: 80px;
         height: 40px;
         background-color: #262626;
         color: #ff9c33;
