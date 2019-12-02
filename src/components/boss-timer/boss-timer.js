@@ -34,22 +34,24 @@ class BossTimer extends Component<Props, State> {
         // a third event finalized the time, setting it back to finished and !isActive and resets the time
 
         if (e.key === ' ') {  
+            if (document.body) document.body.classList.add('no-scroll');
             if (!this.state.isActive && this.state.finished) {
                 this.setState({ isActive: true, finished: false });
                 this.beginTimer();
+                if(document.body) document.body.classList.remove('no-scroll');        
             } else if (this.state.isActive && !this.state.finished) {
                 this.setState({ isActive: false });
                 this.endTimer();
+                
             } else {
                 // user did not select a boss to assign this to, allow it to be unassigned
-                if (document.body) document.body.classList.add('no-scroll');
                 this.props.assignBoss({ id: 99, title: '???', time: this.state.currentTime });
-                
                 this.setState({ isActive: false, finished: true }, () => {
-                    if(document.body) document.body.classList.remove('no-scroll')
+                if(document.body) document.body.classList.remove('no-scroll');        
                 });
                 this.resetTimer();
             }
+            
         }
     }
 
@@ -78,7 +80,8 @@ class BossTimer extends Component<Props, State> {
             startTime: 0,
             currentTime: 0,
             pauseTime: 0,
-        })
+        });
+        
     }
 
     assignBoss(bossData: {id: number, title: string, time: number}) {
