@@ -15,6 +15,9 @@ const ObjectivePicker = (props: Props) => {
     const { id, edit, done } = props;
     return (
         <div className="picker-container">
+            <div className="center-me">
+                <button className="picker-done" onClick={() => done()}>Done</button>
+            </div>
             <h2>Character</h2>
             <div className="picker-button-row">
                 {characters.map(char => {

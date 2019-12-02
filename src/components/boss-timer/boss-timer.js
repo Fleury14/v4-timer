@@ -44,9 +44,8 @@ class BossTimer extends Component<Props, State> {
                 // user did not select a boss to assign this to, allow it to be unassigned
                 if (document.body) document.body.classList.add('no-scroll');
                 this.props.assignBoss({ id: 99, title: '???', time: this.state.currentTime });
-                
                 this.setState({ isActive: false, finished: true }, () => {
-                    if(document.body) document.body.classList.remove('no-scroll')
+                    if(document.body) document.body.classList.remove('no-scroll');
                 });
                 this.resetTimer();
             }
