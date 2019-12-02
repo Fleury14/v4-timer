@@ -76,14 +76,11 @@ class BossTimer extends Component<Props, State> {
     }
 
     resetTimer() {
-        if (document.body) document.body.classList.add('no-scroll');
         this.setState({ 
             isActive: false,
             startTime: 0,
             currentTime: 0,
             pauseTime: 0,
-        }, () => {
-            if(document.body) document.body.classList.remove('no-scroll');
         });
         
     }
