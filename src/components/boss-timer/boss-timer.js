@@ -135,6 +135,7 @@ class BossTimer extends Component<Props, State> {
                     {isActive ? null : (
                         <BossSelector currentTime={currentTime} assignBoss={({ id, title }) => {
                             this.props.assignBoss({ id, title, time: this.state.currentTime });
+                            if (document.body) document.body.classList.remove('no-scroll');
                             this.setState({ isActive: false, finished: true });
                             this.resetTimer();
                         }}
