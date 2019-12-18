@@ -128,7 +128,7 @@ class TimerComponent extends Component<Props, State> {
         // sort objectives by finished time for completed objectives
         let sortedObj = null;
         if (this.state.flagObj) {
-            sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time && b.time ? a.time - b.time : 0);
+            sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time !== undefined && b.time !== undefined ? a.time - b.time : 0);
         }
         const hasFinishedOne = (this.state.flagObj && this.state.flagObj.objectives && this.state.flagObj.objectives.find(obj => obj.time !== 0));
         
@@ -168,7 +168,7 @@ class TimerComponent extends Component<Props, State> {
                             return null;
                         })}
                         {/* completed objectives */}
-                        <h2 className={hasFinishedOne ? 'sub-title' : 'hidden'}>Objectives Complete</h2>
+                        <h2 className={hasFinishedOne ? 'sub-title' : 'hidden'}>COMPLETE</h2>
                         {sortedObj && sortedObj.map(objective => {
                             if (objective.time) return (
                                 <Objective

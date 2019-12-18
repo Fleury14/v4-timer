@@ -42,5 +42,10 @@ describe("Timer Component", () => {
         expect(wrapper.state('startTime')).toBe(0);
         expect(wrapper.state('bossTimes')).toHaveLength(0);
         expect(wrapper.state('currentTime')).toBe(0);
+
+        // the one objective remaining should draw
+        expect(wrapper.containsMatchingElement(
+            <p>Defeat Zeromus</p>
+        ))
     });
 });
