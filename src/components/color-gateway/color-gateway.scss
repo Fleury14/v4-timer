@@ -5,10 +5,15 @@
     min-height: 100vh;
 }
 
-.color-changer {
+.changer-row {
+    display: flex;
+}
+
+.color-changer, .key-changer {
     font-size: 12px;
     display: flex;
     align-items: center;
+    margin-right: 50px;
 
     input {
         margin-left: 10px;
@@ -30,4 +35,8 @@
             cursor: pointer;
         }
     }
+}
+
+.desired-key-prompt {
+    margin-left: 20px;
 }
