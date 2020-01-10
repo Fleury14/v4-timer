@@ -28,7 +28,7 @@ class ColorGateway extends Component<Props, State> {
     keyListener:any = null;
 
     componentDidMount() {
-        document.addEventListener('keyup', this.listenerCommands.bind(this))
+        document.addEventListener('keyup', this.listenerCommands.bind(this));
         const savedColor: ?string = localStorage.getItem('color');
         const savedKey: ?string = localStorage.getItem('key');
         const savedCode: ?string = localStorage.getItem('code');
