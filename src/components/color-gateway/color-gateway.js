@@ -54,7 +54,7 @@ class ColorGateway extends Component<Props, State> {
     }
 
     componentWillUnmount() {
-        document.addEventListener('keyup', this.listenerCommands.bind(this))
+        document.removeEventListener('keyup', this.listenerCommands.bind(this))
     }
 
     inputKey() {
