@@ -33,7 +33,8 @@ class BossTimer extends Component<Props, State> {
         // clicking a second time stops times, stays unfinished but deactivates the timer
         // a third event finalized the time, setting it back to finished and !isActive and resets the time
         const selectedKey = localStorage.getItem('key');
-        if (e.key === selectedKey) {  
+        const targetKey = selectedKey || ' ';
+        if (e.key === targetKey) {  
             if (document.body) document.body.classList.add('no-scroll');
             if (!this.state.isActive && this.state.finished) {
                 this.setState({ isActive: true, finished: false });
