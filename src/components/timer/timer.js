@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { FlagObject, TObjective, BossTime } from '../../types/types';
-import { Clock, Objective, ObjectivePicker, BossTimer } from '..';
+import { Clock, Objective, ObjectivePicker, BossTimer, FlagInfo } from '..';
 import BossDisplayTime from './boss-time-display';
 import './timer.scss';
 
@@ -230,7 +230,11 @@ class TimerComponent extends Component<Props, State> {
                                 done={() => this.setState({ objectiveEditing: null })}
                             />
                         </React.Fragment>
-                    ) : null}
+                    ) : (
+                        <React.Fragment>
+                            <FlagInfo />
+                        </React.Fragment>
+                    )}
                 </div>
             </div>
         );

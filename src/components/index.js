@@ -8,5 +8,6 @@ import ColorGateway from './color-gateway/color-gateway';
 import Login from './login/login';
 import BossTimer from './boss-timer/boss-timer';
 import BossSelector from './boss-selector/boss-selector';
+import FlagInfo from './flag-info/flag-info';
 
-export { MainComponent, FlagInput, Timer, Clock, Objective, ObjectivePicker, ColorGateway, Login, BossTimer, BossSelector };
+export { MainComponent, FlagInput, Timer, Clock, Objective, ObjectivePicker, ColorGateway, Login, BossTimer, BossSelector, FlagInfo };
