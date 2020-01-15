@@ -14,6 +14,7 @@ class FlagInputForm extends Component {
 
     onSubmit(e, flags) {
         e.preventDefault();
+        sessionStorage.setItem('flags', flags)
         const flagObj = parseFlags(flags);
         this.props.startTime(flagObj);
     }
