@@ -7,9 +7,17 @@ const FlagInfo = (props: string) => {
     const flags = sessionStorage.getItem('flags');
     if (!flags) return null;
     return (
-        <div>
-        Characters: {renderCharacters(flags)}
-        </div>
+        <React.Fragment>
+            <div className="flag-info-row">
+                <p className="flag-info-label">Characters:</p>
+                {renderCharacters(flags)}
+            </div>
+            <div className="flag-info-row">
+                <p className="flag-info-label">Treasure:</p>
+                {renderTreasure(flags)}
+            </div>
+        </React.Fragment>
+
     );
 }
 
@@ -26,7 +34,7 @@ const renderCharacters = (flags: string) => {
             break;
         }
     }
-    const charString = flags.slice(beginC, endC)
+    const charString = flags.slice(beginC, endC);
 
     // main character setting
     if (charString.indexOf('standard') >= 0) {
@@ -71,6 +79,46 @@ const renderCharacters = (flags: string) => {
     }
 
     return (<div>{characterText}</div>);
+}
+
+const renderTreasure = (flags) => {
+    const TreasureText = [];
+
+    // get character section of flag string
+    const beginT = flags.indexOf('T');
+    let endT = flags.length;
+    for (let i = beginT; i < flags.length; i++) {
+        const charTest = flags.charAt(i);
+        if(charTest === ' ') {
+            endT = i;
+            break;
+        }
+    }
+    const trString = flags.slice(beginT, endT);
+    
+    // check initial treasure settings
+    if (trString.indexOf('standard') >= 0) {
+        TreasureText.push(<span key="standard"> Standard (Unweighted)</span>);
+    }
+    if (trString.indexOf('pro') >= 0) {
+        TreasureText.push(<span key="pro"> Pro (Weighted)</span>);
+    }
+    if (trString.indexOf('wildish') >= 0) {
+        TreasureText.push(<span key="wildish"> Wild-ish (Weighted)</span>)
+    }
+    if (trString.indexOf('wild') >= 0 && trString.indexOf('wildish') < 0) {
+        TreasureText.push(<span key="wild"> Wild (Unweighted)</span>);
+    }
+
+    // modifiers
+    if (trString.indexOf('sparse') >= 0) {
+        // find where "sparse" is located, then grab out where the percentage
+        const sparseIndex = trString.indexOf('sparse');
+        const percent = trString.slice(sparseIndex + 7, sparseIndex + 9);
+        TreasureText.push(<span key="sparse"> Sparse: {percent}%</span>);
+    }
+
+    return (<div>{TreasureText}</div>)
 }
 
 export default FlagInfo;
