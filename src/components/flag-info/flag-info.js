@@ -120,6 +120,8 @@ const renderGlitches = (flags) => {
 
     if (glitchString.indexOf('life') < 0) {
         glitchText.push(<span key="no-life" className="flag-badge"> No Life</span>);
+    } else {
+        glitchText.push(<span key="life" className="flag-badge"> Life</span>);
     }
     if (glitchString.indexOf('warp') >= 0) {
         glitchText.push(<span key="warp" className="flag-badge"> Warp</span>);
