@@ -68,6 +68,16 @@ const renderCharacters = (flags: string) => {
     if (charString.indexOf('abilities') >= 0) {
         characterText.push(<span key="j-abilities" className="flag-badge"> J-Abilities</span>)
     }
+    if (charString.indexOf('distinct') >= 0) {
+        const distinctIndex = charString.indexOf('distinct');
+        const numStart = distinctIndex + 9;
+        const isTwoDigit = numStart === charString.length - 1 || charString.charAt(numStart + 1) === '/';
+        const numOfChars = parseInt(charString.slice(numStart, isTwoDigit ? numStart + 2 : numStart + 1));
+        characterText.push(numOfChars < 8
+        ? <span key="distinct" className="flag-badge flag-badge-danger">{numOfChars} distinct</span>
+        : <span key="distinct" className="flag-badge">{numOfChars} distinct</span>
+        );
+    }
     if (charString.indexOf('maybe') >= 0) {
         characterText.push(<span key="maybe" className="flag-badge"> Not guaranteed</span>)
     }
