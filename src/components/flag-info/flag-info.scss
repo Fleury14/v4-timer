@@ -14,13 +14,23 @@
 }
 
 .flag-badge {
-    background-color: #fff;
+    background-color: #fadf0f;
     border: #333;
     color: #333;
     border-radius: 10px;
     padding: 5px;
     margin-right: 10px;
 
+}
+
+.flag-badge-danger {
+    background-color: #770000;
+    color: #fff;
+}
+
+.flag-badge-yay {
+    background-color: #007700;
+    color: #fff;
 }
 
 .flag-presets {

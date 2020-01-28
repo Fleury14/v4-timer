@@ -6,8 +6,13 @@ import './flag-info.scss';
 const FlagInfo = (props: string) => {
     const flags = sessionStorage.getItem('flags');
     if (!flags) return null;
+    const vanillaData = renderVanilla(flags);
     return (
         <React.Fragment>
+            <div className="flag-info-row">
+                <p className="flag-info-label">Key Items:</p>
+                {renderKeyItems(flags)}
+            </div>
             <div className="flag-info-row">
                 <p className="flag-info-label">Characters:</p>
                 {renderCharacters(flags)}
@@ -24,6 +29,16 @@ const FlagInfo = (props: string) => {
                 <p className="flag-info-label">Glitches:</p>
                 {renderGlitches(flags)}
             </div>
+            <div className="flag-info-row">
+                <p className="flag-info-label">Misc:</p>
+                {renderMisc(flags)}
+            </div>
+            {vanillaData ? (
+                <div className="flag-info-row">
+                    <p className="flag-info-label">Vanilla: </p>
+                    {vanillaData}
+                </div>
+            ) : null}
         </React.Fragment>
 
     );
@@ -63,13 +78,13 @@ const renderCharacters = (flags: string) => {
         characterText.push(<span key="nodupes" className="flag-badge"> No Dupes</span>)
     }
     if (charString.indexOf('permadeath') >= 0) {
-        characterText.push(<span key="permadeath" className="flag-badge"> Permadeath</span>)
+        characterText.push(<span key="permadeath" className="flag-badge flag-badge-danger"> Permadeath</span>)
     }
     if (charString.indexOf('permajoin') >= 0) {
-        characterText.push(<span key="permajoin" className="flag-badge"> Permajoin</span>)
+        characterText.push(<span key="permajoin" className="flag-badge flag-badge-danger"> Permajoin</span>)
     }
     if (charString.indexOf('permadeader') >= 0) {
-        characterText.push(<span key="permadeader" className="flag-badge"> PermaDEADER</span>)
+        characterText.push(<span key="permadeader" className="flag-badge flag-badge-danger"> PermaDEADER</span>)
     }
 
     return (<div>{characterText}</div>);
@@ -92,7 +107,7 @@ const renderTreasure = (flags) => {
         TreasureText.push(<span key="wildish" className="flag-badge"> Wild-ish (Weighted)</span>)
     }
     if (trString.indexOf('wild') >= 0 && trString.indexOf('wildish') < 0) {
-        TreasureText.push(<span key="wild" className="flag-badge"> Wild (Unweighted)</span>);
+        TreasureText.push(<span key="wild" className="flag-badge flag-badge-yay"> Wild (Unweighted)</span>);
     }
 
     // modifiers
@@ -119,7 +134,7 @@ const renderGlitches = (flags) => {
     const glitchString = getPropertySection(flags, 'G');
 
     if (glitchString.indexOf('life') < 0) {
-        glitchText.push(<span key="no-life" className="flag-badge"> No Life</span>);
+        glitchText.push(<span key="no-life" className="flag-badge flag-badge-danger"> No Life</span>);
     } else {
         glitchText.push(<span key="life" className="flag-badge"> Life</span>);
     }
@@ -136,7 +151,7 @@ const renderGlitches = (flags) => {
         glitchText.push(<span key="64" className="flag-badge"> 64 Door</span>);
     }
 
-    return glitchText;
+    return (<div>{glitchText}</div>);
 }
 
 const renderShops = (flags) => {
@@ -151,8 +166,87 @@ const renderShops = (flags) => {
     if (shopString.indexOf('standard') >= 0) {
         shopText.push(<span key="standard" className="flag-badge">Standard</span>);
     }
+    if (shopString.indexOf('pro') >= 0) {
+        shopText.push(<span key="standard" className="flag-badge">Pro</span>);
+    }
+    if (shopString.indexOf('wild') >= 0) {
+        shopText.push(<span key="standard" className="flag-badge flag-badge-yay">Wild</span>);
+    }
+    if (shopString.indexOf('apples') >= 0) {
+        shopText.push(<span key="no-apples" className="flag-badge">No Apples</span>);
+    }
+    if (shopString.indexOf('sirens') >= 0) {
+        shopText.push(<span key="no-sirens" className="flag-badge flag-badge-danger">No Sirens</span>);
+    }
 
-    return shopText;
+    return (<div>{shopText}</div>);
+}
+
+const renderKeyItems = (flags: string) => {
+    const keyItems = [];
+
+    const keyItemString = getPropertySection(flags, 'K');
+
+    if (keyItemString.indexOf('vanilla') >= 0) {
+        keyItems.push(<span key="vanilla" className="flag-badge">Vanilla</span>);
+    }
+    if (keyItemString.indexOf('summon') >= 0) {
+        keyItems.push(<span key="summon" className="flag-badge">Summoned Monsters</span>);
+    }
+    if (keyItemString.indexOf('moon') >= 0) {
+        keyItems.push(<span key="moon" className="flag-badge">Moon Bosses</span>);
+    }
+    if (keyItemString.indexOf('trap') >= 0) {
+        keyItems.push(<span key="vanilla" className="flag-badge">Trapped Chests</span>);
+    }
+    if (keyItemString.indexOf('unsafe') >= 0) {
+        keyItems.push(<span key="unsafe" className="flag-badge flag-badge-danger">Safety checks OFF</span>);
+    }
+    if (keyItemString.indexOf('main') >= 0 && keyItemString.indexOf('summon') < 0 && keyItemString.indexOf('trap') < 0 && keyItemString.indexOf('moon') < 0) {
+        keyItems.push(<span key="main-only" className="flag-badge flag-badge-yay">Main Checks Only</span>);
+    }
+    return (<div>{keyItems}</div>)
+
+}
+
+const renderMisc = (flags) => {
+    const misc = [];
+
+    if (flags.indexOf('spoon') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge flag-badge-yay">SPOON!</span>)
+    }
+    if (flags.indexOf('noadamants') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge">No adamant armors</span>)
+    }
+
+    const miscSection = getPropertySection(flags, '-vanilla:');
+    console.log('misc section', miscSection);
+
+    return (<div>{misc}</div>)
+}
+
+const renderVanilla = (flags) => {
+    const vanilla = [];
+
+    const vanillaString = getPropertySection(flags, '-vanilla');
+
+    if (vanillaString.indexOf('agility') >= 0) {
+        vanilla.push(<span key="agility" className="flag-badge flag-badge-danger">Agility (Cecil Anchors)</span>);
+    }
+    if (vanillaString.indexOf('exp') >= 0) {
+        vanilla.push(<span key="experience" className="flag-badge flag-badge-danger">XP gain</span>);
+    }
+    if (vanillaString.indexOf('fusoya') >= 0) {
+        vanilla.push(<span key="fusoya" className="flag-badge flag-badge-yay">FuSoYa (all spells at start)</span>);
+    }
+    if (vanillaString.indexOf('traps') >= 0) {
+        vanilla.push(<span key="traps" className="flag-badge">Trapped Chests</span>);
+    }
+    if (vanillaString.indexOf('hobs') >= 0) {
+        vanilla.push(<span key="hobs" className="flag-badge">Hobs (Rydia learns Fire1)</span>);
+    }
+
+    return vanilla.length > 0 ? (<div>{vanilla}</div>) : null;
 }
 
 const getPropertySection = (flags: string, criteria: string) => {
