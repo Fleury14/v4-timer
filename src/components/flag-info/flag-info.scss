@@ -2,10 +2,20 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    
+
     p {
         margin-top: 0;
-        margin-bottom: 0;
+        margin-bottom: 10px;
+    }
+
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 45px;
+    }
+
+    span {
+        white-space: nowrap;
     }
 }
 
@@ -18,9 +28,10 @@
     border: #333;
     color: #333;
     border-radius: 10px;
-    padding: 5px;
+    padding: 0px 5px;
     margin-right: 10px;
-
+    margin-bottom: 10px;
+    line-height: 30px;
 }
 
 .flag-badge-danger {
@@ -49,5 +60,11 @@
         border: none;
         margin-right: 10px;
         margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .flag-info-row {
+        display: none;
     }
 }
