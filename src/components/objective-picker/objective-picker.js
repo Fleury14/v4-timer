@@ -49,7 +49,6 @@ const ObjectivePicker = (props: Props) => {
             <h2>Quests</h2>
                 <div className="picker-button-row quest-button-row">
                     {quests.map(quest => {
-                        const title = `${quest.buttonText}`;
                         return (
                             <button
                                 key={quest.slug}

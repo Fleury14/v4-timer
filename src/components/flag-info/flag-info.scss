@@ -1,0 +1,70 @@
+.flag-info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    p {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        line-height: 45px;
+    }
+
+    span {
+        white-space: nowrap;
+    }
+}
+
+.flag-info-label {
+    margin-right: 10px;
+}
+
+.flag-badge {
+    background-color: #fadf0f;
+    border: #333;
+    color: #333;
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+.flag-badge-danger {
+    background-color: #770000;
+    color: #fff;
+}
+
+.flag-badge-yay {
+    background-color: #007700;
+    color: #fff;
+}
+
+.flag-presets {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    
+    button {
+            background-color: rgba(255, 119, 0, 0.65);
+        color: #fff;
+        height: 30px;
+        width: 200px;
+        margin: 20px auto 5px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: none;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .flag-info-row {
+        display: none;
+    }
+}

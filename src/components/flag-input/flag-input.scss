@@ -6,7 +6,8 @@ form.flag-input-form {
 
 .flag-input-container {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 form.flag-input-form textarea {
