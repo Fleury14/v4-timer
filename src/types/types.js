@@ -36,3 +36,8 @@ export type KeyItem = {
     title: string,
     iconFile: string,
 }
+
+export type ObjByKeyItem = {
+    keyItemId: number,
+    objectiveSlug: string[],
+}

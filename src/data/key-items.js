@@ -1,5 +1,5 @@
 // @flow
-import { KeyItem } from '../types/types';
+import type { KeyItem, ObjByKeyItem } from '../types/types';
 
 const keyItems: KeyItem[] = [{
     id: 1,
@@ -103,4 +103,52 @@ const keyItems: KeyItem[] = [{
     iconFile: 'FFIVFE-Icons-18PinkTail-Color.png',
 },];
 
-export default keyItems;
+const objectiveItems: ObjByKeyItem[] = [{
+    keyItemId: 18,
+    objectiveSlug: ['tradepink']
+}, {
+    keyItemId: 17,
+    objectiveSlug: ['traderat']
+}, {
+    keyItemId: 15,
+    objectiveSlug: ['wakeyang', 'tradepan']
+}, {
+    keyItemId: 18,
+    objectiveSlug: ['tradepink']
+}, {
+    keyItemId: 12,
+    objectiveSlug: ['unlocksealedcave', 'sealedcave']
+}, {
+    keyItemId: 11,
+    objectiveSlug: ['supercannon']
+}, {
+    keyItemId: 10,
+    objectiveSlug: ['magma']
+}, {
+    keyItemId: 9,
+    objectiveSlug: ['baroncastle', 'baronbasement', 'unlocksewer']
+}, {
+    keyItemId: 8,
+    objectiveSlug: ['curefever']
+},
+{
+    keyItemId: 7,
+    objectiveSlug: ['burnmist']
+}, {
+    keyItemId: 6,
+    objectiveSlug: ['magnes', 'music']
+}, {
+    keyItemId: 5,
+    objectiveSlug: ['toroiatreasury', 'zot']
+}, {
+    keyItemId: 4,
+    objectiveSlug: ['tradepink']
+}, {
+    keyItemId: 3,
+    objectiveSlug: ['bigwhale', 'masamunealtar', 'ribbonaltar', 'whitealtar', 'crystalaltar', 'murasamealtar', 'cavebahamut', 'giant']
+}, {
+    keyItemId: 2,
+    objectiveSlug: ['pass']
+}]
+
+export { keyItems, objectiveItems };
