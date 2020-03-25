@@ -69,7 +69,7 @@ class TimerComponent extends Component<Props, State> {
     objectiveComplete(id: number) {
         const targetObjective:void | TObjective = this.props.flagObj.objectives.find(objective => objective.id === id);
         if (targetObjective) {
-            targetObjective.time = this.state.currentTime;
+            targetObjective.time = this.state.currentTime ? this.state.currentTime : 1;
             this.setState({ flagObj: this.props.flagObj }, () => this.checkForFinish());
         }
         

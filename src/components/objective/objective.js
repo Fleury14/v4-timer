@@ -30,7 +30,7 @@ class Objective extends Component<Props> {
                 </p>
                 {time
                     ?  <div className="objective-time-container">
-                        <p>{parseTime(time)}</p>
+                        <p>{time === 1 ? "" : parseTime(time)}</p>
                         <button className="objective-undo" onClick={() => undo(id)}><span className="fas fa-times"></span></button>
                     </div>
                     : <button className="objective-complete" onClick={() => finish(id)}><span className="fas fa-check"></span></button>}
