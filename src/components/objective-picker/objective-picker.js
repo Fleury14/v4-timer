@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { quests, bosses } from '../../data/flagData';
+import QuestPicker from './quest-picker';
 import './objective-picker.scss';
 
 const characters = ['Cecil', 'Kain', 'Rydia', 'Tellah', 'Edward', 'Rosa', 'Yang', 'Palom', 'Porom', 'Cid', 'Edge', 'FuSoYa'];
@@ -40,27 +41,16 @@ const ObjectivePicker = (props: Props) => {
                         );
                     })}
                 </div>
-                
+                <QuestPicker
+                    id={id}
+                    edit={(id, quest) => edit(id, quest)}
+                    quests={quests}
+                />
                 <div className="center-me">
                     <button className="picker-done" onClick={() => done()}>Done</button>
                 </div>
             </div>
-            <div className="picker-container">
-            <h2>Quests</h2>
-                <div className="picker-button-row quest-button-row">
-                    {quests.map(quest => {
-                        return (
-                            <button
-                                key={quest.slug}
-                                className="picker-quest-button"
-                                onClick={() => edit(id, quest.title)}
-                            >
-                                {quest.buttonText}
-                            </button>
-                        );
-                    })}
-                </div>
-            </div>
+            
         </div>
     );
 }
