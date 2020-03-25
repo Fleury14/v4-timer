@@ -29,3 +29,10 @@ export type BossTime = {
     title: string,
     time: number
 }
+
+export type KeyItem = {
+    slug: string,
+    id: number,
+    title: string,
+    iconFile: string,
+}
