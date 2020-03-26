@@ -1,5 +1,5 @@
 // @flow
-import type { KeyItem, ObjByKeyItem } from '../types/types';
+import type { KeyItem, ObjByKeyItem, ObjByMultiKeyItem } from '../types/types';
 
 const keyItems: KeyItem[] = [{
     id: 1,
@@ -103,18 +103,16 @@ const keyItems: KeyItem[] = [{
 },];
 
 const objectiveItems: ObjByKeyItem[] = [{
-    keyItemId: 18,
-    objectiveSlug: ['tradepink'],
-    row: 0,
-}, {
-    keyItemId: 17,
-    objectiveSlug: ['traderat'],
-    row: 0,
-}, {
     keyItemId: 15,
     objectiveSlug: ['wakeyang', 'tradepan'],
     row: 0,
-}, {
+},
+{
+    keyItemId: 3,
+    objectiveSlug: ['falcon'],
+    row: 0,
+},
+{
     keyItemId: 12,
     objectiveSlug: ['unlocksealedcave', 'sealedcave'],
     row: 0,
@@ -133,7 +131,7 @@ const objectiveItems: ObjByKeyItem[] = [{
 }, {
     keyItemId: 8,
     objectiveSlug: ['curefever'],
-    row: 1,
+    row: 0,
 },
 {
     keyItemId: 7,
@@ -157,4 +155,17 @@ const objectiveItems: ObjByKeyItem[] = [{
     row: 2,
 }]
 
-export { keyItems, objectiveItems };
+const multiKeyObj: ObjByMultiKeyItem[] = [{
+    keyItemId: [13, 14],
+    objectiveSlug: ['forge'],
+    row: 0
+}, {
+    keyItemId: [3, 18],
+    objectiveSlug: ['tradepink'],
+    row: 0,
+}, {
+    keyItemId: [3, 17],
+    objectiveSlug: ['traderat'],
+    row: 0,
+}, ]
+export { keyItems, objectiveItems, multiKeyObj };
