@@ -8,12 +8,6 @@ const keyItems: KeyItem[] = [{
     iconFile: 'FFIVFE-Icons-1THECrystal-Color.png',
 },
 {
-    id: 2,
-    slug: 'pass',
-    title: 'Pass',
-    iconFile: 'FFIVFE-Icons-2Pass-Color.png',
-},
-{
     id: 3,
     slug: 'hook',
     title: 'Hook',
@@ -30,6 +24,11 @@ const keyItems: KeyItem[] = [{
     slug: 'earth',
     title: 'Earth',
     iconFile: 'FFIVFE-Icons-5EarthCrystal-Color.png',
+},{
+    id: 2,
+    slug: 'pass',
+    title: 'Pass',
+    iconFile: 'FFIVFE-Icons-2Pass-Color.png',
 },{
     id: 6,
     slug: 'twinharp',
@@ -49,12 +48,6 @@ const keyItems: KeyItem[] = [{
     iconFile: 'FFIVFE-Icons-8SandRuby-Color.png',
 },
 {
-    id: 9,
-    slug: 'baron',
-    title: 'Baron Key',
-    iconFile: 'FFIVFE-Icons-9BaronKey-Color.png',
-},
-{
     id: 10,
     slug: 'magma',
     title: 'Magma Key',
@@ -71,6 +64,12 @@ const keyItems: KeyItem[] = [{
     slug: 'luca',
     title: 'Luca Key',
     iconFile: 'FFIVFE-Icons-12LucaKey-Color.png',
+},
+{
+    id: 9,
+    slug: 'baron',
+    title: 'Baron Key',
+    iconFile: 'FFIVFE-Icons-9BaronKey-Color.png',
 },
 {
     id: 13,
@@ -105,50 +104,57 @@ const keyItems: KeyItem[] = [{
 
 const objectiveItems: ObjByKeyItem[] = [{
     keyItemId: 18,
-    objectiveSlug: ['tradepink']
+    objectiveSlug: ['tradepink'],
+    row: 0,
 }, {
     keyItemId: 17,
-    objectiveSlug: ['traderat']
+    objectiveSlug: ['traderat'],
+    row: 0,
 }, {
     keyItemId: 15,
-    objectiveSlug: ['wakeyang', 'tradepan']
-}, {
-    keyItemId: 18,
-    objectiveSlug: ['tradepink']
+    objectiveSlug: ['wakeyang', 'tradepan'],
+    row: 0,
 }, {
     keyItemId: 12,
-    objectiveSlug: ['unlocksealedcave', 'sealedcave']
+    objectiveSlug: ['unlocksealedcave', 'sealedcave'],
+    row: 0,
 }, {
     keyItemId: 11,
-    objectiveSlug: ['supercannon']
+    objectiveSlug: ['supercannon'],
+    row: 1,
 }, {
     keyItemId: 10,
-    objectiveSlug: ['magma']
+    objectiveSlug: ['magma'],
+    row: 1,
 }, {
     keyItemId: 9,
-    objectiveSlug: ['baroncastle', 'baronbasement', 'unlocksewer']
+    objectiveSlug: ['baroncastle', 'baronbasement', 'unlocksewer'],
+    row: 0,
 }, {
     keyItemId: 8,
-    objectiveSlug: ['curefever']
+    objectiveSlug: ['curefever'],
+    row: 1,
 },
 {
     keyItemId: 7,
-    objectiveSlug: ['burnmist']
+    objectiveSlug: ['burnmist'],
+    row: 1,
 }, {
     keyItemId: 6,
-    objectiveSlug: ['magnes', 'music']
+    objectiveSlug: ['magnes', 'music'],
+    row: 1,
 }, {
     keyItemId: 5,
-    objectiveSlug: ['toroiatreasury', 'zot']
+    objectiveSlug: ['toroiatreasury', 'zot'],
+    row: 1,
 }, {
     keyItemId: 4,
-    objectiveSlug: ['tradepink']
-}, {
-    keyItemId: 3,
-    objectiveSlug: ['bigwhale', 'masamunealtar', 'ribbonaltar', 'whitealtar', 'crystalaltar', 'murasamealtar', 'cavebahamut', 'giant']
+    objectiveSlug: ['bigwhale', 'masamunealtar', 'ribbonaltar', 'whitealtar', 'crystalaltar', 'murasamealtar', 'cavebahamut', 'giant'],
+    row: 2,
 }, {
     keyItemId: 2,
-    objectiveSlug: ['pass']
+    objectiveSlug: ['pass'],
+    row: 2,
 }]
 
 export { keyItems, objectiveItems };

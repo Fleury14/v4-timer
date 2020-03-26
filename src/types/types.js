@@ -40,4 +40,11 @@ export type KeyItem = {
 export type ObjByKeyItem = {
     keyItemId: number,
     objectiveSlug: string[],
+    row: number,
+}
+
+export type ObjByMultiKeyItem = {
+    keyItemId: number[],
+    objectiveSlug: string[],
+    row: number,
 }

@@ -1,0 +1,58 @@
+.one-key-item-obj-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    // border: 2px solid #eee;
+    border-radius: 13px;
+    margin: 10px;
+    width: 100px;
+}
+
+.obj-picker-top {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    img {
+        margin-bottom: 5px;
+    }
+}
+
+.row-holder {
+    display: flex;
+}
+
+.one-key-item-obj-button-row {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quest-picker-button {
+    background-color: #ff9c33;
+    color: #222;
+    border: none;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    transition: 0.3s all;
+
+    &:hover {
+        cursor: pointer;
+        background-color: darken(#ff9c33, 20);
+    }
+}
+
+.quest-picker-single {
+    width: 80px;
+}
+
+.quest-picker-double {
+    width: 160px;
+}
+
+.quest-picker-triple {
+    width: 240px;
+}
