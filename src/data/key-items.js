@@ -75,7 +75,7 @@ const keyItems: KeyItem[] = [{
     id: 13,
     slug: 'adamant',
     title: 'Adamant',
-    iconFile: 'FFIVFE-Icons-13Adamant.png',
+    iconFile: 'FFIVFE-Icons-13Adamant-Color.png',
 },
 {
     id: 14,
@@ -147,7 +147,7 @@ const objectiveItems: ObjByKeyItem[] = [{
     row: 1,
 }, {
     keyItemId: 4,
-    objectiveSlug: ['bigwhale', 'masamunealtar', 'ribbonaltar', 'whitealtar', 'crystalaltar', 'murasamealtar', 'cavebahamut', 'giant'],
+    objectiveSlug: ['bigwhale', 'giant', 'masamunealtar', 'ribbonaltar', 'whitealtar', 'crystalaltar', 'murasamealtar', 'cavebahamut'],
     row: 2,
 }, {
     keyItemId: 2,

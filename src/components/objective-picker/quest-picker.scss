@@ -19,6 +19,25 @@
     }
 }
 
+.multi-key-item {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.multi-key-cont {
+    
+}
+
+.world-text {
+    text-align: center;
+}
+
+.open-objectives-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .row-holder {
     display: flex;
 }
@@ -31,9 +50,10 @@
 }
 
 .quest-picker-button {
-    background-color: #ff9c33;
-    color: #222;
+    background-color: #111;
+    color: #ff9c33;
     border: none;
+    width: 100px;
     margin: 5px;
     padding: 5px;
     border-radius: 3px;
