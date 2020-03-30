@@ -24,6 +24,7 @@ const displayRow = (row: number, objectiveItems: ObjByKeyItem[], props: Props) =
             {rowFilteredItems.map(itemPair => {
                 const targetKeyItem = keyItems.find(keyItem => keyItem.id === itemPair.keyItemId);
                 const imageSource = targetKeyItem ? targetKeyItem.iconFile : '';
+                const imageTitle = targetKeyItem ? targetKeyItem.title : '';
                 const targetObjectives = [];
                 itemPair.objectiveSlug.forEach(slug => {
                     const targetObj = quests.find(quest => quest.slug === slug);
@@ -31,7 +32,7 @@ const displayRow = (row: number, objectiveItems: ObjByKeyItem[], props: Props) =
                 });
                 return (
                     <div key={itemPair.keyItemId} className="one-key-item-obj-container">
-                        <img src={`/images/key-item-icons/${imageSource}`} />
+                        <img src={`/images/key-item-icons/${imageSource}`} alt={imageTitle} title={imageTitle}/>
                         <div className={`one-key-item-obj-button-row quest-picker-single`}>
                             {targetObjectives.map(objective => {
                                 return (
@@ -82,7 +83,7 @@ const displayMultiRow = (props:Props) => {
                 let iconDisplay = [];
                 objective.keyItemId.forEach(keyItem => {
                     const selectedItem = keyItems.find(eachItem => eachItem.id === keyItem);
-                    if (selectedItem) iconDisplay.push(selectedItem.iconFile);
+                    if (selectedItem) iconDisplay.push(selectedItem);
                 });
                 let targetObjectives = [];
                 objective.objectiveSlug.forEach(slug => {
@@ -97,9 +98,12 @@ const displayMultiRow = (props:Props) => {
                 return (
                     <div className="multi-key-cont">
                         <div className="multi-key-item">
-                            {iconDisplay.map(icon => (
-                            <img src={`/images/key-item-icons/${icon}`} />  
-                            ))}
+                            {iconDisplay.map(item => {
+                                if (item) return (
+                                    <img src={`/images/key-item-icons/${item.iconFile}`} alt={item.title} title={item.title}/>  
+                                )
+                                return null;
+                            })}
                         </div>
                         <div>
                             {targetObjectives.map(objective => {
@@ -137,7 +141,7 @@ const displayMultiRow = (props:Props) => {
 
 
 const ObjectivePicker = (props: Props) => {
-    const { edit, quests, id } = props;
+    // const { edit, quests, id } = props;
     return (
         <div>
             <h2>Quests</h2>
