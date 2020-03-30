@@ -16,7 +16,7 @@ const ObjectivePicker = (props: Props) => {
     const { id, edit, done } = props;
     return (
         <div className="picker-column-container">
-            <div className="picker-container">
+            <div className="picker-container picker-container-left">
                 <h2>Character</h2>
                 <div className="picker-button-row">
                     {characters.map(char => {
@@ -41,16 +41,18 @@ const ObjectivePicker = (props: Props) => {
                         );
                     })}
                 </div>
+                
+                <div className="center-me">
+                    <button className="picker-done" onClick={() => done()}>Done</button>
+                </div>
+            </div>
+            <div className="picker-container picker-container-right">
                 <QuestPicker
                     id={id}
                     edit={(id, quest) => edit(id, quest)}
                     quests={quests}
                 />
-                <div className="center-me">
-                    <button className="picker-done" onClick={() => done()}>Done</button>
-                </div>
             </div>
-            
         </div>
     );
 }

@@ -49,7 +49,7 @@ const displayRow = (row: number, objectiveItems: ObjByKeyItem[], props: Props) =
                 );
             })}
             {row === 2 ? (
-                <div>
+                <div className="open-objectives-container">
                     <p className="world-text">Underground</p>
                     {underObjectives.map(objective => {
                         return (
@@ -77,7 +77,7 @@ const displayMultiRow = (props:Props) => {
         if (selectedObj) openObjectives.push(selectedObj);
     });
     return (
-        <div>
+        <div className="obj-picker-top">
             {multiKeyObj.map(objective => {
                 let iconDisplay = [];
                 objective.keyItemId.forEach(keyItem => {
@@ -95,7 +95,7 @@ const displayMultiRow = (props:Props) => {
                     if (selectedObj) openObjectives.push(selectedObj);
                 })
                 return (
-                    <div className="obj-picker-top multi-key-cont">
+                    <div className="multi-key-cont">
                         <div className="multi-key-item">
                             {iconDisplay.map(icon => (
                             <img src={`/images/key-item-icons/${icon}`} />  
@@ -139,7 +139,7 @@ const displayMultiRow = (props:Props) => {
 const ObjectivePicker = (props: Props) => {
     const { edit, quests, id } = props;
     return (
-        <div className="picker-container">
+        <div>
             <h2>Quests</h2>
             <div className="row-holder">
                 {displayRow(0, objectiveItems, props)}
@@ -147,7 +147,7 @@ const ObjectivePicker = (props: Props) => {
                 {displayRow(2, objectiveItems, props)}
                 {displayMultiRow(props)}
             </div>
-            <div className="picker-button-row quest-button-row">
+            {/* <div className="picker-button-row quest-button-row">
                 {quests.map(quest => {
                     return (
                         <button
@@ -159,7 +159,7 @@ const ObjectivePicker = (props: Props) => {
                         </button>
                     );
                 })}
-            </div>
+            </div> */}
         </div>
     );
 }

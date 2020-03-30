@@ -13,6 +13,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    justify-content: space-between;
 
     img {
         margin-bottom: 5px;
@@ -36,10 +37,12 @@
 .open-objectives-container {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .row-holder {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .one-key-item-obj-button-row {

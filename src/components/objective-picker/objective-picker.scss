@@ -4,11 +4,18 @@
 }
 
 .picker-container {
-    max-width: 400px;
 
     h2 {
         margin-bottom: 10px;
     }
+}
+
+.picker-container-right {
+    max-width: 500px;
+}
+
+.picker-container-left {
+    max-width: 300px;
 }
 
 .picker-boss-icons {
