@@ -305,7 +305,7 @@ const quests: Quest[] = [{
 }, {
     slug: 'murasamealtar',
     title: 'Vanilla Murasame (Paledim)',
-    buttonText: 'Murasame Spot',
+    buttonText: 'Pale Dim Spot',
 }, {
     slug: 'crystalaltar',
     title: 'Vanilla Crystal Sword (Wyvern)',
@@ -337,7 +337,7 @@ const quests: Quest[] = [{
 }, {
     slug: 'music',
     title: 'Break the Dark Elf\'s spell with the TwinHarp',
-    buttonText: 'Cave Magnes',
+    buttonText: 'Break Magnes Spell',
 }, {
     slug: 'toroiatreasury',
     title: 'Open the Toroia treasury',
