@@ -113,14 +113,35 @@ class TimerComponent extends Component<Props, State> {
     }
 
     applyEdit(id: number, title: string) {
-        const { flagObj } = this.state;
+        const { flagObj, objectiveEditing } = this.state;
         if (flagObj && flagObj.objectives) {
             const target:void | TObjective = flagObj.objectives.find(obj => obj.id === id);
             if (target) {
                 target.label = title;
             }
-            this.setState({ flagObj })
+            let newObjEditing = objectiveEditing;
+            if (typeof newObjEditing === 'number') {
+                if (newObjEditing === flagObj.objectives.length - 1) {
+                    newObjEditing = null;
+                } else {
+                    while (newObjEditing < flagObj.objectives.length - 1) {
+                        if (flagObj.objectives[newObjEditing + 1].random) {
+                            newObjEditing++;
+                            break;
+                        }
+                        if (newObjEditing === flagObj.objectives.length - 2) {
+                            newObjEditing = null;
+                            break;
+                        }
+                        newObjEditing++;
+                    }
+                }
+                
+            }
+            
+            this.setState({ flagObj, objectiveEditing: newObjEditing })
         }
+        
         
     }
 
