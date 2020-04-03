@@ -180,7 +180,7 @@ class TimerComponent extends Component<Props, State> {
                                     finish={(id) => this.objectiveComplete(id)}
                                     time={objective.time}
                                     undo={(id) => this.undoObjective(id)}
-                                    editRandom={() => this.toggleRandomEditor(objective.id)}
+                                    edit={() => this.toggleRandomEditor(objective.id)}
                                 />
                             )
                             return null;
