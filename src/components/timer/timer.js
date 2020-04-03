@@ -141,6 +141,7 @@ class TimerComponent extends Component<Props, State> {
                         {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
                                     id={objective.id}
@@ -155,6 +156,7 @@ class TimerComponent extends Component<Props, State> {
                         {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
                                     id={objective.id}

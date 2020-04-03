@@ -12,7 +12,8 @@ type Props = {
     edit: Function,
     time: ?number,
     complete: ?boolean,
-    random?: boolean
+    random?: boolean,
+    editing: boolean,
 }
 
 
@@ -20,10 +21,9 @@ class Objective extends Component<Props> {
     
     render() {
         
-        const { title, id, finish, time, undo, complete, random, edit } = this.props;
-        
+        const { title, id, finish, time, undo, complete, random, edit, editing } = this.props;
         return (
-            <div className="objective-container">
+            <div className={`objective-container${editing === id ? ' objective-editing' : ''}`}>
                 <p className={complete ? "objective-title-complete" : "objective-title"}>
                     {title}
                     {random ? <button className="objective-edit-button" onClick={(id) => edit(id)}>Edit</button> : null}
