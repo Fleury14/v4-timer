@@ -79,7 +79,7 @@ const displayMultiRow = (props:Props) => {
     });
     return (
         <div className="obj-picker-top">
-            {multiKeyObj.map(objective => {
+            {multiKeyObj.map((objective) => {
                 let iconDisplay = [];
                 objective.keyItemId.forEach(keyItem => {
                     const selectedItem = keyItems.find(eachItem => eachItem.id === keyItem);
@@ -96,11 +96,11 @@ const displayMultiRow = (props:Props) => {
                     if (selectedObj) openObjectives.push(selectedObj);
                 })
                 return (
-                    <div className="multi-key-cont">
+                    <div key={objective.objectiveSlug[0]} className="multi-key-cont">
                         <div className="multi-key-item">
                             {iconDisplay.map(item => {
                                 if (item) return (
-                                    <img src={`/images/key-item-icons/${item.iconFile}`} alt={item.title} title={item.title}/>  
+                                    <img key={item.title} src={`/images/key-item-icons/${item.iconFile}`} alt={item.title} title={item.title}/>  
                                 )
                                 return null;
                             })}

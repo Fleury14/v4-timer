@@ -113,14 +113,35 @@ class TimerComponent extends Component<Props, State> {
     }
 
     applyEdit(id: number, title: string) {
-        const { flagObj } = this.state;
+        const { flagObj, objectiveEditing } = this.state;
         if (flagObj && flagObj.objectives) {
             const target:void | TObjective = flagObj.objectives.find(obj => obj.id === id);
             if (target) {
                 target.label = title;
             }
-            this.setState({ flagObj })
+            let newObjEditing = objectiveEditing;
+            if (typeof newObjEditing === 'number') {
+                if (newObjEditing === flagObj.objectives.length - 1) {
+                    newObjEditing = null;
+                } else {
+                    while (newObjEditing < flagObj.objectives.length - 1) {
+                        if (flagObj.objectives[newObjEditing + 1].random) {
+                            newObjEditing++;
+                            break;
+                        }
+                        if (newObjEditing === flagObj.objectives.length - 2) {
+                            newObjEditing = null;
+                            break;
+                        }
+                        newObjEditing++;
+                    }
+                }
+                
+            }
+            
+            this.setState({ flagObj, objectiveEditing: newObjEditing })
         }
+        
         
     }
 
@@ -141,6 +162,7 @@ class TimerComponent extends Component<Props, State> {
                         {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
                                     id={objective.id}
@@ -155,6 +177,7 @@ class TimerComponent extends Component<Props, State> {
                         {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
                                     id={objective.id}
@@ -180,7 +203,7 @@ class TimerComponent extends Component<Props, State> {
                                     finish={(id) => this.objectiveComplete(id)}
                                     time={objective.time}
                                     undo={(id) => this.undoObjective(id)}
-                                    editRandom={() => this.toggleRandomEditor(objective.id)}
+                                    edit={() => this.toggleRandomEditor(objective.id)}
                                 />
                             )
                             return null;

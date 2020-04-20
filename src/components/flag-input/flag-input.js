@@ -11,6 +11,7 @@ const FlagInputComponent = (props) => {
             <p className="credits">v{process.env.REACT_APP_VERSION} - Timer made by Fleury14</p>
             <div className="flag-input-container">
                 <p className="instructions">Boss Timer: To trigger a separate boss timer, push the space bar to both start and stop the timer. You then have the option to select a boss to assign the time to, or push space again to leave it unassigned. You can click on the corresponding time to select a boss later if you so desire.</p>
+                <p className="instructions">New change: When editing a random objective, clicking on one of the quests will automatically select the next random objective. If there are no subsequent random objectives, edit mode will end. You can still click on a respective objective's "Edit" button in case you make an error.</p>
             </div>
             <div className="flag-input-container">
                 <p className="instructions">Horizontal dimensions for cropping: 400px width for the timer on the left with a 20px padding on the far right side, height varies based on objectives"</p>
