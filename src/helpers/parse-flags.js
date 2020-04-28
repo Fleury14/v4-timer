@@ -15,7 +15,7 @@ const parseFlags = (flagString: string) => {
     if (flagString.indexOf('dkmatter') >= 0 ) {
         flagObj.objectives.push({
             id: flagObj.objectives.length,
-            label: 'Turn in 50 Dark Matters to Kory',
+            label: 'Turn in 30 Dark Matters to Kory',
             time: 0,
         });
     }

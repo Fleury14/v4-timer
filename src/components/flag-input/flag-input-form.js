@@ -31,7 +31,7 @@ class FlagInputForm extends Component {
                 <div className="flag-presets">
                     <button onClick={() => this.setState({ flags: 'Orandom:5/win:crystal Kmain/summon/moon Pkey Cstandard/j:abilities Tstandard Sstandard Bstandard/alt:gauntlet Nchars/key Etoggle Glife -kit:basic -noadamants' })}>Fabul Gauntlet - Swiss</button>
                     <button onClick={() => this.setState({ flags: 'Orandom:5/win:crystal Kmain/summon/moon Pkey Cstandard/distinct:7/j:abilities/nodupes/bye Tpro Spro/quarter Bstandard/alt:gauntlet Nchars/key Etoggle Glife -kit:basic -noadamants' })}>Fabul Gauntlet - Bracket</button>
-                    <button onClick={() => this.setState({ flags: 'Omode:classicforge/1:quest_giant/random:2/win:crystal Kmain/summon/moon Pkey Cstandard/distinct:7/j:abilities/nodupes Tpro Spro Bstandard Nchars/key Etoggle Glife -kit:basic -noadamants' })}>Underground Racing Club</button>
+                    <button onClick={() => this.setState({ flags: 'Omode:classicforge/1:quest_giant/random:2/win:crystal Kmain/summon/moon/unsafe Pkey Cstandard/distinct:7/j:abilities/nodupes Tpro Spro Bstandard Nchars/key Etoggle Glife -kit:basic -noadamants' })}>Underground Racing Club</button>
                     <button onClick={() => this.setState({ flags: 'O1:quest_masamunealtar/2:quest_ribbonaltar/random:2/win:crystal Kmain/summon/moon/unsafe Pkey Cstandard/distinct:7/j:abilities/nodupes Tpro Spro Bstandard Nchars/key Etoggle Glife -noadamants' })}>Lunar Racing Club</button>
                 </div>
             </React.Fragment>
