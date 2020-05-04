@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import parseFlags from '../../helpers/parse-flags';
+import FlagSet from '../../data/flagSpec';
 import './flag-input.scss'
 
 class FlagInputForm extends Component {
@@ -14,6 +15,13 @@ class FlagInputForm extends Component {
 
     onSubmit(e, flags) {
         e.preventDefault();
+        // check if its binary
+        if (flags[0] === 'b') {
+            const flagSet = new FlagSet();
+            flagSet.load(flags);
+            flags = flagSet.to_string();
+
+        }
         sessionStorage.setItem('flags', flags)
         const flagObj = parseFlags(flags);
         this.props.startTime(flagObj);

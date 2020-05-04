@@ -1,7 +1,7 @@
 // @flow
 
 import { quests, bosses } from '../data/flagData';
-import type { FlagObject } from '../types/types'
+import type { FlagObject } from '../types/types';
 
 const parseFlags = (flagString: string) => {
     if (!flagString || typeof flagString !== 'string') {
