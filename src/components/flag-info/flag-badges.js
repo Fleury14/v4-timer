@@ -191,9 +191,6 @@ const renderMisc = (flags: string) => {
         misc.push(<span key="pushbtojump" className="flag-badge flag-badge-yay">Push B to Jump</span>)
     }
 
-    const miscSection = getPropertySection(flags, '-vanilla:');
-    console.log('misc section', miscSection);
-
     return (<div>{misc}</div>)
 }
 
