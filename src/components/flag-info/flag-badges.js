@@ -185,11 +185,11 @@ const renderMisc = (flags: string) => {
         misc.push(<span key="spoon" className="flag-badge flag-badge-yay">SPOON!</span>)
     }
     if (flags.indexOf('noadamants') >= 0) {
-        misc.push(<span key="spoon" className="flag-badge">No adamant armors</span>)
+        misc.push(<span key="nooadamants" className="flag-badge">No adamant armors</span>)
     }
-
-    const miscSection = getPropertySection(flags, '-vanilla:');
-    console.log('misc section', miscSection);
+    if (flags.indexOf('pushbtojump') >= 0) {
+        misc.push(<span key="pushbtojump" className="flag-badge flag-badge-yay">Push B to Jump</span>)
+    }
 
     return (<div>{misc}</div>)
 }
