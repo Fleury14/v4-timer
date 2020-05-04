@@ -17,7 +17,6 @@ class FlagInputForm extends Component {
         e.preventDefault();
         // check if its binary
         if (flags[0] === 'b') {
-            console.log('binary');
             const flagSet = new FlagSet();
             flagSet.load(flags);
             flags = flagSet.to_string();
