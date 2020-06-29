@@ -150,8 +150,12 @@ class TimerComponent extends Component<Props, State> {
     render() {
         // sort objectives by finished time for completed objectives
         let sortedObj = null;
+        let goMode = false;
         if (this.state.flagObj) {
             sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time !== undefined && b.time !== undefined ? a.time - b.time : 0);
+            if (this.state.flagObj && this.state.flagObj.required > 0 && this.state.flagObj.objectives && this.state.flagObj.objectives.filter(obj => obj.time !== 0).length >= this.state.flagObj.required) {
+                goMode = true;
+            }
         }
         const hasFinishedOne = (this.state.flagObj && this.state.flagObj.objectives && this.state.flagObj.objectives.find(obj => obj.time !== 0));
         
@@ -164,6 +168,7 @@ class TimerComponent extends Component<Props, State> {
                         {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    notRequired={goMode}
                                     editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
@@ -179,6 +184,7 @@ class TimerComponent extends Component<Props, State> {
                         {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    notRequired={goMode}
                                     editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
