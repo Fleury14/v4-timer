@@ -19,7 +19,8 @@ type State = {
     flagObj: ?FlagObject,
     finished: boolean,
     objectiveEditing: ?number,
-    bossTimes: BossTime[]
+    bossTimes: BossTime[],
+    required: number,
 }
 
 class TimerComponent extends Component<Props, State> {
@@ -33,6 +34,7 @@ class TimerComponent extends Component<Props, State> {
         finished: false,
         objectiveEditing: null,
         bossTimes: [],
+        required: 0,
     }
 
     beginTimer() {

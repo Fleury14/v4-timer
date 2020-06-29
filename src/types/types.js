@@ -8,7 +8,8 @@ export type TObjective = {
 };
 
 export type FlagObject = {
-    objectives: TObjective[]
+    objectives: TObjective[],
+    required: number
 }
 
 export type Quest = {
