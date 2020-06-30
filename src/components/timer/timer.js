@@ -171,7 +171,13 @@ class TimerComponent extends Component<Props, State> {
         let goMode = false;
         if (this.state.flagObj) {
             sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time !== undefined && b.time !== undefined ? a.time - b.time : 0);
-            if (this.state.flagObj && this.state.flagObj.required > 0 && this.state.flagObj.objectives && this.state.flagObj.objectives.filter(obj => obj.time !== 0).length >= this.state.flagObj.required) {
+            if (
+                this.state.flagObj
+                && this.state.flagObj.required
+                && this.state.flagObj.required > 0
+                && this.state.flagObj.objectives
+                && this.state.flagObj.required <= this.state.flagObj.objectives.filter(obj => obj.time !== 0).length
+            ) {
                 goMode = true;
             }
         }

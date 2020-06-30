@@ -119,6 +119,12 @@ const renderGlitches = (flags: string) => {
     if (glitchString.indexOf('64') >= 0) {
         glitchText.push(<span key="64" className="flag-badge"> 64 Door</span>);
     }
+    if (glitchString.indexOf('sylph') < 0) {
+        glitchText.push(<span key="sylph" className="flag-badge flag-badge-danger"> Sylph gitch OFF</span>)
+    }
+    if (glitchString.indexOf('sylph') >= 0) {
+        glitchText.push(<span key="sylph" className="flag-badge"> Sylph</span>)
+    }
 
     return (<div>{glitchText}</div>);
 }
