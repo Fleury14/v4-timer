@@ -79,8 +79,26 @@ class TimerComponent extends Component<Props, State> {
 
     checkForFinish() {
         if (this.state.flagObj) {
+            
             const unfinished:void | TObjective = this.state.flagObj.objectives.find(objective => objective.time === 0);
+            let finished:void | TObjective[] = [];
+            let zeromus = null;
+            if (this.state.flagObj && this.state.flagObj.objectives) {
+                finished = this.state.flagObj.objectives.filter(objective => objective.time !== 0)
+            }
+            if (this.state.flagObj && this.state.flagObj.objectives) {
+                zeromus = this.state.flagObj.objectives.find(obj => obj.label.indexOf('Zeromus') >= 0)
+            }
+            
+            
             if (!unfinished) {
+                this.setState({ finished: true });
+                this.endTimer();
+            } else if (
+                finished &&this.state.flagObj && this.state.flagObj.required && zeromus
+                && finished.length >= this.state.flagObj.required + 1
+                && zeromus.time !== 0
+            ) {
                 this.setState({ finished: true });
                 this.endTimer();
             }
