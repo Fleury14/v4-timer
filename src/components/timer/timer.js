@@ -187,7 +187,7 @@ class TimerComponent extends Component<Props, State> {
             <div className="whole-wrapper">
                 <div className="left-wrapper">
                     <div>
-                        <h2 className="sub-title">REMAINING</h2>
+                        <h2 className="sub-title">REMAINING{this.props.flagObj && this.props.flagObj.required ? ` (COMPLETE ${this.props.flagObj.required})` : ''}</h2>
                         {/* this handles pre-start display, and avoids the need to set state upon mounting/updating */}
                         {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
