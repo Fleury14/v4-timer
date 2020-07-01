@@ -224,6 +224,27 @@ const renderVanilla = (flags: string) => {
     return vanilla.length > 0 ? (<div>{vanilla}</div>) : null;
 }
 
+const renderEncounters = (flags: string) => {
+    const encounters = [];
+
+    const encounterFlagString = getPropertySection(flags, 'E');
+    
+    if (encounterFlagString.indexOf('sirens') >= 0 || encounterFlagString.indexOf('jdrops') >= 0) {
+        encounters.push(<span key="no-siren-steal" className="flag-badge">Cannot steal Sirens</span>);
+    }
+    if (encounterFlagString.indexOf('cantrun') >= 0) {
+        encounters.push(<span key="no-escape" className="flag-badge">No escape</span>);
+    }
+    if (encounterFlagString.indexOf('danger') >= 0) {
+        encounters.push(<span key="danger" className="flag-badge">Back/surprise attacks enabled</span>);
+    }
+    if (encounterFlagString.indexOf('noencounters') >= 0) {
+        encounters.push(<span key="no-encounters" className="flag-badge flag-badge-danger">No encounters</span>);
+    }
+
+    return <div>{encounters}</div>
+}
+
 const getPropertySection = (flags: string, criteria: string) => {
     // get shop section of flag string
     const begin = flags.indexOf(criteria);
@@ -240,4 +261,4 @@ const getPropertySection = (flags: string, criteria: string) => {
     return results;
 }
 
-export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla };
+export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters };
