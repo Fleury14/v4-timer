@@ -37,6 +37,21 @@ class TimerComponent extends Component<Props, State> {
         required: 0,
     }
 
+    onPress(e: KeyboardEvent) {
+        if(e.key === 'Backspace') {
+
+            this.state.timerActive ? this.endTimer() : this.beginTimer();
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener('keyup', this.onPress.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keyup', this.onPress.bind(this));
+    }
+
     beginTimer() {
         const startDate = this.state.pauseTime === 0 ? Date.now() : Date.now() - this.state.pauseTime;
         this.interval = setInterval(() => {
@@ -53,10 +68,13 @@ class TimerComponent extends Component<Props, State> {
     }
 
     endTimer() {
-        if (this.interval) {
-            clearInterval(this.interval);
+        if (this.state.timerActive) {
+            if (this.interval) {
+                clearInterval(this.interval);
+            }
+            this.setState({ pauseTime: Date.now() - this.state.startTime, timerActive: false });
         }
-        this.setState({ pauseTime: Date.now() - this.state.startTime, timerActive: false });
+        
     }
 
     resetTimer() {
@@ -272,6 +290,7 @@ class TimerComponent extends Component<Props, State> {
                             />
                         ) : null}
                         </Clock>
+                        <p>Press Backspace to stop/resume timer with keyboard</p>
                     </React.Fragment>
                     
                     
