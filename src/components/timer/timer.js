@@ -38,7 +38,9 @@ class TimerComponent extends Component<Props, State> {
     }
 
     onPress(e: KeyboardEvent) {
-        if(e.key === 'Backspace') {
+        const storedTimerKey = localStorage.getItem('timerKey');
+        const selectedKey = storedTimerKey || 'j';
+        if(e.key === selectedKey) {
 
             this.state.timerActive ? this.endTimer() : this.beginTimer();
         }
@@ -290,7 +292,7 @@ class TimerComponent extends Component<Props, State> {
                             />
                         ) : null}
                         </Clock>
-                        <p>Press Backspace to stop/resume timer with keyboard</p>
+                        <p>Press the key display at the top to stop/resume timer with keyboard</p>
                     </React.Fragment>
                     
                     

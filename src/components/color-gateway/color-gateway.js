@@ -13,6 +13,9 @@ type State = {
     key: string,
     code: string,
     isInputtingKey: boolean,
+    isInputtingTimerKey: boolean,
+    timerCode: string,
+    timerKey: string,
 };
 
 class ColorGateway extends Component<Props, State> {
@@ -23,6 +26,9 @@ class ColorGateway extends Component<Props, State> {
         key: ' ',
         code: 'Space',
         isInputtingKey: false,
+        isInputtingTimerKey: false,
+        timerCode: 'KeyJ',
+        timerKey: 'j',
     }
 
     keyListener:any = null;
@@ -32,6 +38,8 @@ class ColorGateway extends Component<Props, State> {
         const savedColor: ?string = localStorage.getItem('color');
         const savedKey: ?string = localStorage.getItem('key');
         const savedCode: ?string = localStorage.getItem('code');
+        const savedTimerKey: ?string = localStorage.getItem('timerKey');
+        const savedTimerCode: ?string = localStorage.getItem('timerCode');
         const gateway = document.querySelector('.color-gateway');
         if (gateway && savedColor) {
             gateway.style.backgroundColor = savedColor;
@@ -41,6 +49,9 @@ class ColorGateway extends Component<Props, State> {
         }
         if (savedKey && savedCode) {
             this.setState({ code: savedCode, key: savedKey })
+        }
+        if (savedTimerKey && savedTimerCode) {
+            this.setState({ timerCode: savedTimerCode, timerKey: savedTimerKey });
         }
     }
 
@@ -72,6 +83,21 @@ class ColorGateway extends Component<Props, State> {
             this.setState({ key: e.key, code: e.code, isInputtingKey: false });
         }
     }
+    inputTimerKey() {
+        this.setState({
+            isInputtingTimerKey: true,   
+        }, () => {
+        this.keyListener = document.addEventListener('keyup', this.timerListenerCommands.bind(this));
+        });
+    }
+
+    timerListenerCommands(e: KeyboardEvent) {
+        if (this.state.isInputtingTimerKey) {
+            localStorage.setItem('timerKey', e.key);
+            localStorage.setItem('timerCode', e.code);
+            this.setState({ timerKey: e.key, timerCode: e.code, isInputtingTimerKey: false });
+        }
+    }
 
     render() {
         return (
@@ -99,6 +125,16 @@ class ColorGateway extends Component<Props, State> {
                             </React.Fragment>
                         ) : (
                             <button onClick={() => this.inputKey()}>Change</button>
+                        )}
+                    </div>
+                    <div className="key-changer">
+                        <p>Stop/Resume Timer Key: {this.state.timerCode}</p>
+                        {this.state.isInputtingTimerKey ? (
+                            <React.Fragment>
+                                <p className="desired-key-prompt">Press Desired Key</p>
+                            </React.Fragment>
+                        ) : (
+                            <button onClick={() => this.inputTimerKey()}>Change</button>
                         )}
                     </div>
                 </div>
