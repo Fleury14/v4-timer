@@ -28,7 +28,7 @@ class Objective extends Component<Props> {
                 <p className={complete ? "objective-title-complete" : "objective-title"}>
                     {title}
                     {random ? <button className="objective-edit-button" onClick={(id) => edit(id)}>Edit</button> : null}
-                    {notRequired && title.indexOf('Zeromus') < 0 ? <span>&nbsp;(not required)</span> : null}
+                    {notRequired && title.indexOf('Zeromus') < 0 ? <span class="objective-not-required-badge">NOT REQUIRED</span> : null}
                 </p>
                 {time
                     ?  <div className="objective-time-container">
