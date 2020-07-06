@@ -19,7 +19,8 @@ type State = {
     flagObj: ?FlagObject,
     finished: boolean,
     objectiveEditing: ?number,
-    bossTimes: BossTime[]
+    bossTimes: BossTime[],
+    required: number,
 }
 
 class TimerComponent extends Component<Props, State> {
@@ -33,6 +34,24 @@ class TimerComponent extends Component<Props, State> {
         finished: false,
         objectiveEditing: null,
         bossTimes: [],
+        required: 0,
+    }
+
+    onPress(e: KeyboardEvent) {
+        const storedTimerKey = localStorage.getItem('timerKey');
+        const selectedKey = storedTimerKey || 'j';
+        if(e.key === selectedKey) {
+
+            this.state.timerActive ? this.endTimer() : this.beginTimer();
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener('keyup', this.onPress.bind(this));
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keyup', this.onPress.bind(this));
     }
 
     beginTimer() {
@@ -51,10 +70,13 @@ class TimerComponent extends Component<Props, State> {
     }
 
     endTimer() {
-        if (this.interval) {
-            clearInterval(this.interval);
+        if (this.state.timerActive) {
+            if (this.interval) {
+                clearInterval(this.interval);
+            }
+            this.setState({ pauseTime: Date.now() - this.state.startTime, timerActive: false });
         }
-        this.setState({ pauseTime: Date.now() - this.state.startTime, timerActive: false });
+        
     }
 
     resetTimer() {
@@ -77,8 +99,26 @@ class TimerComponent extends Component<Props, State> {
 
     checkForFinish() {
         if (this.state.flagObj) {
+            
             const unfinished:void | TObjective = this.state.flagObj.objectives.find(objective => objective.time === 0);
+            let finished:void | TObjective[] = [];
+            let zeromus = null;
+            if (this.state.flagObj && this.state.flagObj.objectives) {
+                finished = this.state.flagObj.objectives.filter(objective => objective.time !== 0)
+            }
+            if (this.state.flagObj && this.state.flagObj.objectives) {
+                zeromus = this.state.flagObj.objectives.find(obj => obj.label.indexOf('Zeromus') >= 0)
+            }
+            
+            
             if (!unfinished) {
+                this.setState({ finished: true });
+                this.endTimer();
+            } else if (
+                finished &&this.state.flagObj && this.state.flagObj.required && zeromus
+                && finished.length >= this.state.flagObj.required + 1
+                && zeromus.time !== 0
+            ) {
                 this.setState({ finished: true });
                 this.endTimer();
             }
@@ -148,8 +188,18 @@ class TimerComponent extends Component<Props, State> {
     render() {
         // sort objectives by finished time for completed objectives
         let sortedObj = null;
+        let goMode = false;
         if (this.state.flagObj) {
             sortedObj = this.state.flagObj.objectives.sort((a:TObjective, b:TObjective) => a.time !== undefined && b.time !== undefined ? a.time - b.time : 0);
+            if (
+                this.state.flagObj
+                && this.state.flagObj.required
+                && this.state.flagObj.required > 0
+                && this.state.flagObj.objectives
+                && this.state.flagObj.required <= this.state.flagObj.objectives.filter(obj => obj.time !== 0).length
+            ) {
+                goMode = true;
+            }
         }
         const hasFinishedOne = (this.state.flagObj && this.state.flagObj.objectives && this.state.flagObj.objectives.find(obj => obj.time !== 0));
         
@@ -157,11 +207,12 @@ class TimerComponent extends Component<Props, State> {
             <div className="whole-wrapper">
                 <div className="left-wrapper">
                     <div>
-                        <h2 className="sub-title">REMAINING</h2>
+                        <h2 className="sub-title">REMAINING{this.props.flagObj && this.props.flagObj.required ? ` (COMPLETE ${this.props.flagObj.required})` : ''}</h2>
                         {/* this handles pre-start display, and avoids the need to set state upon mounting/updating */}
                         {!this.state.timerActive && this.props.flagObj && this.props.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    notRequired={goMode}
                                     editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
@@ -177,6 +228,7 @@ class TimerComponent extends Component<Props, State> {
                         {this.state.timerActive && this.state.flagObj && this.state.flagObj.objectives.map(objective => {
                             if (!objective.time) return (
                                 <Objective
+                                    notRequired={goMode}
                                     editing={this.state.objectiveEditing}
                                     key={objective.id}
                                     title={objective.label}
@@ -240,6 +292,7 @@ class TimerComponent extends Component<Props, State> {
                             />
                         ) : null}
                         </Clock>
+                        <p>Press the key display at the top to stop/resume timer with keyboard</p>
                     </React.Fragment>
                     
                     

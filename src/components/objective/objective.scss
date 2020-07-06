@@ -5,6 +5,18 @@
     min-width: 400px;
 }
 
+.objective-not-required {
+    background-color: #663300;
+}
+
+.objective-not-required-badge {
+    background-color: #ff9c33;
+    color: black;
+    font-size: 10px;
+    margin-left: 20px;
+    padding: 0px 3px;
+}
+
 .objective-editing {
     background-color: #444;
 }
@@ -62,8 +74,6 @@
     height: 19px;
     margin-left: 10px;
     background-color: #fadf0f;
-    position: relative;
-    bottom: 2px;
     border-radius: 3px;
     border: none;
 }

@@ -10,6 +10,7 @@ const parseFlags = (flagString: string) => {
 
     const flagObj:FlagObject = {
         objectives: [],
+        required: 0,
     }
     // check set objectives (non-custom)
     if (flagString.indexOf('dkmatter') >= 0 ) {
@@ -105,6 +106,11 @@ const parseFlags = (flagString: string) => {
             label: 'Defeat Zeromus',
             time: 0,
         })
+    }
+
+    // required objective number
+    if (flagString.indexOf('req:') >= 0) {
+        flagObj.required = parseInt(flagString.charAt(flagString.indexOf('req:') + 4));
     }
 
     return flagObj;
