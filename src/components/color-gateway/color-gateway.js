@@ -12,7 +12,7 @@ type State = {
     colorInput: string,
     key: string,
     code: string,
-    isInputtingKey: boolean,
+    isInputtingKey: string,
     isInputtingTimerKey: boolean,
     timerCode: string,
     timerKey: string,
@@ -25,7 +25,7 @@ class ColorGateway extends Component<Props, State> {
         colorInput: '',
         key: ' ',
         code: 'Space',
-        isInputtingKey: false,
+        isInputtingKey: '',
         isInputtingTimerKey: false,
         timerCode: 'KeyJ',
         timerKey: 'j',
@@ -68,36 +68,50 @@ class ColorGateway extends Component<Props, State> {
         document.removeEventListener('keyup', this.listenerCommands.bind(this))
     }
 
-    inputKey() {
+    inputKey(mode: string) {
         this.setState({
-            isInputtingKey: true,   
+            isInputtingKey: mode,   
         }, () => {
         this.keyListener = document.addEventListener('keyup', this.listenerCommands.bind(this));
         });
     }
 
     listenerCommands(e: KeyboardEvent) {
-        if (this.state.isInputtingKey) {
-            localStorage.setItem('key', e.key);
-            localStorage.setItem('code', e.code);
-            this.setState({ key: e.key, code: e.code, isInputtingKey: false });
+        switch (this.state.isInputtingKey) {
+            case 'bossTimer':
+                localStorage.setItem('key', e.key);
+                localStorage.setItem('code', e.code);
+                this.setState({ key: e.key, code: e.code, isInputtingKey: '' });
+                break;
+            case 'timerStop':
+                localStorage.setItem('timerKey', e.key);
+                localStorage.setItem('timerCode', e.code);
+                this.setState({ timerKey: e.key, timerCode: e.code, isInputtingKey: '' });
+                break;
+            default:
+                this.setState({ isInputtingKey: '' });
         }
+        // if (this.state.isInputtingKey) {
+        //     localStorage.setItem('key', e.key);
+        //     localStorage.setItem('code', e.code);
+        //     this.setState({ key: e.key, code: e.code, isInputtingKey: false });
+        // }
     }
-    inputTimerKey() {
-        this.setState({
-            isInputtingTimerKey: true,   
-        }, () => {
-        this.keyListener = document.addEventListener('keyup', this.timerListenerCommands.bind(this));
-        });
-    }
+    // inputTimerKey() {
+    //     this.setState({
+    //         isInputtingTimerKey: true,   
+    //     }, () => {
+    //     this.keyListener = document.addEventListener('keyup', this.timerListenerCommands.bind(this));
+    //     });
+    // }
 
-    timerListenerCommands(e: KeyboardEvent) {
-        if (this.state.isInputtingTimerKey) {
-            localStorage.setItem('timerKey', e.key);
-            localStorage.setItem('timerCode', e.code);
-            this.setState({ timerKey: e.key, timerCode: e.code, isInputtingTimerKey: false });
-        }
-    }
+    // timerListenerCommands(e: KeyboardEvent) {
+    //     if (this.state.isInputtingTimerKey) {
+    //         localStorage.setItem('timerKey', e.key);
+    //         localStorage.setItem('timerCode', e.code);
+    //         this.setState({ timerKey: e.key, timerCode: e.code, isInputtingTimerKey: false });
+    //     }
+    // }
 
     render() {
         return (
@@ -119,22 +133,22 @@ class ColorGateway extends Component<Props, State> {
                     </div>
                     <div className="key-changer">
                         <p>Boss Timer Key: {this.state.code}</p>
-                        {this.state.isInputtingKey ? (
+                        {this.state.isInputtingKey === 'bossTimer' ? (
                             <React.Fragment>
                                 <p className="desired-key-prompt">Press Desired Key</p>
                             </React.Fragment>
                         ) : (
-                            <button onClick={() => this.inputKey()}>Change</button>
+                            <button onClick={() => this.inputKey('bossTimer')}>Change</button>
                         )}
                     </div>
                     <div className="key-changer">
                         <p>Stop/Resume Timer Key: {this.state.timerCode}</p>
-                        {this.state.isInputtingTimerKey ? (
+                        {this.state.isInputtingKey === 'timerStop' ? (
                             <React.Fragment>
                                 <p className="desired-key-prompt">Press Desired Key</p>
                             </React.Fragment>
                         ) : (
-                            <button onClick={() => this.inputTimerKey()}>Change</button>
+                            <button onClick={() => this.inputKey('timerStop')}>Change</button>
                         )}
                     </div>
                 </div>
