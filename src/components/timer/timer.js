@@ -159,7 +159,9 @@ class TimerComponent extends Component<Props, State> {
             if (target) {
                 target.label = title;
             }
-            let newObjEditing = objectiveEditing;
+            // get array index of current id being edited -- ids may sometimes be out of order in the event of a complete/undone
+            const foundObjective = flagObj.objectives.find(obj => obj.id === objectiveEditing);
+            let newObjEditing = flagObj.objectives.indexOf(foundObjective);
             if (typeof newObjEditing === 'number') {
                 if (newObjEditing === flagObj.objectives.length - 1) {
                     newObjEditing = null;
@@ -178,8 +180,12 @@ class TimerComponent extends Component<Props, State> {
                 }
                 
             }
+            if (newObjEditing) {
+                this.setState({ flagObj, objectiveEditing: flagObj.objectives[newObjEditing].id })
+            } else {
+                this.setState({ flagObj, objectiveEditing: null });
+            }
             
-            this.setState({ flagObj, objectiveEditing: newObjEditing })
         }
         
         
