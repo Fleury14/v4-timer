@@ -13,7 +13,6 @@ type State = {
     key: string,
     code: string,
     isInputtingKey: string,
-    isInputtingTimerKey: boolean,
     timerCode: string,
     timerKey: string,
 };
@@ -26,7 +25,6 @@ class ColorGateway extends Component<Props, State> {
         key: ' ',
         code: 'Space',
         isInputtingKey: '',
-        isInputtingTimerKey: false,
         timerCode: 'KeyJ',
         timerKey: 'j',
     }
@@ -91,27 +89,7 @@ class ColorGateway extends Component<Props, State> {
             default:
                 this.setState({ isInputtingKey: '' });
         }
-        // if (this.state.isInputtingKey) {
-        //     localStorage.setItem('key', e.key);
-        //     localStorage.setItem('code', e.code);
-        //     this.setState({ key: e.key, code: e.code, isInputtingKey: false });
-        // }
     }
-    // inputTimerKey() {
-    //     this.setState({
-    //         isInputtingTimerKey: true,   
-    //     }, () => {
-    //     this.keyListener = document.addEventListener('keyup', this.timerListenerCommands.bind(this));
-    //     });
-    // }
-
-    // timerListenerCommands(e: KeyboardEvent) {
-    //     if (this.state.isInputtingTimerKey) {
-    //         localStorage.setItem('timerKey', e.key);
-    //         localStorage.setItem('timerCode', e.code);
-    //         this.setState({ timerKey: e.key, timerCode: e.code, isInputtingTimerKey: false });
-    //     }
-    // }
 
     render() {
         return (
