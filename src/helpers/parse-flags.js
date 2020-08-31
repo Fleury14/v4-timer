@@ -109,7 +109,7 @@ const parseFlags = (flagString: string) => {
     }
 
     // required objective number
-    if (flagString.indexOf('req:') >= 0) {
+    if (flagString.indexOf('req:') >= 0 && flagString.indexOf('req:all') < 0) {
         flagObj.required = parseInt(flagString.charAt(flagString.indexOf('req:') + 4));
     }
 
