@@ -241,7 +241,7 @@ const quests: Quest[] = [{
 }, {
     slug: 'hobs',
     title: 'Rescue the hostage on Mt. Hobs',
-    buttonText: 'Mt. Hobbs',
+    buttonText: 'Mt. Hobs',
 }, {
     slug: 'fabul',
     title: 'Defend Fabul',
