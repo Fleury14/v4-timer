@@ -237,11 +237,11 @@ const quests: Quest[] = [{
 }, {
     slug: 'antlionnest',
     title: 'Complete the Antlion Nest',
-    buttonText: 'Antion Cave',
+    buttonText: 'Antlion Cave',
 }, {
     slug: 'hobs',
     title: 'Rescue the hostage on Mt. Hobs',
-    buttonText: 'Mt. Hobbs',
+    buttonText: 'Mt. Hobs',
 }, {
     slug: 'fabul',
     title: 'Defend Fabul',
