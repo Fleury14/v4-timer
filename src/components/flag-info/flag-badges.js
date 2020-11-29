@@ -30,7 +30,6 @@ const renderCharacters = (flags: string) => {
     if (charString.indexOf('distinct') >= 0) {
         const distinctIndex = charString.indexOf('distinct');
         const numStart = distinctIndex + 9;
-        console.log('charstring', charString, 'numstart', numStart);
         const isTwoDigit = numStart === charString.length - 1 || charString.charAt(numStart + 1) !== '/';
         const numOfChars = parseInt(charString.slice(numStart, isTwoDigit ? numStart + 2 : numStart + 1));
         characterText.push(numOfChars < 8
