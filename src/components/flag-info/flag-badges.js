@@ -101,6 +101,12 @@ const renderTreasure = (flags: string) => {
     if (trString.indexOf('junk') >= 0) {
         TreasureText.push(<span key="no-j" className="flag-badge"> Junk Included</span>);
     }
+    if (trString.indexOf('maxtier:6') >= 0) {
+        TreasureText.push(<span key="max-tier" className="flag-badge"> No tier 7 untrapped</span>);
+    }
+    if (trString.indexOf('money') >= 0) {
+        TreasureText.push(<span key="money" className="flag-badge flag-badge-danger"> All untrapped are $MONEY$</span>);
+    }
 
     return (<div>{TreasureText}</div>)
 }
