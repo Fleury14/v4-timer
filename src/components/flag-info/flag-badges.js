@@ -217,6 +217,9 @@ const renderMisc = (flags: string) => {
     if (flags.indexOf('pushbtojump') >= 0) {
         misc.push(<span key="pushbtojump" className="flag-badge flag-badge-yay">Push B to Jump</span>)
     }
+    if (flags.indexOf('noboost') >= 0) {
+        misc.push(<span key="noboost" className="flag-badge">No 10KI EXP Boost</span>)
+    }
 
     return (<div>{misc}</div>)
 }
@@ -240,6 +243,9 @@ const renderVanilla = (flags: string) => {
     }
     if (vanillaString.indexOf('hobs') >= 0) {
         vanilla.push(<span key="hobs" className="flag-badge">Hobs (Rydia learns Fire1)</span>);
+    }
+    if (vanillaString.indexOf('giant') >= 0) {
+        vanilla.push(<span key="giant" className="flag-badge flag-badge-danger">No Exiting Giant</span>);
     }
 
     return vanilla.length > 0 ? (<div>{vanilla}</div>) : null;
