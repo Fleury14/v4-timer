@@ -27,6 +27,9 @@ const renderCharacters = (flags: string) => {
     if (charString.indexOf('abilities') >= 0) {
         characterText.push(<span key="j-abilities" className="flag-badge"> J-Abilities</span>)
     }
+    if (charString.indexOf('nekkie') >= 0) {
+        characterText.push(<span key="nekkie" className="flag-badge"> Limited gear start</span>);
+    }
     if (charString.indexOf('distinct') >= 0) {
         const distinctIndex = charString.indexOf('distinct');
         const numStart = distinctIndex + 9;
@@ -45,6 +48,12 @@ const renderCharacters = (flags: string) => {
     }
     if (charString.indexOf('nodupes') >= 0) {
         characterText.push(<span key="nodupes" className="flag-badge"> No Dupes</span>)
+    }
+    if (charString.indexOf('party') >= 0) {
+        const partyIndex = charString.indexOf('party');
+        const numStart = partyIndex + 6;
+        const partySize = parseInt(charString.slice(numStart, numStart + 1));
+        characterText.push(<span key="party-size" className={`flag-badge${partySize < 4 ? ' flag-badge-danger' : ''}`}> Max party size: {partySize}</span>)
     }
     if (charString.indexOf('permadeath') >= 0) {
         characterText.push(<span key="permadeath" className="flag-badge flag-badge-danger"> Permadeath</span>)
