@@ -218,7 +218,7 @@ const renderMisc = (flags: string) => {
         misc.push(<span key="pushbtojump" className="flag-badge flag-badge-yay">Push B to Jump</span>)
     }
     if (flags.indexOf('noboost') >= 0) {
-        misc.push(<span key="noboost" className="flag-badge">No 10KI EXP Boost</span>)
+        misc.push(<span key="noboost" className="flag-badge">No Slingshot</span>)
     }
 
     return (<div>{misc}</div>)
