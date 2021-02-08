@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { kitList } from '../../data/kit-list';
 import './flag-info.scss';
 
 const renderCharacters = (flags: string) => {
@@ -272,6 +273,27 @@ const renderEncounters = (flags: string) => {
     return <div>{encounters}</div>
 }
 
+const renderKits = (flags: string) => {
+    const kits = [];
+    const kitStrings = [];
+
+    
+
+    console.log(getPropertySection(flags, 'kit'), getPropertySection(flags, 'kit2'), getPropertySection(flags, 'kit3'));
+    if(flags.indexOf('kit:')) kitStrings.push(getPropertySection(flags, 'kit'));
+    if(flags.indexOf('kit2')) kitStrings.push(getPropertySection(flags, 'kit2'));
+    if(flags.indexOf('kit3')) kitStrings.push(getPropertySection(flags, 'kit3'));
+
+    for (const kitString of kitStrings) {
+        for (const kit of kitList) {
+            if (kitString.indexOf(kit.flag) >= 0) {
+                kits.push(<span key={kit.flag} className="flag-badge">{kit.title}</span>)
+            }
+        }
+    }
+    return <div>{kits}</div>
+}
+
 const getPropertySection = (flags: string, criteria: string) => {
     // get shop section of flag string
     const begin = flags.indexOf(criteria);
@@ -288,4 +310,4 @@ const getPropertySection = (flags: string, criteria: string) => {
     return results;
 }
 
-export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters };
+export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters, renderKits };
