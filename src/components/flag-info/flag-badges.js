@@ -277,9 +277,6 @@ const renderKits = (flags: string) => {
     const kits = [];
     const kitStrings = [];
 
-    
-
-    console.log(getPropertySection(flags, 'kit'), getPropertySection(flags, 'kit2'), getPropertySection(flags, 'kit3'));
     if(flags.indexOf('kit:')) kitStrings.push(getPropertySection(flags, 'kit'));
     if(flags.indexOf('kit2')) kitStrings.push(getPropertySection(flags, 'kit2'));
     if(flags.indexOf('kit3')) kitStrings.push(getPropertySection(flags, 'kit3'));
