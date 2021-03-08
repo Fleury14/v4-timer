@@ -20,6 +20,9 @@ const renderCharacters = (flags: string) => {
     if (charString.indexOf('relaxed') >= 0) {
         characterText.push(<span key="relaxed" className="flag-badge">Relaxed</span>)
     }
+    if (charString.indexOf('hero') >= 0) {
+        characterText.push(<span key="relaxed" className="flag-badge flag-badge-danger">Starting character is the HERO</span>)
+    }
 
     // extra settings
     if (charString.indexOf('spells') >= 0) {
@@ -211,6 +214,12 @@ const renderMisc = (flags: string) => {
 
     if (flags.indexOf('spoon') >= 0) {
         misc.push(<span key="spoon" className="flag-badge flag-badge-yay">SPOON!</span>)
+    }
+    if (flags.indexOf('supersmith') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge flag-badge-yay">GBA Weapon Forge</span>)
+    }
+    if (flags.indexOf('nocursed') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge flag-badge-yay">No Cursed Rings</span>)
     }
     if (flags.indexOf('noadamants') >= 0) {
         misc.push(<span key="nooadamants" className="flag-badge">No adamant armors</span>)
