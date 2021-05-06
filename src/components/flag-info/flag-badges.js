@@ -166,6 +166,9 @@ const renderShops = (flags: string) => {
     if (shopString.indexOf('wild') >= 0) {
         shopText.push(<span key="standard" className="flag-badge flag-badge-yay">Wild</span>);
     }
+    if (shopString.indexOf('free') >= 0) {
+        shopText.push(<span key="standard" className="flag-badge flag-badge-yay">Everything is FREE</span>);
+    }
     if (shopString.indexOf('apples') >= 0) {
         shopText.push(<span key="no-apples" className="flag-badge">No Apples</span>);
     }
