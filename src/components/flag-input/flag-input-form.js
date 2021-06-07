@@ -42,6 +42,10 @@ class FlagInputForm extends Component {
                     <button onClick={() => this.setState({ flags: 'Orandom:3/req:all/win:crystal Kmain Pshop Crelaxed/j:abilities Twild Swild/free/no:apples Bstandard/whyburn Nnone Etoggle Glife/sylph -kit:loaded -kit2:random -spoon' })}>Supermarket Sweep</button>
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_toroiatreasury/random:2/req:all/win:crystal Kmain/summon/moon Pkey Crelaxed/no:fusoya/j:abilities/nekkie/hero Tpro Sstandard Bstandard/alt:gauntlet/whichburn Nchars/key Etoggle Glife/sylph -kit:freedom -kit2:random -noadamants' })}>CHero</button>                    
                 </div>
+                <div className="flag-presets">
+                    <button onClick={() => this.setState({ flags: 'Orandom:5,boss,char/req:4/win:crystal Kmain/summon/moon Pkey Cstandard/distinct:5/nodupes/bye Tstandard/junk Sstandard Bstandard Nchars/key Etoggle/no:jdrops Glife/sylph -kit:cata -supersmith -vanilla:hobs' })}>ZZ1 Evolved</button>
+                    <button onClick={() => this.setState({ flags: 'Omode:classicgiant/win:game Kmain Pnone Crelaxed Twild/no:j Scabins/free Bstandard/whichburn Nnone Etoggle/no:jdrops Gdupe/mp/warp/life/sylph -kit:basic -noadamants -spoon -supersmith' })}>Giant %</button>
+                </div>
                 <h2 className="flag-preset-title">Tournament Flagsets</h2>
                 <div className="flag-presets">
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/3:quest_magnes/random:2,boss,char/req:4/win:crystal Kmain/summon/moon Pkey Cstandard/distinct:10/j:abilities/nekkie/bye Twildish/maxtier:6 Sstandard/sell:quarter Bstandard/alt:gauntlet Nchars/key Etoggle Glife/sylph -kit:basic -kit2:dwarf -noadamants -spoon -exp:noboost -vanilla:giant' })}>Lali-Ho League - Swiss</button>
