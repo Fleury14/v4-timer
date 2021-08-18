@@ -38,12 +38,12 @@ class FlagInputForm extends Component {
                 </form>
                 <h2 className="flag-preset-title">Ladder Flagsets</h2>
                 <div className="flag-presets">
-                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/random:1,quest,char/req:all/win:crystal Kmain/summon/moon Pkey Cstandard/j:abilities Twildish Sstandard Bstandard/alt:gauntlet Nchars Etoggle Glife/sylph -kit:basic -kit2:trap -spoon -supersmith -pushbtojump' })}>Push B to Jump</button>
+                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/3:quest_pass/win:crystal Kmain/trap Pkey Crelaxed/start:fusoya/j:abilities Twildish Sstandard/no:j Bstandard/alt:gauntlet Nchars/key/bosses Etoggle/noexp Gwarp/life/sylph -kit:freedom -supersmith -vanilla:fusoya' })}>Fuwario</button>
                     <button onClick={() => this.setState({ flags: 'Orandom:3/req:all/win:crystal Kmain Pshop Crelaxed/j:abilities Twild Swild/free/no:apples Bstandard/whyburn Nnone Etoggle Glife/sylph -kit:loaded -kit2:random -spoon' })}>Supermarket Sweep</button>
-                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_toroiatreasury/random:2/req:all/win:crystal Kmain/summon/moon Pkey Crelaxed/no:fusoya/j:abilities/nekkie/hero Tpro Sstandard Bstandard/alt:gauntlet/whichburn Nchars/key Etoggle Glife/sylph -kit:freedom -kit2:random -noadamants' })}>CHero</button>                    
+                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/3:quest_magnes/random:2,gated_quest/req:4/win:crystal Kmain/summon/moon Pkey Crelaxed/distinct:10/j:abilities/nekkie/bye Twildish/maxtier:6 Sstandard Bstandard/alt:gauntlet Nchars/key Etoggle Glife/sylph -kit:basic -kit2:defense -noadamants -spoon -exp:noboost -vanilla:giant' })}>Lali-ho Redux</button>                    
                 </div>
                 <div className="flag-presets">
-                    <button onClick={() => this.setState({ flags: 'Orandom:5,boss,char/req:4/win:crystal Kmain/summon/moon Pkey Cstandard/distinct:5/nodupes/bye Tstandard/junk Sstandard Bstandard Nchars/key Etoggle/no:jdrops Glife/sylph -kit:cata -supersmith -vanilla:hobs' })}>ZZ1 Evolved</button>
+                    <button onClick={() => this.setState({ flags: 'Orandom:5,gated_quest/req:4/win:crystal Kmain/summon/moon Pkey Cstandard/no:fusoya/j:abilities/bye/permajoin Tpro Scabins/free Bstandard/alt:gauntlet Nchars/key Etoggle Gwarp/life/sylph -kit:basic -noadamants' })}>Finders Keepers</button>
                     <button onClick={() => this.setState({ flags: 'Omode:classicgiant/win:game Kmain Pnone Crelaxed Twild/no:j Scabins/free Bstandard/whichburn Nnone Etoggle/no:jdrops Gdupe/mp/warp/life/sylph -kit:basic -noadamants -spoon -supersmith' })}>Giant %</button>
                 </div>
                 <h2 className="flag-preset-title">Tournament Flagsets</h2>
