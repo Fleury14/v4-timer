@@ -181,6 +181,9 @@ const renderShops = (flags: string) => {
     if (shopString.indexOf('life') >= 0) {
         shopText.push(<span key="no-life" className="flag-badge flag-badge-danger">No Life Potions</span>);
     }
+    if (shopString.indexOf('no:j') >= 0) {
+        shopText.push(<span key="no-j" className="flag-badge flag-badge-danger">No J-Items</span>);
+    }
 
     return (<div>{shopText}</div>);
 }
