@@ -22,11 +22,11 @@ class ColorGateway extends Component<Props, State> {
         color: '#333333',
         isInputting: false,
         colorInput: '',
-        key: '9',
-        code: 'Numpad9',
+        key: ' ',
+        code: 'Space',
         isInputtingKey: '',
-        timerCode: 'Numpad5',
-        timerKey: '5',
+        timerCode: 'KeyJ',
+        timerKey: 'j',
     }
 
     keyListener:any = null;
