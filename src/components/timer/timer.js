@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { FlagObject, TObjective, BossTime } from '../../types/types';
-import { Clock, Objective, ObjectivePicker, BossTimer, FlagInfo } from '..';
+import { Clock, Objective, ObjectivePicker, BossTimer, FlagInfo, RightSideGateway } from '..';
 import BossDisplayTime from './boss-time-display';
 import './timer.scss';
 
@@ -314,7 +314,8 @@ class TimerComponent extends Component<Props, State> {
                         </React.Fragment>
                     ) : (
                         <React.Fragment>
-                            <FlagInfo />
+                            {/* <FlagInfo /> */}
+                            <RightSideGateway />
                         </React.Fragment>
                     )}
                 </div>
