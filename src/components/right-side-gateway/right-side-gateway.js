@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { NoteTaker, FlagInfo } from '..';
 
+import './right-side-gateway.scss';
+
 const RightSideGateway = (props) => {
 	const [page, setPage] = useState('info');
 
