@@ -40,7 +40,8 @@ class TimerComponent extends Component<Props, State> {
     onPress(e: KeyboardEvent) {
         const storedTimerKey = localStorage.getItem('timerKey');
         const selectedKey = storedTimerKey || 'j';
-        if(e.key === selectedKey) {
+        const allowedTyping = localStorage.getItem('allowTyping');
+        if(e.key === selectedKey && allowedTyping !== 'true') {
 
             this.state.timerActive ? this.endTimer() : this.beginTimer();
         }

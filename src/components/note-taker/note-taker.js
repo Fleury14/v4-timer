@@ -10,12 +10,16 @@ const NoteTaker = (props) => {
 
   useEffect(() => {
     loadNotes();
+    const storedAllow = localStorage.getItem('allowTyping');
+    if (storedAllow === "true") setTyping(true);
   }, []);
+
 
   function loadNotes() {
     const ls = localStorage.getItem("notes");
     if (ls) setNotes(ls);
   }
+
 
   function handleChange(val) {
     localStorage.setItem("notes", notes);
@@ -24,6 +28,7 @@ const NoteTaker = (props) => {
 
   function toggleTyping() {
     setTyping(!allowTyping);
+    localStorage.setItem("allowTyping", !allowTyping)
   }
 
   function addItem(val) {
@@ -75,9 +80,9 @@ const NoteTaker = (props) => {
       <div>
         <div className="type-row">
           <input type="checkbox" checked={allowTyping} onClick={() => toggleTyping()}/>
-          <p>Enable Typing</p>
+          <p>Enable Typing</p>          
         </div>
-        <p className="warning">Warning: If you have boss timer/start stop keys bound, typing may trigger them. Please double check your key binds before enabling</p>
+        <p className="warning">Warning: Enabling typing will disable the keybinds for the boss timer and main timer start/stop to avoid accidents.</p>
         <div className="bottom-button-row">
           <button onClick={() => handleReset()}>{!confirmed ? "Reset" : "Are you sure?"}</button>
           <button onClick={() => addItem(String.fromCharCode(13, 10))}>New Line</button>

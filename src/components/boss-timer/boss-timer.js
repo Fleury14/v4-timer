@@ -34,7 +34,8 @@ class BossTimer extends Component<Props, State> {
         // a third event finalized the time, setting it back to finished and !isActive and resets the time
         const selectedKey = localStorage.getItem('key');
         const targetKey = selectedKey || ' ';
-        if (e.key === targetKey) {  
+        const allowTyping = localStorage.getItem('allowTyping');
+        if (e.key === targetKey && allowTyping !== 'true') {  
             if (document.body) document.body.classList.add('no-scroll');
             if (!this.state.isActive && this.state.finished) {
                 this.setState({ isActive: true, finished: false });
