@@ -303,7 +303,7 @@ class TimerComponent extends Component<Props, State> {
                     
                     
                 </div>
-                <div>
+                <div style={{ width: '100%' }}>
                     {this.state.objectiveEditing !== null ? (
                         <React.Fragment>
                             <ObjectivePicker

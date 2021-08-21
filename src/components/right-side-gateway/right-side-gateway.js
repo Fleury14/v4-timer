@@ -20,7 +20,7 @@ const RightSideGateway = (props) => {
 	}
 
 	return (
-		<>
+		<div className="right-gate">
 			<div className="right-gate-top">
 				<button className={page === 'info' ? 'active-gate' : ''} onClick={() => handleSet('info')}>
 					Flag Info
@@ -32,7 +32,7 @@ const RightSideGateway = (props) => {
 			<div className="right-gate-main">
 				{renderBody()}
 			</div>
-		</>
+		</div>
 	);
 }
 
