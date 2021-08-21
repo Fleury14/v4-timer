@@ -4,7 +4,7 @@ import { NoteTaker, FlagInfo } from '..';
 import './right-side-gateway.scss';
 
 const RightSideGateway = (props) => {
-	const [page, setPage] = useState('notes');
+	const [page, setPage] = useState('info');
 
 	function handleSet(setting) {
 		setPage(setting);

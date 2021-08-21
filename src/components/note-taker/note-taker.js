@@ -79,7 +79,7 @@ const NoteTaker = (props) => {
       </div>
       <div>
         <div className="type-row">
-          <input type="checkbox" checked={allowTyping} onClick={() => toggleTyping()}/>
+          <input type="checkbox" checked={allowTyping} onChange={() => toggleTyping()}/>
           <p>Enable Typing</p>          
         </div>
         <p className="warning">Warning: Enabling typing will disable the keybinds for the boss timer and main timer start/stop to avoid accidents.</p>
