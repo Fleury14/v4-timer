@@ -32,7 +32,7 @@ const NoteTaker = (props) => {
   }
 
   function addItem(val) {
-    handleChange(notes + " " + val);
+    handleChange(notes + " " + val + " ");
   }
 
   function handleReset() {
