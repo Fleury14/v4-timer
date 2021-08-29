@@ -44,7 +44,7 @@ class FlagInputForm extends Component {
                 </div>
                 <div className="flag-presets">
                     <button onClick={() => this.setState({ flags: 'Orandom:5,gated_quest/req:4/win:crystal Kmain/summon/moon Pkey Cstandard/no:fusoya/j:abilities/bye/permajoin Tpro Scabins/free Bstandard/alt:gauntlet Nchars/key Etoggle Gwarp/life/sylph -kit:basic -noadamants' })}>Finders Keepers</button>
-                    <button onClick={() => this.setState({ flags: 'Omode:classicgiant/win:game Kmain Pnone Crelaxed Twild/no:j Scabins/free Bstandard/whichburn Nnone Etoggle/no:jdrops Gdupe/mp/warp/life/sylph -kit:basic -noadamants -spoon -supersmith' })}>Giant %</button>
+                    <button onClick={() => this.setState({ flags: 'Omode:classicgiant/win:game Kmain/moon Pnone Cstandard Twild/no:j Scabins/free Bstandard/whichburn Nnone Etoggle/no:jdrops Gdupe/mp/warp/life/sylph -kit:basic -noadamants -spoon -supersmith' })}>Giant %</button>
                 </div>
                 <h2 className="flag-preset-title">Tournament Flagsets</h2>
                 <div className="flag-presets">
