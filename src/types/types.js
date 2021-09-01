@@ -49,3 +49,8 @@ export type ObjByMultiKeyItem = {
     objectiveSlug: string[],
     row: number,
 }
+
+export type Kit = {
+    flag: string,
+    title: string,
+}

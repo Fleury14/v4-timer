@@ -10,6 +10,7 @@ import {
     renderMisc,
     renderVanilla,
     renderEncounters,
+    renderKits,
 } from './flag-badges';
 import './flag-info.scss';
 
@@ -46,6 +47,10 @@ const FlagInfo = (props: string) => {
             <div className="flag-info-row">
                 <p className="flag-info-label">Encounters:</p>
                 {renderEncounters(flags)}
+            </div>
+            <div className="flag-info-row">
+                <p className="flag-info-label">Kits:</p>
+                {renderKits(flags)}
             </div>
             {vanillaData ? (
                 <div className="flag-info-row">

@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { kitList } from '../../data/kit-list';
 import './flag-info.scss';
 
 const renderCharacters = (flags: string) => {
@@ -19,6 +20,9 @@ const renderCharacters = (flags: string) => {
     if (charString.indexOf('relaxed') >= 0) {
         characterText.push(<span key="relaxed" className="flag-badge">Relaxed</span>)
     }
+    if (charString.indexOf('hero') >= 0) {
+        characterText.push(<span key="relaxed" className="flag-badge flag-badge-danger">Starting character is the HERO</span>)
+    }
 
     // extra settings
     if (charString.indexOf('spells') >= 0) {
@@ -26,6 +30,9 @@ const renderCharacters = (flags: string) => {
     }
     if (charString.indexOf('abilities') >= 0) {
         characterText.push(<span key="j-abilities" className="flag-badge"> J-Abilities</span>)
+    }
+    if (charString.indexOf('nekkie') >= 0) {
+        characterText.push(<span key="nekkie" className="flag-badge"> Limited gear start</span>);
     }
     if (charString.indexOf('distinct') >= 0) {
         const distinctIndex = charString.indexOf('distinct');
@@ -45,6 +52,12 @@ const renderCharacters = (flags: string) => {
     }
     if (charString.indexOf('nodupes') >= 0) {
         characterText.push(<span key="nodupes" className="flag-badge"> No Dupes</span>)
+    }
+    if (charString.indexOf('party') >= 0) {
+        const partyIndex = charString.indexOf('party');
+        const numStart = partyIndex + 6;
+        const partySize = parseInt(charString.slice(numStart, numStart + 1));
+        characterText.push(<span key="party-size" className={`flag-badge${partySize < 4 ? ' flag-badge-danger' : ''}`}> Max party size: {partySize}</span>)
     }
     if (charString.indexOf('permadeath') >= 0) {
         characterText.push(<span key="permadeath" className="flag-badge flag-badge-danger"> Permadeath</span>)
@@ -91,6 +104,12 @@ const renderTreasure = (flags: string) => {
     }
     if (trString.indexOf('junk') >= 0) {
         TreasureText.push(<span key="no-j" className="flag-badge"> Junk Included</span>);
+    }
+    if (trString.indexOf('maxtier:6') >= 0) {
+        TreasureText.push(<span key="max-tier" className="flag-badge"> No tier 7 untrapped</span>);
+    }
+    if (trString.indexOf('money') >= 0) {
+        TreasureText.push(<span key="money" className="flag-badge flag-badge-danger"> All untrapped are $MONEY$</span>);
     }
 
     return (<div>{TreasureText}</div>)
@@ -153,6 +172,12 @@ const renderShops = (flags: string) => {
     if (shopString.indexOf('sirens') >= 0) {
         shopText.push(<span key="no-sirens" className="flag-badge flag-badge-danger">No Sirens</span>);
     }
+    if (shopString.indexOf('sell:0') >= 0) {
+        shopText.push(<span key="sell-0" className="flag-badge flag-badge-danger">Everything Sells for 0GP</span>);
+    }
+    if (shopString.indexOf('life') >= 0) {
+        shopText.push(<span key="no-life" className="flag-badge flag-badge-danger">No Life Potions</span>);
+    }
 
     return (<div>{shopText}</div>);
 }
@@ -190,11 +215,20 @@ const renderMisc = (flags: string) => {
     if (flags.indexOf('spoon') >= 0) {
         misc.push(<span key="spoon" className="flag-badge flag-badge-yay">SPOON!</span>)
     }
+    if (flags.indexOf('supersmith') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge flag-badge-yay">GBA Weapon Forge</span>)
+    }
+    if (flags.indexOf('nocursed') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge flag-badge-yay">No Cursed Rings</span>)
+    }
     if (flags.indexOf('noadamants') >= 0) {
         misc.push(<span key="nooadamants" className="flag-badge">No adamant armors</span>)
     }
     if (flags.indexOf('pushbtojump') >= 0) {
         misc.push(<span key="pushbtojump" className="flag-badge flag-badge-yay">Push B to Jump</span>)
+    }
+    if (flags.indexOf('noboost') >= 0) {
+        misc.push(<span key="noboost" className="flag-badge">No Slingshot</span>)
     }
 
     return (<div>{misc}</div>)
@@ -219,6 +253,9 @@ const renderVanilla = (flags: string) => {
     }
     if (vanillaString.indexOf('hobs') >= 0) {
         vanilla.push(<span key="hobs" className="flag-badge">Hobs (Rydia learns Fire1)</span>);
+    }
+    if (vanillaString.indexOf('giant') >= 0) {
+        vanilla.push(<span key="giant" className="flag-badge flag-badge-danger">No Exiting Giant</span>);
     }
 
     return vanilla.length > 0 ? (<div>{vanilla}</div>) : null;
@@ -245,6 +282,24 @@ const renderEncounters = (flags: string) => {
     return <div>{encounters}</div>
 }
 
+const renderKits = (flags: string) => {
+    const kits = [];
+    const kitStrings = [];
+
+    if(flags.indexOf('kit:')) kitStrings.push(getPropertySection(flags, 'kit'));
+    if(flags.indexOf('kit2')) kitStrings.push(getPropertySection(flags, 'kit2'));
+    if(flags.indexOf('kit3')) kitStrings.push(getPropertySection(flags, 'kit3'));
+
+    for (const kitString of kitStrings) {
+        for (const kit of kitList) {
+            if (kitString.indexOf(kit.flag) >= 0) {
+                kits.push(<span key={kit.flag} className="flag-badge">{kit.title}</span>)
+            }
+        }
+    }
+    return <div>{kits}</div>
+}
+
 const getPropertySection = (flags: string, criteria: string) => {
     // get shop section of flag string
     const begin = flags.indexOf(criteria);
@@ -261,4 +316,4 @@ const getPropertySection = (flags: string, criteria: string) => {
     return results;
 }
 
-export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters };
+export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters, renderKits };
