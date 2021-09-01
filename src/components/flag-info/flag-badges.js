@@ -166,6 +166,9 @@ const renderShops = (flags: string) => {
     if (shopString.indexOf('wild') >= 0) {
         shopText.push(<span key="standard" className="flag-badge flag-badge-yay">Wild</span>);
     }
+    if (shopString.indexOf('free') >= 0) {
+        shopText.push(<span key="standard" className="flag-badge flag-badge-yay">Everything is FREE</span>);
+    }
     if (shopString.indexOf('apples') >= 0) {
         shopText.push(<span key="no-apples" className="flag-badge">No Apples</span>);
     }
@@ -177,6 +180,9 @@ const renderShops = (flags: string) => {
     }
     if (shopString.indexOf('life') >= 0) {
         shopText.push(<span key="no-life" className="flag-badge flag-badge-danger">No Life Potions</span>);
+    }
+    if (shopString.indexOf('no:j') >= 0) {
+        shopText.push(<span key="no-j" className="flag-badge flag-badge-danger">No J-Items</span>);
     }
 
     return (<div>{shopText}</div>);

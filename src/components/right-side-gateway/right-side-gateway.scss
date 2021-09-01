@@ -1,0 +1,19 @@
+.right-gate {
+    width: 100%;
+}
+
+.right-gate-top {
+    margin-bottom: 20px;
+
+    button {
+        border: none;
+        background-color: transparent;
+        color: #FFFFFF;
+        margin-right: 20px;
+        padding: 10px;
+    }
+
+    .active-gate {
+        border-bottom: 3px solid #FFFFFF;
+    }
+}

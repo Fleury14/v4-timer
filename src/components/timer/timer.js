@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import type { FlagObject, TObjective, BossTime } from '../../types/types';
-import { Clock, Objective, ObjectivePicker, BossTimer, FlagInfo } from '..';
+import { Clock, Objective, ObjectivePicker, BossTimer, FlagInfo, RightSideGateway } from '..';
 import BossDisplayTime from './boss-time-display';
 import './timer.scss';
 
@@ -40,7 +40,8 @@ class TimerComponent extends Component<Props, State> {
     onPress(e: KeyboardEvent) {
         const storedTimerKey = localStorage.getItem('timerKey');
         const selectedKey = storedTimerKey || 'j';
-        if(e.key === selectedKey) {
+        const allowedTyping = localStorage.getItem('allowTyping');
+        if(e.key === selectedKey && allowedTyping !== 'true') {
 
             this.state.timerActive ? this.endTimer() : this.beginTimer();
         }
@@ -303,7 +304,7 @@ class TimerComponent extends Component<Props, State> {
                     
                     
                 </div>
-                <div>
+                <div style={{ width: '100%' }}>
                     {this.state.objectiveEditing !== null ? (
                         <React.Fragment>
                             <ObjectivePicker
@@ -314,7 +315,8 @@ class TimerComponent extends Component<Props, State> {
                         </React.Fragment>
                     ) : (
                         <React.Fragment>
-                            <FlagInfo />
+                            {/* <FlagInfo /> */}
+                            <RightSideGateway />
                         </React.Fragment>
                     )}
                 </div>
