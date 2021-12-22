@@ -6,7 +6,8 @@ const trapped = [
                 location: "2F, only chest",
                 enemy: "FlameDog x 1"
             }
-        ]
+        ],
+        region: "overworld"
     },
     {
         title: "Eblan Cave",
@@ -15,7 +16,8 @@ const trapped = [
                 location: "Behind the save point",
                 enemy: "Staleman x 2"
             }
-        ]
+        ],
+        region: "overworld"
     },
     {
         title: "Tower of Bab-il (Upper)",
@@ -24,7 +26,8 @@ const trapped = [
                 location: "2F, across the bridge",
                 enemy: "MadOgre x 4"
             }
-        ]
+        ],
+        region: "underground"
     },
     {
         title: "Castle Eblan",
@@ -41,7 +44,8 @@ const trapped = [
                 location: "Basement, right chest",
                 enemy: "Mad Ogre x 3"
             }
-        ]
+        ],
+        region: "overworld"
     },
     {
         title: "Giant of Babil",
@@ -50,7 +54,8 @@ const trapped = [
                 location: "4f, last giant chest",
                 enemy: "Last Arm x 1"
             }
-        ]
+        ],
+        region: "overworld"
     },
     {
         title: "Feymarch",
@@ -59,7 +64,8 @@ const trapped = [
                 location: "B3F, behind the entrance to town",
                 enemy: "Warrior x 5"
             }
-        ]
+        ],
+        region: "underground"
     },
     {
         title: "Tower of Bab-il (Lower)",
@@ -80,7 +86,8 @@ const trapped = [
                 location: "4F, right side, top room",
                 enemy: "Alert x 1, (Summons FlameDog)"
             }
-        ]
+        ],
+        region: "underground"
     },
     {
         title: "Sylph Cave",
@@ -113,7 +120,8 @@ const trapped = [
                 location: "Avenger room, bottom right",
                 enemy: "Centpede x 2"
             }  
-        ]
+        ],
+        region: "underground"
     },
     {
         title: "Lunar Path",
@@ -122,7 +130,8 @@ const trapped = [
                 location: "Bottom chest",
                 enemy: "Procyote x 2, Juclyote x 2"
             }
-        ]
+        ],
+        region: "moon"
     },
     {
         title: "Lunar Subterrain",
@@ -163,7 +172,8 @@ const trapped = [
                 location: "B4F, V shaped room",
                 enemy: "Warlock x 1, Kary x 3"
             }
-        ]
+        ],
+        region: "moon"
     },
 ];
 
