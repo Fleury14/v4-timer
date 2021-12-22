@@ -22,7 +22,7 @@ const trapped = [
         chests: [
             {
                 location: "2F, across the bridge",
-                enemy: "MadOgre * 4"
+                enemy: "MadOgre x 4"
             }
         ]
     },
