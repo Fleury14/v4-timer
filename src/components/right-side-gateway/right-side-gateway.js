@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NoteTaker, FlagInfo } from '..';
+import { NoteTaker, FlagInfo, TrappedChests } from '..';
 
 import './right-side-gateway.scss';
 
@@ -14,6 +14,8 @@ const RightSideGateway = (props) => {
 		switch(page) {
 			case 'notes':
 				return <NoteTaker />
+			case 'trapped':
+				return <TrappedChests />
 			default:
 				return <FlagInfo />
 		}
@@ -27,6 +29,9 @@ const RightSideGateway = (props) => {
 				</button>
 				<button className={page === 'notes' ? 'active-gate' : ''} onClick={() => handleSet('notes')}>
 					Notes
+				</button>
+				<button className={page === 'trapped' ? 'active-gate' : ''} onClick={() => handleSet('trapped')}>
+					Trapped Chests
 				</button>
 			</div>
 			<div className="right-gate-main">
