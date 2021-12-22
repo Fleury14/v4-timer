@@ -39,12 +39,13 @@ class FlagInputForm extends Component {
                 <h2 className="flag-preset-title">Ladder Flagsets</h2>
                 <div className="flag-presets">
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/3:quest_pass/win:crystal Kmain/trap Pkey Crelaxed/start:fusoya/j:abilities Twildish Sstandard/no:j Bstandard/alt:gauntlet Nchars/key/bosses Etoggle/noexp Gwarp/life/sylph -kit:freedom -supersmith -vanilla:fusoya' })}>Fuwario</button>
-                    <button onClick={() => this.setState({ flags: 'Orandom:3/req:all/win:crystal Kmain Pshop Crelaxed/j:abilities Twild Swild/free/no:apples Bstandard/whyburn Nnone Etoggle Glife/sylph -kit:loaded -kit2:random -spoon' })}>Supermarket Sweep</button>
-                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/3:quest_magnes/random:2,gated_quest/req:4/win:crystal Kmain/summon/moon Pkey Crelaxed/distinct:10/j:abilities/nekkie/bye Twildish/maxtier:6 Sstandard Bstandard/alt:gauntlet Nchars/key Etoggle Glife/sylph -kit:basic -kit2:defense -noadamants -spoon -exp:noboost -vanilla:giant' })}>Lali-ho Redux</button>                    
+                    <button onClick={() => this.setState({ flags: 'Orandom:4,gated_quest,boss/req:3/win:crystal Kmain Pshop Crelaxed/j:abilities Twild Swild/free/no:apples Bstandard/whyburn Nnone Etoggle Glife/sylph -spoon' })}>Supermarket Sweep</button>
+                    <button onClick={() => this.setState({ flags: 'O1:quest_magnes/2:quest_baroncastle/3:quest_zot/4:quest_sealedcave/5:quest_ribbonaltar/6:quest_cavebahamut/7:quest_dwarfcastle/8:quest_lowerbabil/random:2,gated_quest/req:all/win:crystal Kmain/summon/moon Pkey Cstandard/start:any/no:cecil,fusoya/j:abilities/nodupes/party:4 Twildish Sstandard/no:j Bstandard/alt:gauntlet Nchars Etoggle Glife/sylph -kit:better -spoon' })}>10/10</button>
+                    
                 </div>
                 <div className="flag-presets">
-                    <button onClick={() => this.setState({ flags: 'Orandom:5,gated_quest/req:4/win:crystal Kmain/summon/moon Pkey Cstandard/no:fusoya/j:abilities/bye/permajoin Tpro Scabins/free Bstandard/alt:gauntlet Nchars/key Etoggle Gwarp/life/sylph -kit:basic -noadamants' })}>Finders Keepers</button>
-                    <button onClick={() => this.setState({ flags: 'Omode:classicgiant/win:game Kmain/moon Pnone Cstandard Twild/no:j Scabins/free Bstandard/whichburn Nnone Etoggle/no:jdrops Gdupe/mp/warp/life/sylph -kit:basic -noadamants -spoon -supersmith' })}>Giant %</button>
+                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_toroiatreasury/random:2/req:all/win:crystal Kmain/summon/moon Pkey Crelaxed/no:fusoya/j:abilities/nekkie/hero Tpro Sstandard Bstandard/alt:gauntlet/whichburn Nchars/key Etoggle Glife/sylph -kit:freedom -kit2:random -noadamants' })}>CHero</button>                    
+                    <button onClick={() => this.setState({ flags: 'O1:quest_murasamealtar/2:quest_crystalaltar/3:quest_whitealtar/4:quest_ribbonaltar/5:quest_masamunealtar/req:4/win:game Kmain/moon/unsafe Pkey Cstandard/distinct:5/j:abilities/nekkie Twildish/money Swild Bstandard/alt:gauntlet/whichburn Nchars Etoggle/noexp/no:jdrops Gmp/warp/life/sylph -kit:better -kit2:money -kit3:money -spoon -supersmith -vanilla:traps -pushbtojump' })}>Hop 'Til You Shop</button>
                 </div>
                 <h2 className="flag-preset-title">Tournament Flagsets</h2>
                 <div className="flag-presets">
