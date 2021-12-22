@@ -5,9 +5,14 @@ import './trapped-chests.scss';
 const TrappedChests = props => {
 
   const [view, setView] = useState('location');
+  const [renderCount, setRenderCount] = useState(0)
 
   const changeView = (desiredView) => {
     setView(desiredView);
+  }
+
+  const forceUpdate = () => {
+    setRenderCount(renderCount + 1);
   }
 
   const displayChests = (desiredRegion) => {
@@ -15,24 +20,34 @@ const TrappedChests = props => {
     return (
       <div className="trapped-container">
         {regionChests.map(zone => {
+          if (!zone.chests.find(chest => !chest.opened)) return null;
           return (
-            <div className="trapped-zone-container">
+            <div className="trapped-zone-container" key={zone.title}>
               <h2 className="trapped-zone-title">{zone.title}</h2>
-              {
-                zone.chests.map(chest => {
-                  return (
-                    <div>
-                      <p className="trapped-chest-text">{view === "location" ? chest.location : chest.enemy}</p>
-                    </div>
-                  );
-                })
-              }
+              <div className="trapped-treasure-container">
+                {
+                  zone.chests.map(chest => {
+                    return !chest.opened ? (
+                      <button key={chest.location} onClick={() => {
+                        chest.opened = !chest.opened;
+                        forceUpdate();  
+                      }} className="trapped-chest-toggle">
+                        <p className="trapped-chest-text">{view === "location" ? chest.location : chest.enemy}</p>
+                      </button>
+                    ) : null;
+                  })
+                }
+              </div>
             </div>
           );
           
         })}
       </div>
     );
+  }
+
+  const toggleOpened = (region, title) => {
+    const targetRegioin = trapped.find(zone => zone.region)
   }
 
   return (
@@ -52,6 +67,21 @@ const TrappedChests = props => {
       <div>
         <h2>The place marty never goes in 2v2</h2>
         {displayChests('moon')}
+      </div>
+      <div>
+        Opened Chests
+        {trapped.map(zone => {
+          if (!zone.chests.find(chest => chest.opened)) return null;
+          return zone.chests.map(chest => {
+            return chest.opened ? (<button key={chest.location} onClick={() => {
+              chest.opened = !chest.opened;
+              forceUpdate();  
+            }} className="trapped-chest-toggle">
+              <p className="trapped-chest-text">{view === "location" ? chest.location : chest.enemy}</p>
+            </button>
+          ) : null;
+          })
+        })}
       </div>
       {/* End trapped container */}
     </div>

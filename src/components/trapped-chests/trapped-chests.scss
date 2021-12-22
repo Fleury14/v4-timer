@@ -23,11 +23,41 @@
     margin: 20px;
 }
 
-.trapped-container {
-    display: flex;
-    flex-wrap: wrap;
+.trapped-container { // remove? also thanks marty for making the entire chat feel old
 }
 
 .trapped-zone-container {
-    width: 25%;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+
+    h2 {
+        width: 150px;
+        margin-right: 20px;
+    }
+}
+
+.trapped-treasure-container {
+    // display: flex;
+    // flex-wrap: wrap;
+    // width: 75%;
+}
+
+.trapped-chest-toggle {
+    display: block;
+    background-color: #262626;
+    color: #ff9c33;
+    border: 1px solid #ff9c33;
+    border-radius: 3px;
+    transition: 0.3s all;
+    padding: 0px 5px;
+    margin-bottom: 5px;
+    p {
+        margin: 5px 0px;
+    }
+
+    &:hover {
+        background-color: #565656;
+        cursor: pointer;
+    }
 }
