@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NoteTaker, FlagInfo, TrappedChests } from '..';
+import { NoteTaker, FlagInfo, TrappedState } from '..';
 
 import './right-side-gateway.scss';
 
@@ -15,7 +15,7 @@ const RightSideGateway = (props) => {
 			case 'notes':
 				return <NoteTaker />
 			case 'trapped':
-				return <TrappedChests />
+				return <TrappedState />
 			default:
 				return <FlagInfo />
 		}
