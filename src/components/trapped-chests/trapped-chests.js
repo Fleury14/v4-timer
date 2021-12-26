@@ -6,7 +6,7 @@ const TrappedChests = props => {
   const [view, setView] = useState('location');
   const [renderCount, setRenderCount] = useState(0);
   const [display, setDisplay] = useState('all');
-  const { trapped, toggleOpen } = props;
+  const { trapped, toggleOpen, reset } = props;
 
   const changeView = (desiredView) => {
     setView(desiredView);

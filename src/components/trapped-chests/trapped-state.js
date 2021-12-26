@@ -5,6 +5,10 @@ import { TrappedChests } from '..'
 const TrappedState = (props) => {
   const [trap, setTrap] = useState(trapped);
 
+  const resetState = () => {
+    setTrap(trapped);
+  }
+
   const toggleOpened = (location) => {
     const newTrap = trap.filter(() => true);
     trap.forEach(zone => {
@@ -16,7 +20,11 @@ const TrappedState = (props) => {
     })
   }
 
-  return <TrappedChests toggleOpen={(location) => toggleOpened(location)} trapped={trap} />
+  return <TrappedChests
+    reset={() => resetState()}
+    toggleOpen={(location) => toggleOpened(location)}
+    trapped={trap}
+    />
 }
 
 export default TrappedState;
