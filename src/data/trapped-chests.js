@@ -30,7 +30,7 @@ const trapped = [
                 opened: false
             }
         ],
-        region: "underground"
+        region: "overworld"
     },
     {
         title: "Castle Eblan",

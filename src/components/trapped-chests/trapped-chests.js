@@ -46,10 +46,6 @@ const TrappedChests = props => {
     );
   }
 
-  const toggleOpened = (region, title) => {
-    const targetRegioin = trapped.find(zone => zone.region)
-  }
-  console.log('display', display);
   return (
     <div className="w-100">
       <div>
@@ -57,10 +53,10 @@ const TrappedChests = props => {
         <button className="trapped-button" onClick={() => changeView('enemy')}>Enemy</button>
       </div>
       <div>
-        <button onClick={() => setDisplay('all')}>All</button>
-        <button onClick={() => setDisplay('overworld')}>Overworld</button>
-        <button onClick={() => setDisplay('underground')}>Underground</button>
-        <button onClick={() => setDisplay('moon')}>Moon</button>
+        <button className={`trapped-region${display === 'all' ? ' active' : ''}`} onClick={() => setDisplay('all')}>All</button>
+        <button className={`trapped-region${display === 'overworld' ? ' active' : ''}`} onClick={() => setDisplay('overworld')}>Overworld</button>
+        <button className={`trapped-region${display === 'underground' ? ' active' : ''}`} onClick={() => setDisplay('underground')}>Underground</button>
+        <button className={`trapped-region${display === 'moon' ? ' active' : ''}`} onClick={() => setDisplay('moon')}>Moon</button>
       </div>
       {display === 'all' || display === 'overworld' ? (
         <div>
@@ -76,7 +72,7 @@ const TrappedChests = props => {
       ) : null}
       {display === 'all' || display === 'moon' ? (
         <div>
-          <h2>The place marty never goes in 2v2</h2>
+          <h2>Moon</h2>
           {displayChests('moon')}
         </div>
       ) : null}
@@ -84,6 +80,7 @@ const TrappedChests = props => {
         Opened Chests
         {trapped.map(zone => {
           if (!zone.chests.find(chest => chest.opened)) return null;
+          if (display !== 'all' && display !== zone.region) return null;
           return zone.chests.map(chest => {
             return chest.opened ? (<button key={chest.location} onClick={() => {
               toggleOpen(chest.location);  
