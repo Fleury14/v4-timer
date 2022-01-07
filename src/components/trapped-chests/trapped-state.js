@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
-import trapped from '../../data/trapped-chests';
+import initialTrapped from '../../data/trapped-chests';
 import { TrappedChests } from '..'
 
 const TrappedState = (props) => {
-  const [trap, setTrap] = useState(trapped);
+  const storedTrapped = localStorage.getItem('trapped');
+  const [trap, setTrap] = useState(storedTrapped ? JSON.parse(storedTrapped) : JSON.parse(JSON.stringify(initialTrapped)));
 
   const resetState = () => {
-    setTrap(trapped);
+    const resettedTrapped = JSON.parse(JSON.stringify(initialTrapped));
+    localStorage.removeItem('trapped')
+    setTrap(resettedTrapped);
   }
 
   const toggleOpened = (location) => {
-    const newTrap = trap.filter(() => true);
-    trap.forEach(zone => {
+    const newTrap = JSON.parse(JSON.stringify(trap));
+    newTrap.forEach(zone => {
       const target = zone.chests.find(chest => chest.location === location);
       if (target) {
         target.opened = !target.opened;
+        localStorage.setItem('trapped', JSON.stringify(newTrap))
         setTrap(newTrap);
       }
     })

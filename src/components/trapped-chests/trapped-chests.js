@@ -4,16 +4,21 @@ import './trapped-chests.scss';
 const TrappedChests = props => {
 
   const [view, setView] = useState('location');
-  const [renderCount, setRenderCount] = useState(0);
   const [display, setDisplay] = useState('all');
+  const [ confirm, setConfirm ] = useState(false);
   const { trapped, toggleOpen, reset } = props;
 
   const changeView = (desiredView) => {
     setView(desiredView);
   }
 
-  const forceUpdate = () => {
-    setRenderCount(renderCount + 1);
+  const resetButton = () => {
+    if (!confirm) {
+      setConfirm(true);
+    } else {
+      setConfirm(false);
+      reset();
+    }
   }
 
   const displayChests = (desiredRegion) => {
@@ -49,8 +54,9 @@ const TrappedChests = props => {
   return (
     <div className="w-100">
       <div>
-        <button className="trapped-button" onClick={() => changeView('location')}>Location</button>
-        <button className="trapped-button" onClick={() => changeView('enemy')}>Enemy</button>
+        <button className={view === 'location' ? 'trapped-view-active' : 'trapped-view-inactive'} onClick={() => changeView('location')}>Location</button>
+        <button className={view !== 'location' ? 'trapped-view-active' : 'trapped-view-inactive'} onClick={() => changeView('enemy')}>Enemy</button>
+        <button className="trapped-button" onClick={() => resetButton()}>{confirm ? "CLICK AGAIN TO RESET" : "RESET"}</button>
       </div>
       <div>
         <button className={`trapped-region${display === 'all' ? ' active' : ''}`} onClick={() => setDisplay('all')}>All</button>

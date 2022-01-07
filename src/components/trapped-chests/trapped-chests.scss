@@ -13,7 +13,6 @@
 }
 
 .trapped-button {
-    width: 80px;
     height: 40px;
     background-color: #262626;
     color: #ff9c33;
@@ -23,7 +22,32 @@
     margin: 20px;
 }
 
-.trapped-container { // remove? also thanks marty for making the entire chat feel old
+.trapped-view-active {
+    background-color: #262626;
+    color: #00DD00;
+    border: 1px solid #00DD00;
+    transition: 0.3s all;
+    margin: 10px;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #464646;
+    }
+}
+
+.trapped-view-inactive {
+    background-color: #262626;
+    color: #DD0000;
+    border: 1px solid #DD0000;
+    transition: 0.3s all;
+    margin: 10px;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #464646;
+    }
 }
 
 .trapped-zone-container {
