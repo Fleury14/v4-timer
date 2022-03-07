@@ -40,12 +40,6 @@ class FlagInputForm extends Component {
                 <div className="flag-presets">
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_tradepink/3:quest_pass/win:crystal Kmain/trap/nofree Pkey Crelaxed/nofree/start:fusoya/j:abilities Twildish Sstandard/no:j Bstandard/nofree/alt:gauntlet Etoggle/noexp Gwarp/life/sylph/backrow -kit:freedom -vanilla:fusoya' })}>Fuwario</button>
                     <button onClick={() => this.setState({ flags: 'Orandom:4,boss/req:3/win:crystal Kmain Pshop Crelaxed/j:abilities Twild Swild/free/no:apples Bstandard/whyburn Etoggle Glife/sylph/backrow -spoon' })}>Supermarket Sweep</button>
-                    <button onClick={() => this.setState({ flags: 'O1:quest_magnes/2:quest_baroncastle/3:quest_zot/4:quest_sealedcave/5:quest_ribbonaltar/6:quest_cavebahamut/7:quest_dwarfcastle/8:quest_lowerbabil/random:2,gated_quest/req:all/win:crystal Kmain/summon/moon Pkey Cstandard/start:any/no:cecil,fusoya/j:abilities/nodupes/party:4 Twildish Sstandard/no:j Bstandard/alt:gauntlet Nchars Etoggle Glife/sylph -kit:better -spoon' })}>10/10</button>
-                    
-                </div>
-                <div className="flag-presets">
-                    <button onClick={() => this.setState({ flags: 'O1:quest_forge/2:quest_toroiatreasury/random:2/req:all/win:crystal Kmain/summon/moon Pkey Crelaxed/no:fusoya/j:abilities/nekkie/hero Tpro Sstandard Bstandard/alt:gauntlet/whichburn Nchars/key Etoggle Glife/sylph -kit:freedom -kit2:random -noadamants' })}>CHero</button>                    
-                    <button onClick={() => this.setState({ flags: 'O1:quest_murasamealtar/2:quest_crystalaltar/3:quest_whitealtar/4:quest_ribbonaltar/5:quest_masamunealtar/req:4/win:game Kmain/moon/unsafe Pkey Cstandard/distinct:5/j:abilities/nekkie Twildish/money Swild Bstandard/alt:gauntlet/whichburn Nchars Etoggle/noexp/no:jdrops Gmp/warp/life/sylph -kit:better -kit2:money -kit3:money -spoon -supersmith -vanilla:traps -pushbtojump' })}>Hop 'Til You Shop</button>
                 </div>
                 <h2 className="flag-preset-title">Tournament Flagsets</h2>
                 <div className="flag-presets">
