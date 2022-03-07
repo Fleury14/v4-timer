@@ -68,8 +68,41 @@ const renderCharacters = (flags: string) => {
     if (charString.indexOf('permadeader') >= 0) {
         characterText.push(<span key="permadeader" className="flag-badge flag-badge-danger"> PermaDEADER</span>)
     }
+    if (charString.indexOf('noearned') >= 0) {
+        characterText.push(<span key="no-earned" className="flag-badge flag-badge-danger"> No Earned Chars</span>)
+    }
+    if (charString.indexOf('nofree') >= 0) {
+        characterText.push(<span key="nofree" className="flag-badge">No free Chars</span>);
+    } else {
+        characterText.push(<span key="nofree" className="flag-badge flag-badge-yay">Free Chars</span>);
+    }
 
     return (<div>{characterText}</div>);
+}
+
+const renderBosses = (flags: string) => {
+    const BossesText = [];
+
+    // get boss section of string
+    const bString = getPropertySection(flags, 'B')
+
+    if (bString.indexOf('nofree') >= 0) {
+        BossesText.push(<span key="nofree" className="flag-badge flag-badge-danger"> No Free Bosses</span>);
+    }
+    if (bString.indexOf('unsafe') >= 0) {
+        BossesText.push(<span key="unsafe" className="flag-badge flag-badge-danger"> No Safety Checks</span>);
+    }
+    if (bString.indexOf('whichburn') >= 0) {
+        BossesText.push(<span key="whichburn" className="flag-badge"> Which-Burn</span>);
+    }
+    if (bString.indexOf('whyburn') >= 0) {
+        BossesText.push(<span key="whyburn" className="flag-badge flag-badge-yay"> Why-burn</span>);
+    }
+    if (bString.indexOf('whichburn') < 0 && bString.indexOf('whyburn') < 0) {
+        BossesText.push(<span key="wyvern" className="flag-badge"> Standard Wyvern</span>);
+    }
+
+    return <div>{BossesText}</div>
 }
 
 const renderTreasure = (flags: string) => {
@@ -105,8 +138,20 @@ const renderTreasure = (flags: string) => {
     if (trString.indexOf('junk') >= 0) {
         TreasureText.push(<span key="no-j" className="flag-badge"> Junk Included</span>);
     }
+    if (trString.indexOf('maxtier:3') >= 0) {
+        TreasureText.push(<span key="max-tier" className="flag-badge flag-badge-danger"> No tier 4-8 untrapped</span>);
+    }
+    if (trString.indexOf('maxtier:4') >= 0) {
+        TreasureText.push(<span key="max-tier" className="flag-badge flag-badge-danger"> No tier 5-8 untrapped</span>);
+    }
+    if (trString.indexOf('maxtier:5') >= 0) {
+        TreasureText.push(<span key="max-tier" className="flag-badge"> No tier 6,7,8 untrapped</span>);
+    }
     if (trString.indexOf('maxtier:6') >= 0) {
-        TreasureText.push(<span key="max-tier" className="flag-badge"> No tier 7 untrapped</span>);
+        TreasureText.push(<span key="max-tier" className="flag-badge"> No tier 7,8 untrapped</span>);
+    }
+    if (trString.indexOf('maxtier:7') >= 0) {
+        TreasureText.push(<span key="max-tier" className="flag-badge"> No tier 8 untrapped</span>);
     }
     if (trString.indexOf('money') >= 0) {
         TreasureText.push(<span key="money" className="flag-badge flag-badge-danger"> All untrapped are $MONEY$</span>);
@@ -140,6 +185,12 @@ const renderGlitches = (flags: string) => {
     }
     if (glitchString.indexOf('sylph') < 0) {
         glitchText.push(<span key="sylph" className="flag-badge flag-badge-danger"> Sylph gitch OFF</span>)
+    }
+    if (glitchString.indexOf('backrow') < 0) {
+        glitchText.push(<span key="backrow" className="flag-badge flag-badge-danger"> Backrow gitch OFF</span>)
+    }
+    if (glitchString.indexOf('backrow') >= 0) {
+        glitchText.push(<span key="backrow" className="flag-badge"> Backrow</span>)
     }
     if (glitchString.indexOf('sylph') >= 0) {
         glitchText.push(<span key="sylph" className="flag-badge"> Sylph</span>)
@@ -205,8 +256,22 @@ const renderKeyItems = (flags: string) => {
     if (keyItemString.indexOf('trap') >= 0) {
         keyItems.push(<span key="vanilla" className="flag-badge">Trapped Chests</span>);
     }
-    if (keyItemString.indexOf('unsafe') >= 0) {
+    if (keyItemString.indexOf('unsafe') >= 0 && keyItemString.indexOf('unsafer') < 0) {
         keyItems.push(<span key="unsafe" className="flag-badge flag-badge-danger">Safety checks OFF</span>);
+    }
+    if (keyItemString.indexOf('unsafer') >= 0) {
+        keyItems.push(<span key="unsafer" className="flag-badge flag-badge-danger">Underground access through moon</span>);
+    }
+    if (keyItemString.indexOf('force:hook') >= 0) {
+        keyItems.push(<span key="force-hook" className="flag-badge flag-badge-danger">Hook route forced</span>);
+    }
+    if (keyItemString.indexOf('force:magma') >= 0) {
+        keyItems.push(<span key="force-magma" className="flag-badge flag-badge-yay">Magma route forced</span>);
+    }
+    if (keyItemString.indexOf('nofree') >= 0) {
+        keyItems.push(<span key="nofree" className="flag-badge">No free Key Item</span>);
+    } else {
+        keyItems.push(<span key="nofree" className="flag-badge flag-badge-yay">Free Key Item</span>);
     }
     if (keyItemString.indexOf('main') >= 0 && keyItemString.indexOf('summon') < 0 && keyItemString.indexOf('trap') < 0 && keyItemString.indexOf('moon') < 0) {
         keyItems.push(<span key="main-only" className="flag-badge flag-badge-yay">Main Checks Only</span>);
@@ -221,8 +286,11 @@ const renderMisc = (flags: string) => {
     if (flags.indexOf('spoon') >= 0) {
         misc.push(<span key="spoon" className="flag-badge flag-badge-yay">SPOON!</span>)
     }
-    if (flags.indexOf('supersmith') >= 0) {
+    if (flags.indexOf('supersmith') >= 0 || flags.indexOf('smith:super') >= 0) {
         misc.push(<span key="spoon" className="flag-badge flag-badge-yay">GBA Weapon Forge</span>)
+    }
+    if (flags.indexOf('smith:alt') >= 0) {
+        misc.push(<span key="spoon" className="flag-badge flag-badge-yay">Alt Forge</span>)
     }
     if (flags.indexOf('nocursed') >= 0) {
         misc.push(<span key="spoon" className="flag-badge flag-badge-yay">No Cursed Rings</span>)
@@ -322,4 +390,4 @@ const getPropertySection = (flags: string, criteria: string) => {
     return results;
 }
 
-export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters, renderKits };
+export { renderCharacters, renderGlitches, renderKeyItems, renderMisc, renderShops, renderTreasure, renderVanilla, renderEncounters, renderKits, renderBosses };
