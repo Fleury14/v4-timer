@@ -1,0 +1,103 @@
+.trapped-test {
+    color: red;
+}
+
+.trapped-zone-title {
+    font-size: 16px;
+    color: #fadf0f;
+}
+
+.trapped-chest-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+}
+
+.trapped-button {
+    height: 40px;
+    background-color: #262626;
+    color: #ff9c33;
+    border: 1px solid #ff9c33;
+    border-radius: 3px;
+    transition: 0.3s all;
+    margin: 20px;
+}
+
+.trapped-view-active {
+    background-color: #262626;
+    color: #00DD00;
+    border: 1px solid #00DD00;
+    transition: 0.3s all;
+    margin: 10px;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #464646;
+    }
+}
+
+.trapped-view-inactive {
+    background-color: #262626;
+    color: #DD0000;
+    border: 1px solid #DD0000;
+    transition: 0.3s all;
+    margin: 10px;
+    padding: 10px;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #464646;
+    }
+}
+
+.trapped-zone-container {
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    // border-bottom: 1px solid #aaa;
+
+    h2 {
+        width: 150px;
+        margin-right: 20px;
+    }
+}
+
+.trapped-region {
+    background-color: transparent;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.active {
+    border-bottom: 3px solid #FFF;
+}
+
+// .trapped-treasure-container {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
+
+.trapped-chest-toggle {
+    display: block;
+    background-color: #262626;
+    color: #ff9c33;
+    border: 1px solid #ff9c33;
+    border-radius: 3px;
+    transition: 0.3s all;
+    padding: 0px 5px;
+    margin-bottom: 5px;
+    p {
+        margin: 5px 0px;
+    }
+
+    &:hover {
+        background-color: #565656;
+        cursor: pointer;
+    }
+}
