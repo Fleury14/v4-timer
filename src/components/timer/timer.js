@@ -298,8 +298,9 @@ class TimerComponent extends Component<Props, State> {
                                 bossTimes={this.state.bossTimes}
                             />
                         ) : null}
+                        
                         </Clock>
-                        <p>Press the key display at the top to stop/resume timer with keyboard</p>
+                        
                     </React.Fragment>
                     
                     

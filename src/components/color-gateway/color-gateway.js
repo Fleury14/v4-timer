@@ -4,6 +4,7 @@ import './color-gateway.scss';
 
 type Props = {
     children: any,
+    adjustTimer: any,
 }
 
 type State = {
@@ -15,6 +16,7 @@ type State = {
     isInputtingKey: string,
     timerCode: string,
     timerKey: string,
+    hideTimer: string,
 };
 
 class ColorGateway extends Component<Props, State> {
@@ -27,6 +29,7 @@ class ColorGateway extends Component<Props, State> {
         isInputtingKey: '',
         timerCode: 'KeyJ',
         timerKey: 'j',
+        hideTimer: '',
     }
 
     keyListener:any = null;
@@ -91,7 +94,23 @@ class ColorGateway extends Component<Props, State> {
         }
     }
 
+    switchTimer() {
+        const hideTimer: ?string = localStorage.getItem('hideTimer');
+        if (!hideTimer) {
+            localStorage.setItem('hideTimer', 'true');
+            this.setState({ hideTimer: 'true' });
+            this.props.adjustTimer(true);
+        }
+        if (hideTimer === 'true') {
+            localStorage.removeItem('hideTimer');
+            this.setState({ hideTimer: ''});
+            this.props.adjustTimer(false);
+        }
+        
+    }
+
     render() {
+        const hideTimer: ?string = localStorage.getItem('hideTimer');
         return (
             <div className="color-gateway">
                 <div className="changer-row">
@@ -128,6 +147,9 @@ class ColorGateway extends Component<Props, State> {
                         ) : (
                             <button onClick={() => this.inputKey('timerStop')}>Change</button>
                         )}
+                    </div>
+                    <div className="key-changer">
+                        <button onClick={() => this.switchTimer()}>{hideTimer === 'true' ? 'Show' : 'Hide'} Timer</button>
                     </div>
                 </div>
                 

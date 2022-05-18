@@ -6,10 +6,12 @@ class MainComponent extends Component {
     state = {
         showTimer: false,
         flagObj: null,
+        showClock: localStorage.getItem('hideTimer') === 'true',
     }
     render() {
+        
         return (
-            <ColorGateway>
+            <ColorGateway adjustTimer={val => this.setState({showClock: val})} >
                 <div>
                     <React.Fragment>
                             {!this.state.showTimer && <FlagInput onStartTimer={(flagObj) => this.setState({ showTimer: true, flagObj })} />}

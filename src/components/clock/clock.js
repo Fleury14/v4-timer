@@ -19,6 +19,8 @@ type Props = {
 
 const Clock = (props: Props) => {
     const { bossTimer } = props;
+    const hideTimer = localStorage.getItem('hideTimer');
+    if (hideTimer === 'true') return null;
     return (
         <div>
             <div className={`${bossTimer ? 'boss-' : ''}time-container`}>
