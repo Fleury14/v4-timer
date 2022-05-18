@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import parseFlags from '../../helpers/parse-flags';
 import FlagSet from '../../data/flagSpec';
+import MysteryMode from './mystery-mode';
 import './flag-input.scss'
 
 class FlagInputForm extends Component {
@@ -62,6 +63,11 @@ class FlagInputForm extends Component {
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/random:3,quest/req:3/win:crystal Kmain/summon/moon Pkey Crelaxed/maybe/no:fusoya/j:abilities/bye Twildish/sparse:60 Sstandard Bstandard/alt:gauntlet Nkey Etoggle/cantrun Gwarp/life/sylph -kit:basic -noadamants -spoon -vanilla:agility' })}>HTT3Z Group Stages</button>
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/random:3,quest/req:3/win:crystal Kmain/summon/moon Pkey Cstandard/maybe/no:fusoya/j:abilities/permajoin Tpro/sparse:60 Spro Bstandard/alt:gauntlet Nkey Etoggle/cantrun/no:sirens Glife/sylph -kit:basic -noadamants -vanilla:agility' })}>HTT3Z Table Stages</button>
                 </div>
+                <div><MysteryMode begin={results => {
+                    const parsedResults = parseFlags(results);
+                    this.props.startTime(parsedResults);
+                    }} /></div>
+                
             </React.Fragment>
         )
     }

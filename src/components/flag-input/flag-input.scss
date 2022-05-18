@@ -43,3 +43,20 @@ form.flag-input-form button {
 .flag-preset-title {
     margin-top: 10px;
 }
+
+.mystery-input {
+    button {
+        background-color: rgba(255, 119, 0, 0.65);
+        color: #fff;
+        height: 30px;
+        width: 200px;
+        margin: 20px auto 5px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    label {
+        margin: 0px 20px;
+    }
+}
