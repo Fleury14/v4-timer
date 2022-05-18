@@ -64,6 +64,7 @@ class FlagInputForm extends Component {
                     <button onClick={() => this.setState({ flags: 'O1:quest_forge/random:3,quest/req:3/win:crystal Kmain/summon/moon Pkey Cstandard/maybe/no:fusoya/j:abilities/permajoin Tpro/sparse:60 Spro Bstandard/alt:gauntlet Nkey Etoggle/cantrun/no:sirens Glife/sylph -kit:basic -noadamants -vanilla:agility' })}>HTT3Z Table Stages</button>
                 </div>
                 <div><MysteryMode begin={results => {
+                    sessionStorage.setItem('flags', results)
                     const parsedResults = parseFlags(results);
                     this.props.startTime(parsedResults);
                     }} /></div>

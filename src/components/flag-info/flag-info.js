@@ -12,12 +12,17 @@ import {
     renderEncounters,
     renderKits,
     renderBosses,
+    
 } from './flag-badges';
+import { MYSTERY } from '../../data/constants';
 import './flag-info.scss';
+
 
 const FlagInfo = (props: string) => {
     const flags = sessionStorage.getItem('flags');
     if (!flags) return null;
+    if(flags.indexOf(MYSTERY) >= 0) return <p>IT'S A MYSTERY!!!!</p>
+    
     const vanillaData = renderVanilla(flags);
     return (
         <React.Fragment>
