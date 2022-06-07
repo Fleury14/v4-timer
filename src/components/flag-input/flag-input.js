@@ -11,7 +11,7 @@ const FlagInputComponent = (props) => {
             <p className="credits">v{process.env.REACT_APP_VERSION} - Timer made by Fleury14</p>
             <div className="flag-input-container">
                 <p className="instructions">Boss Timer: To trigger a separate boss timer, push the space bar to both start and stop the timer. You then have the option to select a boss to assign the time to, or push space again to leave it unassigned. You can click on the corresponding time to select a boss later if you so desire.</p>
-                <p className="instructions">Update: Added Adamant Cup presets. Also rolled out functionality for a trapped chest tracker, there may be a bug here and there, but it does allow you to toggle trapped chests cleared by either location or enemy.</p>
+                <p className="instructions">Update: Included a Mystery Mode button that allows you to input the number of objectives for you to put in yourself. Also included an option to hide the timer and controls. </p>
             </div>
             <div className="flag-input-container">
                 <p className="instructions">Horizontal dimensions for cropping: 400px width for the timer on the left with a 20px padding on the far right side, height varies based on objectives"</p>
