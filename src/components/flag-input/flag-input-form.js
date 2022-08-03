@@ -48,6 +48,10 @@ class FlagInputForm extends Component {
                 </div>
                 <h2 className="flag-preset-title">Tournament Flagsets</h2>
                 <div className="flag-presets">
+                    <button onClick={() => this.setState({ flags: 'O1:boss_golbez/2:boss_fabulgauntlet/random:6,boss/req:7/win:crystal Kmain/summon/moon/force:hook Pkey Crelaxed/noearned/distinct:7/start:any/no:fusoya/j:abilities/nekkie/nodupes Twildish Sstandard Bstandard/alt:gauntlet Etoggle Gwarp/life/sylph/backrow -kit:basic -kit2:freedom -noadamants -spoon -smith:super' })}>ZZ5 - Blue Moon</button>
+                    <button onClick={() => this.setState({ flags: 'Orandom:8,boss/req:7/win:crystal Kmain/summon/moon/nofree/force:hook Pkey Crelaxed/noearned/distinct:7/start:cecil/no:cecil,edge,fusoya/j:abilities Tpro Sstandard/no:apples Bstandard/alt:gauntlet Etoggle Glife -kit:notdeme -kit2:freedom -noadamants -spoon -smith:super' })}>ZZ5 - Red Moon</button>
+                </div>
+                <div className="flag-presets">
                     <button onClick={() => this.setState({ flags: 'Orandom:7,tough_quest/req:7/win:crystal Kmain/summon/moon Pkey Cstandard/nofree/restrict:cecil,fusoya/j:abilities/nekkie/party:4 Twildish/maxtier:7 Sstandard Bstandard/alt:gauntlet Etoggle Glife/sylph/backrow -kit:better -spoon' })}>Adamant Cup - Group</button>
                     <button onClick={() => this.setState({ flags: 'Orandom:7,tough_quest/req:7/win:crystal Kmain/summon/moon Pkey Crelaxed/nofree/no:cecil,fusoya/j:abilities/nekkie/party:4 Tpro/maxtier:6 Sstandard/sell:quarter Bstandard/alt:gauntlet Etoggle Glife/sylph -kit:basic -spoon -smith:alt' })}>Adamant Cup - Bracket</button>
                 </div>
