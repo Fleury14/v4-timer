@@ -253,8 +253,8 @@ const renderKeyItems = (flags: string) => {
     if (keyItemString.indexOf('moon') >= 0) {
         keyItems.push(<span key="moon" className="flag-badge">Moon Bosses</span>);
     }
-    if (keyItemString.indexOf('trap') >= 0) {
-        keyItems.push(<span key="vanilla" className="flag-badge">Trapped Chests</span>);
+    if (keyItemString.indexOf('miab') >= 0) {
+        keyItems.push(<span key="vanilla" className="flag-badge">Monster boxes</span>);
     }
     if (keyItemString.indexOf('unsafe') >= 0 && keyItemString.indexOf('unsafer') < 0) {
         keyItems.push(<span key="unsafe" className="flag-badge flag-badge-danger">Safety checks OFF</span>);
@@ -322,8 +322,8 @@ const renderVanilla = (flags: string) => {
     if (vanillaString.indexOf('fusoya') >= 0) {
         vanilla.push(<span key="fusoya" className="flag-badge flag-badge-yay">FuSoYa (all spells at start)</span>);
     }
-    if (vanillaString.indexOf('traps') >= 0) {
-        vanilla.push(<span key="traps" className="flag-badge">Trapped Chests</span>);
+    if (vanillaString.indexOf('miabs') >= 0) {
+        vanilla.push(<span key="traps" className="flag-badge">Monster boxes</span>);
     }
     if (vanillaString.indexOf('hobs') >= 0) {
         vanilla.push(<span key="hobs" className="flag-badge">Hobs (Rydia learns Fire1)</span>);
