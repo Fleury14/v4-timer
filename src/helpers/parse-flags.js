@@ -99,6 +99,38 @@ const parseFlags = (flagString: string) => {
         }
     }
 
+    // grunthack: mode KI
+    const modeKIindex = flagString.indexOf(`ki`);
+    if (modeKIindex >= 0) {
+        console.log('grunthack detected', modeKIindex)
+        const digit1 = parseInt(flagString.charAt(modeKIindex + 2));
+        console.log('next diggy', digit1);
+        // if (isNaN(digit1)) return;
+        if (digit1 === 1) {
+            const digit2 = parseInt(flagString.charAt(modeKIindex + 3));
+            if (isNaN(digit2)) {
+                flagObj.objectives.push({
+                    id: flagObj.objectives.length,
+                    label: `Obtain ${digit1} key item`,
+                    time: 0,
+                })
+            } else {
+                flagObj.objectives.push({
+                    id: flagObj.objectives.length,
+                    label: `Obtain ${digit1}${digit2} key items`,
+                    time: 0,
+                })
+            }
+        }
+        if (digit1 > 1) {
+            flagObj.objectives.push({
+                id: flagObj.objectives.length,
+                label: `Obtain ${digit1} key items`,
+                time: 0,
+            })
+        }
+    }
+
     // don't forget the z-fight
     if (flagString.indexOf('win:game') < 0) {
         flagObj.objectives.push({
